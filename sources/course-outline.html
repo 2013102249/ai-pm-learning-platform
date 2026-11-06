@@ -1,0 +1,1006 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-page-node-id="oX9nRI1efmjVYcbJmeCOm2">
+<head data-page-node-id="h13zg6LmPhv8DCm7uio0HS">
+<meta charset="UTF-8" data-page-node-id="HvsIpM1Hbrv3QNIMgkZi0A">
+<meta name="viewport" content="width=device-width, initial-scale=1.0" data-page-node-id="SDK1YlpnwsnalMPSqHWXBS">
+<title>AI 产品经理就业训练营 · 八周体系大纲</title>
+<style>
+  :root{
+    --purple:#7C3AED; --purple-deep:#5B21B6; --purple-light:#F1EBFD; --purple-border:#DDD2F7;
+    --blue:#2563EB; --blue-light:#E8EFFD; --blue-border:#C9D9F8;
+    --cyan:#0E7490; --cyan-light:#E6F6FA; --cyan-border:#BFE4EC;
+    --green:#059669; --green-light:#E7F6F0; --green-border:#C2E8D8;
+    --ink:#221E33; --ink-2:#4A4560; --muted:#7A7590; --faint:#A5A1B8;
+    --bg:#F7F6FB; --card:#FFFFFF; --border:#E8E5F1; --border-soft:#F0EEF7;
+    --amber:#B45309; --amber-light:#FDF3E3; --amber-border:#F0DCB8;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Noto Sans SC","Microsoft YaHei",sans-serif;
+    background:var(--bg); color:var(--ink); line-height:1.65; font-size:15px;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:1080px;margin:0 auto;padding:0 28px}
+
+  /* ============ HERO ============ */
+  .hero{
+    background:linear-gradient(135deg,#2A1B52 0%,#4A2A85 45%,#2B4A9E 100%);
+    color:#fff;padding:64px 0 56px;position:relative;overflow:hidden;
+  }
+  .hero::after{
+    content:"";position:absolute;right:-120px;top:-120px;width:420px;height:420px;border-radius:50%;
+    background:radial-gradient(circle,rgba(124,58,237,.35) 0%,rgba(124,58,237,0) 70%);
+  }
+  .hero::before{
+    content:"";position:absolute;left:38%;bottom:-180px;width:380px;height:380px;border-radius:50%;
+    background:radial-gradient(circle,rgba(37,99,235,.28) 0%,rgba(37,99,235,0) 70%);
+  }
+  .hero .wrap{position:relative;z-index:2}
+  .hero-badge{
+    display:inline-flex;align-items:center;gap:8px;font-size:12px;letter-spacing:2.5px;
+    border:1px solid rgba(255,255,255,.35);border-radius:999px;padding:6px 16px;color:rgba(255,255,255,.85);
+    margin-bottom:22px;
+  }
+  .hero-badge .dot{width:7px;height:7px;border-radius:50%;background:#C4B5FD;box-shadow:0 0 8px #C4B5FD}
+  .hero h1{font-size:38px;font-weight:700;letter-spacing:1px;margin-bottom:10px}
+  .hero h1 em{font-style:normal;color:#C4B5FD}
+  .hero .sub{font-size:16px;color:rgba(255,255,255,.78);max-width:720px;margin-bottom:36px}
+  .kpis{display:grid;grid-template-columns:repeat(5,1fr);gap:14px}
+  .kpi{
+    background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);border-radius:14px;
+    padding:16px 18px;backdrop-filter:blur(6px);
+  }
+  .kpi .num{font-size:26px;font-weight:700;color:#fff;line-height:1.2}
+  .kpi .num span{font-size:13px;font-weight:500;color:rgba(255,255,255,.65);margin-left:2px}
+  .kpi .lbl{font-size:12.5px;color:rgba(255,255,255,.65);margin-top:4px}
+
+  /* ============ NAV ============ */
+  nav{
+    position:sticky;top:0;z-index:50;background:rgba(247,246,251,.92);backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--border);
+  }
+  nav .wrap{display:flex;gap:4px;overflow-x:auto;padding-top:10px;padding-bottom:10px}
+  nav a{
+    white-space:nowrap;text-decoration:none;color:var(--ink-2);font-size:13.5px;font-weight:500;
+    padding:6px 14px;border-radius:999px;transition:.15s;
+  }
+  nav a:hover{background:var(--purple-light);color:var(--purple-deep)}
+  nav a b{color:var(--purple);font-weight:700;margin-right:4px}
+
+  /* ============ SECTIONS ============ */
+  section{padding:52px 0 8px}
+  .sec-head{margin-bottom:26px}
+  .sec-tag{
+    display:inline-block;font-size:12px;font-weight:700;letter-spacing:2px;color:var(--purple);
+    background:var(--purple-light);border:1px solid var(--purple-border);border-radius:6px;
+    padding:3px 10px;margin-bottom:12px;
+  }
+  .sec-head h2{font-size:26px;font-weight:700;letter-spacing:.5px}
+  .sec-head p{color:var(--muted);font-size:14.5px;margin-top:8px;max-width:820px}
+
+  .card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:26px 28px;margin-bottom:20px}
+
+  /* ============ TABLES ============ */
+  table{width:100%;border-collapse:collapse;font-size:13.5px}
+  th{
+    text-align:left;font-size:12.5px;font-weight:600;color:var(--muted);letter-spacing:1px;
+    padding:10px 12px;border-bottom:2px solid var(--border);background:#FBFAFD;white-space:nowrap;
+  }
+  td{padding:11px 12px;border-bottom:1px solid var(--border-soft);vertical-align:top;color:var(--ink-2)}
+  tr:last-child td{border-bottom:none}
+  .t-strong{color:var(--ink);font-weight:600}
+  .t-mono{font-variant-numeric:tabular-nums}
+
+  .pill{
+    display:inline-block;font-size:11.5px;font-weight:600;padding:2px 9px;border-radius:999px;
+    margin:1px 3px 1px 0;white-space:nowrap;
+  }
+  .pill-purple{background:var(--purple-light);color:var(--purple-deep);border:1px solid var(--purple-border)}
+  .pill-blue{background:var(--blue-light);color:var(--blue);border:1px solid var(--blue-border)}
+  .pill-cyan{background:var(--cyan-light);color:var(--cyan);border:1px solid var(--cyan-border)}
+  .pill-green{background:var(--green-light);color:var(--green);border:1px solid var(--green-border)}
+  .pill-amber{background:var(--amber-light);color:var(--amber);border:1px solid var(--amber-border)}
+
+  .fix{color:var(--purple-deep);font-weight:600}
+  .arrow{color:var(--purple);font-weight:700;padding:0 2px}
+
+  /* keep chips */
+  .keep-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:18px}
+  .keep{
+    display:flex;gap:12px;align-items:flex-start;background:var(--green-light);
+    border:1px solid var(--green-border);border-radius:12px;padding:14px 16px;
+  }
+  .keep .mark{
+    flex:none;width:22px;height:22px;border-radius:50%;background:var(--green);color:#fff;
+    display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;margin-top:2px;
+  }
+  .keep .t{font-weight:600;font-size:13.5px;color:var(--ink)}
+  .keep .d{font-size:12.5px;color:var(--ink-2);margin-top:2px}
+
+  /* ============ STAGE FLOW ============ */
+  .stages{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:22px}
+  .stage{border-radius:14px;padding:18px;border:1px solid;position:relative;overflow:hidden}
+  .stage .no{
+    position:absolute;right:10px;top:6px;font-size:44px;font-weight:800;opacity:.12;font-family:Georgia,serif;
+  }
+  .stage .wk{font-size:11.5px;font-weight:700;letter-spacing:1.5px;margin-bottom:6px}
+  .stage .name{font-size:15.5px;font-weight:700;margin-bottom:6px;color:var(--ink)}
+  .stage .days{font-size:12px;color:var(--muted)}
+  .stage.s1{background:var(--purple-light);border-color:var(--purple-border)}
+  .stage.s1 .wk{color:var(--purple)}
+  .stage.s2{background:var(--blue-light);border-color:var(--blue-border)}
+  .stage.s2 .wk{color:var(--blue)}
+  .stage.s3{background:var(--cyan-light);border-color:var(--cyan-border)}
+  .stage.s3 .wk{color:var(--cyan)}
+  .stage.s4{background:var(--green-light);border-color:var(--green-border)}
+  .stage.s4 .wk{color:var(--green)}
+
+  /* ============ TIMELINE ============ */
+  .timeline{display:grid;grid-template-columns:repeat(5,1fr);gap:0;margin:8px 0 4px}
+  .tl-node{position:relative;padding:0 8px}
+  .tl-node::before{
+    content:"";position:absolute;top:9px;left:0;right:0;height:2px;background:var(--purple-border);z-index:0;
+  }
+  .tl-node:first-child::before{left:50%}
+  .tl-node:last-child::before{right:50%}
+  .tl-dot{
+    position:relative;z-index:1;width:20px;height:20px;border-radius:50%;background:#fff;
+    border:3px solid var(--purple);margin:0 auto 10px;
+  }
+  .tl-node.done .tl-dot{background:var(--purple)}
+  .tl-box{
+    background:#FBFAFD;border:1px solid var(--border);border-radius:12px;padding:14px;text-align:center;height:100%;
+  }
+  .tl-box .w{font-size:11.5px;font-weight:700;color:var(--purple);letter-spacing:1px}
+  .tl-box .t{font-size:13.5px;font-weight:700;margin:4px 0 4px;color:var(--ink)}
+  .tl-box .d{font-size:12px;color:var(--muted);line-height:1.55}
+
+  /* ============ WEEK CARDS ============ */
+  .week{background:var(--card);border:1px solid var(--border);border-radius:18px;margin-bottom:22px;overflow:hidden}
+  .week-head{
+    display:flex;align-items:center;gap:18px;padding:20px 26px;border-bottom:1px solid var(--border);
+    background:linear-gradient(180deg,#FBFAFE,#FFFFFF);
+  }
+  .week-no{
+    flex:none;width:64px;height:64px;border-radius:16px;display:flex;flex-direction:column;
+    align-items:center;justify-content:center;color:#fff;
+  }
+  .week-no .w{font-size:9.5px;letter-spacing:2px;opacity:.8}
+  .week-no .n{font-size:26px;font-weight:800;line-height:1.1;font-family:Georgia,serif}
+  .week-title{flex:1}
+  .week-title h3{font-size:19px;font-weight:700;letter-spacing:.3px}
+  .week-title .st{font-size:12.5px;color:var(--muted);margin-top:3px}
+  .week-body{padding:6px 26px 8px}
+  .week-body table{font-size:13px}
+  .week-body th{padding:9px 10px}
+  .week-body td{padding:10px}
+  .day{
+    display:inline-block;min-width:44px;text-align:center;font-size:12px;font-weight:700;
+    border-radius:8px;padding:3px 8px;background:#F3F1FA;color:var(--ink-2);border:1px solid var(--border);
+  }
+  .day.we{background:var(--amber-light);color:var(--amber);border-color:var(--amber-border)}
+  tr.row-we{background:linear-gradient(90deg,var(--amber-light) 0%,#FFFDF8 100%)}
+  .lesson{font-weight:600;color:var(--ink);font-size:13.5px;display:block;margin-bottom:3px}
+  .lesson-sub{color:var(--muted);font-size:12.5px;display:block}
+  .hw{color:var(--ink-2)}
+  .hw b{color:var(--purple-deep);font-weight:600}
+  .week-foot{
+    display:grid;grid-template-columns:1.6fr 1fr;gap:0;border-top:1px solid var(--border);
+  }
+  .wf-l{padding:16px 26px;border-right:1px solid var(--border)}
+  .wf-r{padding:16px 22px;background:#FBFAFD}
+  .wf-t{font-size:11.5px;font-weight:700;letter-spacing:1.5px;color:var(--muted);margin-bottom:8px}
+  .wf-l ul{list-style:none}
+  .wf-l li{font-size:12.8px;color:var(--ink-2);padding-left:18px;position:relative;margin-bottom:4px}
+  .wf-l li::before{
+    content:"";position:absolute;left:0;top:8px;width:8px;height:8px;border-radius:2px;
+    background:var(--purple);opacity:.55;
+  }
+  /* 讲师提示：招生版隐藏。恢复讲师版只需删除下一行 display:none */
+  .coach{display:none}
+  .coach{
+    margin:0 26px 18px;background:var(--blue-light);border:1px solid var(--blue-border);
+    border-radius:10px;padding:10px 16px;font-size:12.8px;color:var(--ink-2);
+  }
+  .coach b{color:var(--blue)}
+
+  /* ============ SUPPORT GRID ============ */
+  .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+  .mini{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:20px}
+  .mini h4{font-size:14.5px;font-weight:700;margin-bottom:10px;display:flex;align-items:center;gap:8px}
+  .mini h4 .ic{
+    flex:none;width:24px;height:24px;border-radius:7px;display:flex;align-items:center;justify-content:center;
+    font-size:12px;font-weight:800;color:#fff;background:var(--purple);
+  }
+  .mini ul{list-style:none}
+  .mini li{font-size:12.8px;color:var(--ink-2);padding:5px 0 5px 14px;position:relative;border-bottom:1px dashed var(--border-soft)}
+  .mini li:last-child{border-bottom:none}
+  .mini li::before{content:"";position:absolute;left:0;top:13px;width:6px;height:6px;border-radius:50%;background:var(--blue)}
+  .mini li b{color:var(--ink)}
+
+  /* steps */
+  .steps{counter-reset:step;display:grid;grid-template-columns:1fr;gap:12px}
+  .step{
+    counter-increment:step;display:flex;gap:16px;background:var(--card);border:1px solid var(--border);
+    border-radius:14px;padding:18px 22px;align-items:flex-start;
+  }
+  .step::before{
+    content:counter(step,decimal-leading-zero);flex:none;font-family:Georgia,serif;font-size:26px;font-weight:800;
+    color:var(--purple);opacity:.75;line-height:1.2;min-width:44px;
+  }
+  .step .t{font-weight:700;font-size:14.5px;margin-bottom:3px}
+  .step .d{font-size:13px;color:var(--ink-2)}
+
+  footer{padding:40px 0 56px;color:var(--faint);font-size:12.5px;text-align:center}
+  footer .rule{width:60px;height:3px;background:linear-gradient(90deg,var(--purple),var(--blue));border-radius:2px;margin:0 auto 16px}
+
+  @media (max-width:960px){
+    .kpis{grid-template-columns:repeat(3,1fr)}
+  }
+  @media (max-width:860px){
+    .kpis{grid-template-columns:repeat(2,1fr)}
+    .stages{grid-template-columns:repeat(2,1fr)}
+    .timeline{grid-template-columns:1fr;gap:12px}
+    .tl-node::before{display:none}
+    .grid-3{grid-template-columns:1fr}
+    .keep-grid{grid-template-columns:1fr}
+    .week-foot{grid-template-columns:1fr}
+    .wf-l{border-right:none;border-bottom:1px solid var(--border)}
+    .hero h1{font-size:28px}
+  }
+  @media (max-width:720px){
+    html{-webkit-text-size-adjust:100%}
+    body{font-size:14px;overflow-wrap:break-word}
+    .wrap{padding:0 16px}
+    /* HERO */
+    .hero{padding:44px 0 40px}
+    .hero h1{font-size:24px;letter-spacing:0}
+    .hero .sub{font-size:13.5px;margin-bottom:26px}
+    .hero-badge{font-size:11px;letter-spacing:1.5px;padding:5px 12px;margin-bottom:16px}
+    .kpis{grid-template-columns:repeat(2,1fr);gap:10px}
+    .kpi{padding:12px 14px;border-radius:12px}
+    .kpi .num{font-size:21px}
+    .kpi .lbl{font-size:11.5px}
+    /* NAV */
+    nav .wrap{padding-top:8px;padding-bottom:8px}
+    nav a{font-size:12.5px;padding:5px 11px}
+    /* SECTIONS */
+    section{padding:36px 0 4px}
+    .sec-head{margin-bottom:18px}
+    .sec-head h2{font-size:20px}
+    .sec-head p{font-size:13px}
+    .card{padding:18px 16px;border-radius:14px;margin-bottom:16px}
+    table{font-size:12.8px}
+    th{padding:8px 10px;font-size:11.5px}
+    td{padding:9px 10px}
+    .stages{grid-template-columns:1fr;gap:10px}
+    .stage{padding:14px}
+    .stage .no{font-size:34px}
+    .stage .name{font-size:14px}
+    .stage .days{font-size:11.8px}
+    /* ---- 表格移动端堆叠：周课表 ---- */
+    .week-body table,.week-body thead,.week-body tbody,.week-body tr,.week-body td{display:block;width:100%}
+    .week-body thead{display:none}
+    .week-body tr{padding:12px 0;border-bottom:1px solid var(--border)}
+    .week-body tr:last-child{border-bottom:none}
+    .week-body td{border:none;padding:3px 0}
+    .week-body td[data-label]::before{
+      content:attr(data-label);display:block;font-size:11px;font-weight:700;
+      color:var(--purple);letter-spacing:1.5px;margin:7px 0 3px;
+    }
+    .week-body td:first-child{margin-bottom:2px}
+    .week-body tr.row-we{background:var(--amber-light);border-radius:10px;padding:10px 12px;margin-top:8px;border-bottom:none}
+    /* ---- 表格移动端堆叠：诊断表 / 总览表 ---- */
+    #design .card table,#design .card thead,#design .card tbody,#design .card tr,#design .card td,
+    #overview .card table,#overview .card thead,#overview .card tbody,#overview .card tr,#overview .card td{display:block;width:100%}
+    #design .card thead,#overview .card thead{display:none}
+    #design .card tr,#overview .card tr{padding:14px 0;border-bottom:1px solid var(--border)}
+    #design .card tr:last-child,#overview .card tr:last-child{border-bottom:none}
+    #design .card td,#overview .card td{border:none;padding:3px 0}
+    #design .card td[data-label]::before,#overview .card td[data-label]::before{
+      content:attr(data-label);display:block;font-size:11px;font-weight:700;
+      color:var(--purple);letter-spacing:1.5px;margin:8px 0 3px;
+    }
+    #design .card td:first-child{display:inline-block;min-width:22px;font-size:15px;color:var(--purple);font-weight:800}
+    #overview .card td:first-child{display:inline-block;font-size:14.5px;margin-bottom:2px}
+    /* WEEK CARDS */
+    .week{border-radius:14px;margin-bottom:16px}
+    .week-head{padding:14px 16px;gap:12px}
+    .week-no{width:50px;height:50px;border-radius:12px}
+    .week-no .n{font-size:20px}
+    .week-no .w{font-size:8px;letter-spacing:1px}
+    .week-title h3{font-size:15.5px}
+    .week-title .st{font-size:11.5px}
+    .week-body{padding:2px 16px 6px}
+    .lesson{font-size:13px}
+    .lesson-sub{font-size:12px}
+    .hw{font-size:12.5px}
+    .wf-l{padding:14px 16px;border-right:none;border-bottom:1px solid var(--border)}
+    .wf-r{padding:12px 16px}
+    .wf-l li{font-size:12.2px}
+    .coach{margin:0 16px 14px;font-size:12px;padding:9px 12px}
+    /* SUPPORT / STEPS / TIMELINE */
+    .mini{padding:16px;border-radius:12px}
+    .mini h4{font-size:13.5px}
+    .mini li{font-size:12.2px}
+    .steps{gap:10px}
+    .step{padding:14px 16px;gap:10px;border-radius:12px}
+    .step::before{font-size:20px;min-width:32px}
+    .step .t{font-size:13.5px}
+    .step .d{font-size:12.3px}
+    .tl-box{padding:12px}
+    .tl-box .t{font-size:13px}
+    .tl-box .d{font-size:11.8px}
+    footer{padding:28px 0 40px;font-size:11.5px}
+  }
+  @media print{
+    nav{display:none}
+    .hero{background:#2A1B52 !important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+    body{background:#fff}
+    .week,.card,.mini,.step{break-inside:avoid}
+  }
+</style>
+</head>
+<body data-page-node-id="yAYiEww7PoNS5uqZiJvIOp">
+
+<!-- ================= HERO ================= -->
+<header class="hero" data-page-node-id="2otj74vqIJwihwAwjbhf6g">
+  <div class="wrap" data-page-node-id="L8edp7e25si9rm1CHqhmW3">
+    <div class="hero-badge" data-page-node-id="5xGR5UT9oBEntyqNAkJWuF"><span class="dot" data-page-node-id="PUp5NPB2jHc8LBtGg4nC5g"></span>COURSE CATALOG · 自研课程 · V1.0</div>
+    <h1 data-page-node-id="GMiHYHo26kQnWIzLQ1kGpE">AI 产品经理就业训练营<br data-page-node-id="zFej0qwILksgcn4DgIzE82">八周体系<em data-page-node-id="EoJMWuK4JfFmqa85kRkMEw">大纲</em></h1>
+    <p class="sub" data-page-node-id="3SpQpyQc260FJ6C9rxwaSm">以「就业作品集 + 岗位能力模型」双主线设计：技术懂原理、产品硬功打底、一个主项目贯穿全程、两周就业闭环冲刺。目标只有一个——让学员拿着作品集和面试话术，拿到 AI 产品经理 Offer。</p>
+    <div class="kpis" data-page-node-id="pVAFkks8VmDKa5I6YKamuu">
+      <div class="kpi" data-page-node-id="wnAFn741E07LWnzAsjJ4e9"><div class="num" data-page-node-id="ot4KAOZaVagqilBEW9Mb8B">8<span data-page-node-id="jIjIYkidgt5hm41vArCpPh">周</span></div><div class="lbl" data-page-node-id="F5a6a4gmW7MFEg4lj4SI86">四阶段递进 · 40 次正课</div></div>
+      <div class="kpi" data-page-node-id="ip2DReEbe6XqAh3CP60HwS"><div class="num" data-page-node-id="BemLfvewLmJVDcvcIWCMAX">1<span data-page-node-id="SVeaRHfvSwWByl7OT0KIv3">个</span></div><div class="lbl" data-page-node-id="XXFrGV0rDJPYySTzbX23Sb">贯穿式主项目 · 5 个里程碑</div></div>
+      <div class="kpi" data-page-node-id="1BCTmFG54Cre8wMAmSWtxf"><div class="num" data-page-node-id="fGdKN7RWQDvurJBDHF5d9E">30<span data-page-node-id="yL8JaB21HUDA7YOba9HFYt">+</span></div><div class="lbl" data-page-node-id="l27sjlrt44rRC9qR5Z11SX">实操作品与交付物</div></div>
+      <div class="kpi" data-page-node-id="GNuRYfYZvkfkJ5qFYdKN2S"><div class="num" data-page-node-id="asCaIy2L8lpYmiaqkwaX7u">2<span data-page-node-id="4sK6PHu38pS1yELFxlfUw6">轮</span></div><div class="lbl" data-page-node-id="VFdqY4IQu91Eknf1W7eJ1C">1v1 压力模拟面试</div></div>
+      <div class="kpi" data-page-node-id="Y03vukyohmHWcb50gO3sIp"><div class="num" data-page-node-id="F22RRd8TQQg4StzGhWNBPs">6<span data-page-node-id="kSwbHIgyrEpjN35XdKZDth">大</span></div><div class="lbl" data-page-node-id="lkWp7VblxzniERjuQCxXrv">行业赛道分组纵深</div></div>
+    </div>
+  </div>
+</header>
+
+<nav data-page-node-id="HqwdlbS0eR1zFs3dNkE9FQ">
+  <div class="wrap" data-page-node-id="ucGzK4uyounYlJ6EHLtBbD">
+    <a href="#design" data-page-node-id="Ei2zoIwuo6VGARyveLChug"><b data-page-node-id="pOMcypIK5KDSgOiA0NpvWm">01</b>设计逻辑</a>
+    <a href="#overview" data-page-node-id="7E6Fz50CuYyQb3l8ZdIdyp"><b data-page-node-id="ClxMeIf5QlbersFRhI2EJR">02</b>八周总览</a>
+    <a href="#project" data-page-node-id="ajETchZKn1lG9GtVJMTSRT"><b data-page-node-id="bK0dO6PDVBhUJqwixxkU8E">03</b>主项目主线</a>
+    <a href="#weeks" data-page-node-id="RJpob7cvlnOk7epONWViLw"><b data-page-node-id="uefPGjsVSkSaP7rqvXbFM4">04</b>每周课表</a>
+    <a href="#support" data-page-node-id="stTPx7RQDbweLPWlLBo5Ps"><b data-page-node-id="Hd4bsP8rbrQHHkv9UaZPzU">05</b>配套体系</a>
+    <a href="#teacher" data-page-node-id="sivsGSWuYKw8ysOCsTznzO"><b data-page-node-id="6xbQpz5DHoLPJqMD0yPK6I">06</b>讲师备课路线</a>
+  </div>
+</nav>
+
+<!-- ================= 01 诊断 ================= -->
+<section id="design" data-page-node-id="dX38ArpeFNnSRcro8WeBeQ">
+  <div class="wrap" data-page-node-id="AZ7W1xcVrBE3sCz4xaOpTx">
+    <div class="sec-head" data-page-node-id="TMrEyslaDtBNIZFhCEGWMA">
+      <span class="sec-tag" data-page-node-id="4Oo8rppCbcWXqOLMTCSI4L">01 · DESIGN LOGIC</span>
+      <h2 data-page-node-id="lDeWTEPUy3116ANoFCCanL">课程设计逻辑：一切设计为「就业」服务</h2>
+      <p data-page-node-id="B2bHXoFd1XmY39YDof13GW">这门课不是技术知识的堆砌，而是围绕「让学员拿到 AI 产品经理 Offer」倒推出来的完整体系。7 条设计原则，每条对应一个学员的真实痛点，并落到具体周次。</p>
+    </div>
+
+    <div class="card" data-page-node-id="XqunXUUxAP8thfpmNknFPW">
+      <table data-page-node-id="qdWM0U9E9ZDjtAK62rL32t">
+        <thead data-page-node-id="RJIJJeoAUM84bUHcd5Vx8F">
+          <tr data-page-node-id="vHPP7gywG51sh8QwYHFbuC"><th style="width:34px" data-page-node-id="36oqF1sBWBt8JImXP6h5tG">#</th><th style="width:31%" data-page-node-id="KvQHSFTkRlrT2qho984shQ">设计原则</th><th style="width:31%" data-page-node-id="b9g4V5Ir4kt1EPEZYoePxG">要解决的学员痛点</th><th data-page-node-id="UxED93VrgRyVRc8ZvZi5bY">课程中的落地方式</th></tr>
+        </thead>
+        <tbody data-page-node-id="RlBRIcAkAj7uk0NzyT8wjb">
+          <tr data-page-node-id="yyxya4LerY3eUlTMltXyRh">
+            <td class="t-mono t-strong" data-page-node-id="dd1DBkptCWvoxP6bjZJICu">1</td>
+            <td data-label="设计原则" class="t-strong" data-page-node-id="iMrmXO40w3pj0BKnErPOGA">技术够用就好，产品硬功打底</td>
+            <td data-label="要解决的学员痛点" data-page-node-id="f0BPy8pS7GBDRFeZOJrRWb">技术学了一堆，面试时需求分析、PRD、数据分析却答不上来——AI PM 面试的主战场是产品能力，技术只要求「懂原理、能对话、会验收」</td>
+            <td data-label="课程中的落地方式" data-page-node-id="kJzgcun8zGrI8SxOB12X6f">技术内容集中在 W1–W3 且以「够用」为边界；<span class="fix" data-page-node-id="oYe3fH0d4siDlEi7amobNY">W4 专攻需求分析与 PRD，W5 专攻数据、增长与商业化</span></td>
+          </tr>
+          <tr data-page-node-id="NFEZh7tsG5rr474QL7j3Pp">
+            <td class="t-mono t-strong" data-page-node-id="V64z2VzGfNKwgcBuJVEkV3">2</td>
+            <td data-label="设计原则" class="t-strong" data-page-node-id="dKGehfDnOX0H9TCpoQ7xCp">就业闭环，补齐最后 100 米</td>
+            <td data-label="要解决的学员痛点" data-page-node-id="CCy9nOKVBr4D5UC5oHNgrN">课上完了，简历没人改、面试没人陪练、谈薪没底气，求职最后 100 米无人托底</td>
+            <td data-label="课程中的落地方式" data-page-node-id="T8yqXmyLdMSfDadtaKyar0"><span class="fix" data-page-node-id="R56Ude3wwKN3DO3w6zOy4T">W7 作品集与简历 1v1 诊断，W8 两轮压力模拟面试 + 谈薪与 offer 选择</span>，形成 2 周完整就业闭环</td>
+          </tr>
+          <tr data-page-node-id="BzrfVAVGGwQHruVEx5HBRZ">
+            <td class="t-mono t-strong" data-page-node-id="XUfQSN5JS41m2WXHieYJqd">3</td>
+            <td data-label="设计原则" class="t-strong" data-page-node-id="4Zmm5PAMp5uZGfLwgENA7t">一个主项目，贯穿全程</td>
+            <td data-label="要解决的学员痛点" data-page-node-id="Xd2Zt9jHdKPWQRGsVJ1fB3">工具练习散点化，简历上没有「能讲 20 分钟」的项目，面试第一问「讲一个你做的 AI 产品」直接挂掉</td>
+            <td data-label="课程中的落地方式" data-page-node-id="3168D7zdJI9tEE7swff8i3"><span class="fix" data-page-node-id="2g7uJA6D0CpZlYJE6Zk1F0">贯穿式主项目</span>：W2 立项 <span class="arrow" data-page-node-id="nFFb4gMjid1qRqWlNVdPV2">→</span> W3 原型 <span class="arrow" data-page-node-id="sHrT6wKvh5pnNQXJzciAr5">→</span> W4 PRD <span class="arrow" data-page-node-id="m4kHIFVNbRZkVHpb10hGLK">→</span> W5 商业验证 <span class="arrow" data-page-node-id="KEpR9TQ5txkkSfPPgLQJOj">→</span> W6 路演，5 个里程碑</td>
+          </tr>
+          <tr data-page-node-id="8Dlkhc2VdrjyMMC6LO2LZf">
+            <td class="t-mono t-strong" data-page-node-id="mpFJRrewPIvWKk3nnBNtGS">4</td>
+            <td data-label="设计原则" class="t-strong" data-page-node-id="GFdjjCaoNdacgLiV8JD1XU">行业纵深，拒绝海投</td>
+            <td data-label="要解决的学员痛点" data-page-node-id="1Vxq8VxIRwXZIi7qIdKmLf">AI PM 是强行业属性岗位（教育 / 金融 / SaaS 差异巨大），不选赛道等于海投：简历没有行业话语权，面试聊不出深度</td>
+            <td data-label="课程中的落地方式" data-page-node-id="kiCRF2cgLM3XcaIO5sJF0g"><span class="fix" data-page-node-id="5k545zvjobdML285XNDa2S">W1 周五选定主赛道，W7 周一输出个人《行业纵深手册》</span>，6 大方向分组教学</td>
+          </tr>
+          <tr data-page-node-id="zY5dtRojxSWt4eBqmvYFB7">
+            <td class="t-mono t-strong" data-page-node-id="RP7Q8q0bKUuc675uMNUFfc">5</td>
+            <td data-label="设计原则" class="t-strong" data-page-node-id="jQzgPoOyEUFAXGjMU6KfaX">国内合规，岗前必修</td>
+            <td data-label="要解决的学员痛点" data-page-node-id="K4XmJ7oxTu4TpGOcHT8YPl">不懂算法备案、生成式 AI 管理办法、内容安全与数据合规，面试被追问「这个功能合规吗」就懵</td>
+            <td data-label="课程中的落地方式" data-page-node-id="fL1WWvQPODWgt2iniTAZ7S"><span class="fix" data-page-node-id="Wzm5BerfkNdPB4t87Fgz92">W2 周四专设合规课</span>，合规检查清单贯穿主项目全周期</td>
+          </tr>
+          <tr data-page-node-id="ifBdG1vFCIAkisFhoab56M">
+            <td class="t-mono t-strong" data-page-node-id="rOZzT9D6GlWCLiyDdqaj8H">6</td>
+            <td data-label="设计原则" class="t-strong" data-page-node-id="hDRiow6GAtblsuXH1Oh0vy">每周验收，结果可衡量</td>
+            <td data-label="要解决的学员痛点" data-page-node-id="hZmaXwywVrpmuDhg8sruRT">不知道学到什么程度算合格，学习结果不可控、进度跟不上也没人提醒</td>
+            <td data-label="课程中的落地方式" data-page-node-id="918F2Asre8B7olgUfur2CL"><span class="fix" data-page-node-id="hbeLBCMyTSlo4fh3IJK7tT">每周验收标准 + 三档 Rubric</span>（合格 / 良好 / 优秀），产出物全部可检查</td>
+          </tr>
+          <tr data-page-node-id="zZDUwH72l2uBErUPOobXgC">
+            <td class="t-mono t-strong" data-page-node-id="8nsb8pvG0Bn8r9nvFfjp53">7</td>
+            <td data-label="设计原则" class="t-strong" data-page-node-id="jcMrRTaSPESCCUgEGnZye1">训练形式为就业服务</td>
+            <td data-label="要解决的学员痛点" data-page-node-id="uGVIJQl5cDIiv6LKxcP3DM">单一重复的训练形式容易疲劳，且与真实面试场景脱节</td>
+            <td data-label="课程中的落地方式" data-page-node-id="VOJmfTyRudygfzcRLuUxV9">前 3 周五<span class="fix" data-page-node-id="hTkac0K9oVDXNY9LDDBU8M">评审互评</span>打基础，后 5 周递进为<span class="fix" data-page-node-id="gMfDHlfIUHh4BY0SIBJPRp">路演 / 答辩 / 模拟面试</span>，直接对标面试现场</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div style="font-size:13.5px;font-weight:700;color:var(--ink);margin-top:24px;margin-bottom:12px;letter-spacing:.5px" data-page-node-id="Gna8eyyJ6cUV8pzSEdMBRe">课程四大特色</div>
+      <div class="keep-grid" data-page-node-id="qssGK7iIvfqZfm9pO90cCN">
+        <div class="keep" data-page-node-id="zgGXcS5EEp9tqiPbNPhfH9"><span class="mark" data-page-node-id="cHnBeBgjGO8OtcDUPlfHIC">✓</span><div data-page-node-id="F8ipxZcg8bYdumFaPGBxuV"><div class="t" data-page-node-id="Xs0GsKSkI8PW5si31nwcpw">技术实操导向</div><div class="d" data-page-node-id="MlQmevGaLgecvxVz5owEbf">Dify / Coze / LoRA / Vibe Coding 全流程实操——AI PM 相比传统 PM 的差异化竞争力，全部绑定主项目落地</div></div></div>
+        <div class="keep" data-page-node-id="ZXS9q6oy9CYEzycAN2aVUA"><span class="mark" data-page-node-id="SjtRyHmkAZRnXOfMFtgf1u">✓</span><div data-page-node-id="G00TWxB5AdC5cKAiwWXrRb"><div class="t" data-page-node-id="SDwAx7BdkOsHXhirmhQJrZ">每日「正课 + 实操」节奏</div><div class="d" data-page-node-id="Jdgl5lApfFmLbyzGqPBeSl">输入输出当天闭环，符合成人学习规律；「周一至周五正课 + 周末综合输出」周结构，8 周不间断</div></div></div>
+        <div class="keep" data-page-node-id="iOEYNypi2vqVoeoWdevBSa"><span class="mark" data-page-node-id="gkNmbjekXXjKa1IzrT4RYa">✓</span><div data-page-node-id="FiTCIySL2iFRBVY2ak3rWu"><div class="t" data-page-node-id="WZzmYOHidT4ZpkDheBzvTb">输出驱动</div><div class="d" data-page-node-id="1OoVdLLd7buk7KXWKzY2hE">文档 / 报告 / 原型持续产出，天然形成作品集意识——每周 1 组核心交付物 + 验收标准</div></div></div>
+        <div class="keep" data-page-node-id="zDfwRWCk2sa7hWFFtK8zoO"><span class="mark" data-page-node-id="fAnFaNYtxgBMEdvgMPk6kc">✓</span><div data-page-node-id="esNc7OfzSbE5xXF82f5bZE"><div class="t" data-page-node-id="GNi33Cj7N8HGNzKYnPE2HO">飞书文档协同</div><div class="d" data-page-node-id="ojEIEGI5XaVHeai8JlDqeQ">课程资料、作业提交、学习档案全部走飞书，提前适应企业真实协作方式</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 02 总览 ================= -->
+<section id="overview" data-page-node-id="A7oUXQEoPNS0uV79d3Tvhl">
+  <div class="wrap" data-page-node-id="pY51NABcTauKIHMKgg4obN">
+    <div class="sec-head" data-page-node-id="1Of2jBAGXfzoYa7rY98te9">
+      <span class="sec-tag" data-page-node-id="AQzyLGIrKmQcmjhV4AZsPR">02 · OVERVIEW</span>
+      <h2 data-page-node-id="aUgTsV9z62ZrLv1ms6rWEZ">八周总览：四阶段，40 次正课</h2>
+      <p data-page-node-id="rIMqmIk95uR2Vqh9scNBKL">阶段一认知筑基（10 天）→ 阶段二 AI 核心产品能力（5 天）→ 阶段三产品硬功（10 天）→ 阶段四实战与就业（15 天）。主线项目从第 2 周立项起贯穿至第 8 周。</p>
+    </div>
+
+    <div class="stages" data-page-node-id="LCVb7jzORiGG6PtdLvX60l">
+      <div class="stage s1" data-page-node-id="FwBfNkmaOTngsMe8zO0HLr"><span class="no" data-page-node-id="TqYv8CF67KO9HZ7QbFYewq">01</span><div class="wk" data-page-node-id="wJw32xbSvJq8bXEsA7G8op">WEEK 01–02</div><div class="name" data-page-node-id="htSntQPRVsB1utQA44Bhp6">认知筑基</div><div class="days" data-page-node-id="km5pBucJq1o0PhwH4gHu4T">职业认知 · 技术通识 · 提示词 · 评测合规</div></div>
+      <div class="stage s2" data-page-node-id="Hxx89TSIANuROpbItYMRTq"><span class="no" data-page-node-id="0tdSRQPDbvBkiAEvdKLGtp">02</span><div class="wk" data-page-node-id="KbvimcNZBCNMBbTZOEHRsu">WEEK 03</div><div class="name" data-page-node-id="ybYgYOmjktudl7fvP3h6s1">AI 核心能力</div><div class="days" data-page-node-id="bfOdq9tF3xZfumocNKAvt1">Agent 架构 · RAG 知识库 · 多模态产品</div></div>
+      <div class="stage s3" data-page-node-id="3gdif4htw4NrC42i49KZAh"><span class="no" data-page-node-id="CZk6PasEXBYbY7GoBjEzMN">03</span><div class="wk" data-page-node-id="OEdsGoDNGX76yj1GLjEArs">WEEK 04–05</div><div class="name" data-page-node-id="vzKbKJw5iA8JFbIDDCrNKG">产品硬功</div><div class="days" data-page-node-id="jm8riiDCWm5RjnHDtWPnBy">需求分析 · PRD · 数据 · 增长 · 商业化</div></div>
+      <div class="stage s4" data-page-node-id="7Pr8joI7Vf9IGsCD2g3CZQ"><span class="no" data-page-node-id="6boOu997ehFcj4VwKgMYXE">04</span><div class="wk" data-page-node-id="lWWmEKA1CGT1iLKi1YawGC">WEEK 06–08</div><div class="name" data-page-node-id="qQ84DAB6DtmDrnOCMnAUj2">实战与就业</div><div class="days" data-page-node-id="BwJ6f4KBlmvJadth5x4i9E">主项目闭环 · 作品集 · 简历 · 面试冲刺</div></div>
+    </div>
+
+    <div class="card" data-page-node-id="0pv0oBq2e44OKkc4g6GXmR">
+      <table data-page-node-id="YAoolsXFbdPM4n9lEzinPn">
+        <thead data-page-node-id="cnq1adN4JX43JT7AHGEzMJ">
+          <tr data-page-node-id="rqO79t47yWKFQHMRPRrIsR"><th style="width:64px" data-page-node-id="pUFQ2UTpnBqG4Fe9XBp1Au">周次</th><th data-page-node-id="hkvMT6SGGEouA8bi1WvSxC">主题</th><th style="width:24%" data-page-node-id="ropDoroEivjoFqILEAqg6b">周末核心产出</th><th style="width:26%" data-page-node-id="sOdhDKN4VWBzYIjUPF1kBL">岗位能力关键词</th></tr>
+        </thead>
+        <tbody data-page-node-id="AFD7jc27uGNH5gYqmd0vIX">
+          <tr data-page-node-id="tOklQBRnJ13p6pXvI6nPiK"><td class="t-strong" data-page-node-id="R3zKT2J04ZRMGaB29uzyZS">W1</td><td data-label="主题" class="t-strong" data-page-node-id="8O2VIJIoPn0MWnQrVqBVje">职业认知 · 技术通识 · 提示词与上下文工程</td><td data-label="周末核心产出" data-page-node-id="S1dMBvNzQC9DzVG0eGhqzN">职业规划书 + 30 条提示词 + 2 份产品拆解</td><td data-label="岗位能力关键词" data-page-node-id="5FFoKnOKP9pOq6JOmka5T5"><span class="pill pill-purple" data-page-node-id="T7Mry3ENPNYH779Cny1uNp">行业认知</span><span class="pill pill-purple" data-page-node-id="2DOF4rGFFAUMVniHNJhftG">技术通识</span><span class="pill pill-purple" data-page-node-id="HRUxxIhq3BykfXIRvTYeq6">提示词工程</span></td></tr>
+          <tr data-page-node-id="F4Otwq2tPeY3437d5523gW"><td class="t-strong" data-page-node-id="1nfrzZd2A8qo8XvOkE4zpJ">W2</td><td data-label="主题" class="t-strong" data-page-node-id="alzGlSV90icCVsqyzlYlBG">模型边界 · 微调原理 · 评测体系 · 合规（国内岗刚需）</td><td data-label="周末核心产出" data-page-node-id="ziYnQHBqNuIIGWNYNnYA8F">评测集 ≥50 条 + 合规清单 + 主项目立项报告</td><td data-label="岗位能力关键词" data-page-node-id="x036WnhsKYaWlLCMqCG1LQ"><span class="pill pill-purple" data-page-node-id="eXcCiJPDdeaJZl1tZa5B4K">模型评测</span><span class="pill pill-purple" data-page-node-id="fBWqx7U5EgMZGz2I6y8vAM">技术选型</span><span class="pill pill-purple" data-page-node-id="2Sy1NQDmCuHWntMXBm4YYR">合规意识</span></td></tr>
+          <tr data-page-node-id="K5FD9pXJH9tOG7rIrEDFvs"><td class="t-strong" data-page-node-id="jAIOVC9AzX4Tnc2aog9QdO">W3</td><td data-label="主题" class="t-strong" data-page-node-id="Btrdi27dffy7KbK4acs6ZV">Agent 架构与 RAG 产品设计 · 多模态</td><td data-label="周末核心产出" data-page-node-id="Q9KPLYlVLCTRfsFBGhmEIy">Agent 架构图 + Dify 工作流 + 知识库原型</td><td data-label="岗位能力关键词" data-page-node-id="JS7SMPhiwOJ23w2JNiU3bW"><span class="pill pill-blue" data-page-node-id="oWvdjfKUorsx42MgbgWsAS">Agent 产品设计</span><span class="pill pill-blue" data-page-node-id="te21grnH2GGm0AtICy8y0I">RAG 架构</span><span class="pill pill-blue" data-page-node-id="cC871wE5C1SeGjGlOXqvzo">原型能力</span></td></tr>
+          <tr data-page-node-id="fsJdd6HBxY3CO5LRQvPsSA"><td class="t-strong" data-page-node-id="WrE7svSlsDnA1mZBGNwr5O">W4</td><td data-label="主题" class="t-strong" data-page-node-id="fD1y3tgCyDoNR3fbMY1Hma">用户研究 · 需求分析 · AI 产品 PRD · 指标体系</td><td data-label="周末核心产出" data-page-node-id="QNvJt0zet2MSUaIN0FNEjE">调研报告（≥5 访谈 + ≥30 问卷）+ PRD V2.0 过审</td><td data-label="岗位能力关键词" data-page-node-id="D3EGCx2OKqAfHEY8lCWKjC"><span class="pill pill-blue" data-page-node-id="jaGeSSTnn1YZfcbg3Q8gaH">需求分析</span><span class="pill pill-blue" data-page-node-id="fdPub1mCJxyAbpfJ8a3ty7">PRD 撰写</span><span class="pill pill-blue" data-page-node-id="PqbO4f7bkQbOigHVvXIOF6">数据思维</span></td></tr>
+          <tr data-page-node-id="Gla3gdLa318ftYMduIqFEg"><td class="t-strong" data-page-node-id="vT53VVh33vZS67hr5S4GS0">W5</td><td data-label="主题" class="t-strong" data-page-node-id="fDas9dgfrpuhXEbyxOZEOc">增长 · AB 实验 · 商业化 · 项目推进</td><td data-label="周末核心产出" data-page-node-id="O4OJb16mMloKng1wGQzA6s">商业画布 + 单位经济模型 + 增长方案</td><td data-label="岗位能力关键词" data-page-node-id="ciXEzKoFSdn5RY9zAyu1K3"><span class="pill pill-blue" data-page-node-id="cnMEOrCX0KwSLIdlqI2jUy">增长策略</span><span class="pill pill-blue" data-page-node-id="a6UxYqRqGcGVlZUBXJnWpK">商业化</span><span class="pill pill-blue" data-page-node-id="K5owDEyvaz1HA3NGdDVvpg">项目管理</span></td></tr>
+          <tr data-page-node-id="RACOcYzG496PbVtXev4xlM"><td class="t-strong" data-page-node-id="GGaTZkY1NY5ozM12d1b4Qf">W6</td><td data-label="主题" class="t-strong" data-page-node-id="6SC1gg1ZVe2v2r6TC5tVxE">主项目实战：Vibe Coding 与 MVP 闭环</td><td data-label="周末核心产出" data-page-node-id="msXgbmBXFmJcFjscC7Rp9Z">可演示 MVP + ≥10 真实用户试用 + 路演</td><td data-label="岗位能力关键词" data-page-node-id="xlQtkIiq89uYabw9HJdDyg"><span class="pill pill-cyan" data-page-node-id="F3ixm31nsQCAPua0ctvRUD">项目闭环</span><span class="pill pill-cyan" data-page-node-id="xtwghONiWFWouHMRPuAijp">数据验证</span><span class="pill pill-cyan" data-page-node-id="8u0BEcQQIuAES5UL9SIfaj">路演表达</span></td></tr>
+          <tr data-page-node-id="a2cIFTocjzncdVcxVjPtQ6"><td class="t-strong" data-page-node-id="9f49qmnSzDpZ3l6jbm0wJ0">W7</td><td data-label="主题" class="t-strong" data-page-node-id="bvgeM8by8UHDM0rN6WpQr3">行业纵深 · 作品集打造 · 简历撰写与投递</td><td data-label="周末核心产出" data-page-node-id="RCNxXxB1GPI2eLpRN3vBJg">行业手册 + 在线作品集 + 简历 V2 + ≥50 家投递清单</td><td data-label="岗位能力关键词" data-page-node-id="neAisfg2aFCD3jBnjWGMlO"><span class="pill pill-green" data-page-node-id="tEKrPwjEtzYXajkIKROW1X">行业纵深</span><span class="pill pill-green" data-page-node-id="wZjkE3D4J4TK0aWQXX4ADU">个人品牌</span><span class="pill pill-green" data-page-node-id="tcLCEHV0J6Mhoq0AqYD6a2">求职策略</span></td></tr>
+          <tr data-page-node-id="alMFDXccBN2zSB4DGFlUFv"><td class="t-strong" data-page-node-id="0JOKHOiLxS3cAucPj1hZHp">W8</td><td data-label="主题" class="t-strong" data-page-node-id="aaPJzhNrR3Uxvx1hlBVfpV">面试通关：题型精讲 · 2 轮模拟面试 · 谈薪与 offer</td><td data-label="周末核心产出" data-page-node-id="G5NWgoY5Smr20AAEaskQYy">面试题库 40 问 + 话术库 + 投递启动</td><td data-label="岗位能力关键词" data-page-node-id="U4Lrw237XRhvYfKzEkjNBW"><span class="pill pill-green" data-page-node-id="AMa3HCIhYeFgspVpsDFvGC">面试应答</span><span class="pill pill-green" data-page-node-id="PqV7YsuBrm4wnbxJk2xFp9">技术问答</span><span class="pill pill-green" data-page-node-id="EFomXbn2Zh76tbLuuuh4xi">谈薪谈判</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 03 主项目 ================= -->
+<section id="project" data-page-node-id="tntWEcZCKZPCJZZb3oSbUm">
+  <div class="wrap" data-page-node-id="6xSLPsureGKLEIhbcXXYWe">
+    <div class="sec-head" data-page-node-id="kpteLAz7t9GH2qSRhyfEwC">
+      <span class="sec-tag" data-page-node-id="vXDsrw0nDMqOfBvcOjBKyu">03 · FLAGSHIP PROJECT</span>
+      <h2 data-page-node-id="rNnq4BLUI5tPsryL8CayID">主线项目：「我的第一个 AI 产品」从 0 到 1</h2>
+      <p data-page-node-id="qojh1DiPbVNqKQw1ukQLnG">整个训练营只做一个项目，但做透 5 轮：它同时是学员的作品集核心件、简历第一行、面试 20 分钟的谈资。题目按「行业 × 场景 × 人群」三维自选，W2 周五锁定后不再更换。</p>
+    </div>
+
+    <div class="card" data-page-node-id="WHjalv4IaRk8g34vXHEUcF">
+      <div class="timeline" data-page-node-id="u4cQxlLOXE05ifeuQEVHem">
+        <div class="tl-node" data-page-node-id="VJ40FsekzlfsJD1NgCqkqp"><div class="tl-dot" data-page-node-id="csTNFEALzTjDbC1FcmIkFP"></div><div class="tl-box" data-page-node-id="AC1nH3HPZqXQWsGrXz6jK9"><div class="w" data-page-node-id="1iKfcotNVhRfNaSu0Mjtcw">W2 · 周五</div><div class="t" data-page-node-id="qOnp95KxpFaa6jWz1IYywN">立项</div><div class="d" data-page-node-id="cFyF95fKxDv6YFQO63txUz">选题 + 目标用户 + 核心场景 + 成功指标，讲师评审锁定</div></div></div>
+        <div class="tl-node" data-page-node-id="DW1PQe2voIAZgaxtpWl7xq"><div class="tl-dot" data-page-node-id="kgxJS4ebv64cRif8FnP9w9"></div><div class="tl-box" data-page-node-id="MeZzOCii0mVe9hkzPhMhds"><div class="w" data-page-node-id="QT3ItClYTITbTD0WKsvtHj">W3 · 周五</div><div class="t" data-page-node-id="C6kGEfT36jampGNlbEPMId">原型</div><div class="d" data-page-node-id="1z4Ws1RM59GqGBsVpS8vCN">Agent 架构图 + Dify/Coze 工作流 + 知识库原型，可演示</div></div></div>
+        <div class="tl-node" data-page-node-id="LaKwwv3mKR9gTD6jogjo7k"><div class="tl-dot" data-page-node-id="k6gnzo94Z6HpxwLQfCMn0d"></div><div class="tl-box" data-page-node-id="AzHhKbeZoaf7wi1xRYfRal"><div class="w" data-page-node-id="GPEoUHzkapU5z0qcQhc0uS">W4 · 周五</div><div class="t" data-page-node-id="3ygXqZXHZMkfU84p2WnBgX">PRD 过审</div><div class="d" data-page-node-id="sQ6t3ob9EmXqLb0OSBIrsL">调研报告支撑的 PRD V2.0 + 异常兜底设计 + 指标体系</div></div></div>
+        <div class="tl-node" data-page-node-id="xcEwwTjfqDURbepzI1gsV5"><div class="tl-dot" data-page-node-id="z4WavYys5LOuuHTzZRvZ5R"></div><div class="tl-box" data-page-node-id="egDKOUd76gEVHYjKADDEd3"><div class="w" data-page-node-id="mtHKWOmD7PbXCwjB59qFqF">W5 · 周五</div><div class="t" data-page-node-id="rq9aQUstqHgr7cOzUjP3zz">商业验证</div><div class="d" data-page-node-id="o0TOUlSyN92DV5qijehgYg">商业模式画布 + 单位经济模型 + AB 实验设计方案</div></div></div>
+        <div class="tl-node" data-page-node-id="6TGJvsZPKE8cODTaWpwy21"><div class="tl-dot" data-page-node-id="G9ByuNTZ1b2OQwqk1G9twZ"></div><div class="tl-box" data-page-node-id="E19soJCzgXaOlzESCVAx3g"><div class="w" data-page-node-id="QADX7R5Yr67jRvAISSHVGi">W6 · 周五</div><div class="t" data-page-node-id="qdg9e4dM9a4jPXSvHY38c9">MVP 路演</div><div class="d" data-page-node-id="NviiCPNA4Qxdirk1FaNe6X">可在线访问的 MVP + ≥10 真实用户试用 + 结业路演</div></div></div>
+      </div>
+      <p style="font-size:12.8px;color:var(--muted);margin-top:16px;border-top:1px dashed var(--border);padding-top:14px" data-page-node-id="5DdMq7GVwrZ73c2H9U4906">
+        W7–W8 不再开发新功能，而是把项目<b style="color:var(--purple-deep)" data-page-node-id="xqEiLYVrVy1ejoVsdkN5dh">加工成就业资产</b>：W7 写成作品集复盘文档、搬上简历；W8 整理成项目问答库，用于面试项目深挖环节的追问防御。
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 04 每周课表 ================= -->
+<section id="weeks" data-page-node-id="zb8fsJJtgXMhE6GoK5YDAZ">
+  <div class="wrap" data-page-node-id="C3eTP2xK4Drxr5KSxCUcBW">
+    <div class="sec-head" data-page-node-id="TGo6Cpjb5K4D8yAqVgZVlV">
+      <span class="sec-tag" data-page-node-id="GLMBPhjYjlFutYp9UmwY35">04 · WEEKLY SCHEDULE</span>
+      <h2 data-page-node-id="S3XpgmBwoBTeiueUVyApYb">每周课表详情</h2>
+      <p data-page-node-id="9OaEjlrm1sr5E26CPaHmy7">课程采用「周一至周五正课 + 周末综合输出」的周节奏；每节课分「正课内容 / 实操与产出」两栏，周末汇总当周全部交付物。每张卡片底部附验收标准与岗位能力映射。</p>
+    </div>
+
+    <!-- WEEK 1 -->
+    <div class="week" data-page-node-id="WOUxyC6jKbZeCQuXliHIHW">
+      <div class="week-head" data-page-node-id="7xNw4V0RXOsjlUosxUEQmj">
+        <div class="week-no" style="background:linear-gradient(135deg,#7C3AED,#5B21B6)" data-page-node-id="oH2r1zNUWREhfOwSEsVpu7"><span class="w" data-page-node-id="7AHQSsHeYX4gfqhVhqGGEa">WEEK</span><span class="n" data-page-node-id="A5cEsceuJtDWbV3EGe8UCS">01</span></div>
+        <div class="week-title" data-page-node-id="CJTnnpxJYnfK9WFv6GmpKc"><h3 data-page-node-id="DcsdDiF8DjqQTYtBjPewFG">职业认知 · 技术通识 · 提示词与上下文工程</h3><div class="st" data-page-node-id="mR0D7u1mpPXLHTLxzEfTC7">阶段一 · 认知筑基 ｜ 关键词：岗位地图 / 大模型原理 / 提示词工程 / 行业选赛道</div></div>
+      </div>
+      <div class="week-body" data-page-node-id="O1tdYrA6mn9BlLg90Td4cO">
+        <table data-page-node-id="DODM4Zdk7oR9Sveww0Rt4x">
+          <thead data-page-node-id="fjYQC627wf7lxbKEWWuQuw"><tr data-page-node-id="nktnyXrRUPHUPszQytf4RO"><th style="width:64px" data-page-node-id="gla4xVDikA7RmdrJlT5nvo">时段</th><th style="width:47%" data-page-node-id="H9EGCUz9xDuPS64LeFbBJQ">正课内容</th><th data-page-node-id="kEh5WktAXEo4lZ81HLtqF3">实操与产出</th></tr></thead>
+          <tbody data-page-node-id="rt0SfBqA5Ao21qB6nuUavF">
+            <tr data-page-node-id="obeQ3EteOj8grZmRMcCUkB">
+              <td data-page-node-id="AjOz84mh0R0SCz4Uld4ea5"><span class="day" data-page-node-id="GSkpavEX2bvP1P97w1HILE">周一</span></td>
+              <td data-label="正课内容" data-page-node-id="10BmYTmAmiR7lWBIcYimOa"><span class="lesson" data-page-node-id="AB39EZmdxLbVGLpYyTBMPm">开营 + AI 产品经理岗位全景</span><span class="lesson-sub" data-page-node-id="HxGdj6dTJqCkcTCLj8XSrw">岗位类型地图（AI 应用 / Agent 产品 / 知识库 / ToB 解决方案 / 模型平台）；JD 拆解与能力模型；薪资带宽与晋升路径；8 周学习路线图</span></td>
+              <td data-label="实操与产出" class="hw" data-page-node-id="mRRvrt7ZLZvKFpiimWhs4w"><b data-page-node-id="P1srQD2J6Mcbp6OFLK3kir">个人职业定位卡</b>：目标岗位 + 目标行业 + 当前差距清单 + 8 周目标</td>
+            </tr>
+            <tr data-page-node-id="Ym63Di6qJagQm3F6khLAFT">
+              <td data-page-node-id="9xqjSOguxODzq8xhycsMFk"><span class="day" data-page-node-id="Daz06Bw7CHTh1bKx7PNN30">周二</span></td>
+              <td data-label="正课内容" data-page-node-id="DtJo3sK3HwetVAdYcuUXsV"><span class="lesson" data-page-node-id="pYVWy6oC6boBkIKJl5Wwhk">大模型原理通识（产品经理版）</span><span class="lesson-sub" data-page-node-id="CJDMZIrk1U6eARlJKFBTfy">Transformer 与预训练科普；SFT / RLHF / 多模态；上下文窗口与推理成本；「懂到什么程度」边界图——能跟算法工程师对话即可</span></td>
+              <td data-label="实操与产出" class="hw" data-page-node-id="7tlPU9r4mMp1nEjER7x02v"><b data-page-node-id="dXZmbMIXeVVdJAWpbTCdv3">《AI 技术通识笔记》</b>一页纸版，用于后续随时复习与面试速查</td>
+            </tr>
+            <tr data-page-node-id="MhQuPF3RqXfpHii4JixgjM">
+              <td data-page-node-id="0CIsHm4DE9nGOKe15B8oms"><span class="day" data-page-node-id="xdcVPHa1GEcZwLHUHpGyJk">周三</span></td>
+              <td data-label="正课内容" data-page-node-id="sk5R6zJKFTi5oC9RYlSopx"><span class="lesson" data-page-node-id="fj11c7jfo7GMsjhvlDHhjf">提示词工程与上下文工程</span><span class="lesson-sub" data-page-node-id="CKhmpTf3KHuDQ7PnbhRuL7">System / User Prompt 结构；CoT / Few-shot / 结构化输出；上下文工程（资料注入、工具描述、记忆设计）；提示词的自测与迭代方法</span></td>
+              <td data-label="实操与产出" class="hw" data-page-node-id="ntEHpjVCH2s2xwzSgdxILP"><b data-page-node-id="9wEwqV9sEIimU4D4MoPbMG">30 条场景提示词练习集</b>：覆盖办公、分析、文案、代码四类场景，互相评测</td>
+            </tr>
+            <tr data-page-node-id="yCWtYrDM9kOkSkBTDsvfNr">
+              <td data-page-node-id="edAjfD2fEvfYGZRRv4ZXfc"><span class="day" data-page-node-id="DocF1PNvwECjKtrN3cIpa0">周四</span></td>
+              <td data-label="正课内容" data-page-node-id="4YIQmzskBCgqhD067RL9nU"><span class="lesson" data-page-node-id="u5Rqjx7uSEqQQAbtgdbXKP">AI 产品形态拆解</span><span class="lesson-sub" data-page-node-id="LiFvtHOUq9KyKWQVXYwYue">六大形态标杆拆解：对话式 / 工作流 / 知识库 / 多模态生成 / Copilot / 自主 Agent；每形态分析「用户价值 × 技术依赖 × 商业模式」</span></td>
+              <td data-label="实操与产出" class="hw" data-page-node-id="ULaL7XPey0C23RVd7Fc9ui"><b data-page-node-id="Cu8pL8A5U7Z0QvtkAvOXYV">产品拆解报告 ×2</b>：按模板拆解两款头部 AI 产品，周五前提交</td>
+            </tr>
+            <tr data-page-node-id="GMBispcuASusuhpNfTk6Wg">
+              <td data-page-node-id="poTGN4H8y27Mt8DJHvP3tH"><span class="day" data-page-node-id="QwB3kK6mMIR3RSBRcTu2EQ">周五</span></td>
+              <td data-label="正课内容" data-page-node-id="eP7vGROpdNIAInKcfDAYWP"><span class="lesson" data-page-node-id="GISdh9OiJCR5YY5DpsTDJL">行业选择 + 职业规划工作坊</span><span class="lesson-sub" data-page-node-id="sC9kQLVvw1SMjZKZMeM2XC">六大赛道分析：教育 / 金融 / 内容营销 / 电商零售 / 企业 SaaS / 出海；个人基础评估与赛道匹配；确定主项目方向</span></td>
+              <td data-label="实操与产出" class="hw" data-page-node-id="F32GtZIgSQm2f4VUmkSv7L"><b data-page-node-id="M7LcA4MV2bEJPbTNyCg95Y">《个人职业规划书》</b>：含 8 周目标、投递节奏、行业选择论证；小组互评 + 讲师点评</td>
+            </tr>
+            <tr class="row-we" data-page-node-id="EqC8RPaXd0uO6FGHuSECyV">
+              <td data-page-node-id="mFINv3syeNOmr3ZkuhUNCR"><span class="day we" data-page-node-id="9FRpzjj9wAsBRijAF5Jb02">周末</span></td>
+              <td colspan="2" class="hw" data-page-node-id="Mt75w1ZaNCYUkyCFTpHT5d"><b data-page-node-id="WdOztEtgq1kasYgEd77SqV">综合输出：</b>职业定位卡 + AI 通识笔记 + 30 条提示词 + 2 份产品拆解报告 + 职业规划书；在飞书建立个人学习档案，后续 7 周所有产出归档于此</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="week-foot" data-page-node-id="P0tPSZL3e8yirbAlwamX11">
+        <div class="wf-l" data-page-node-id="27XARjodTCSt9tzoQqmppL"><div class="wf-t" data-page-node-id="4a9pcnU95tggnvWZ7gRmQG">验收标准</div>
+          <ul data-page-node-id="nOXq55y1UH1Hi9vs5jbceD"><li data-page-node-id="99IqNrxp1ayIcxuFDrpTfg">职业定位卡含明确目标岗位与行业，差距清单 ≥5 条</li><li data-page-node-id="cLLuChsDGzDixjOSzZ1FtK">30 条提示词全部通过「可复用、可评测」检查</li><li data-page-node-id="2nGQ367mvzDEuvGTu3koP4">2 份产品拆解覆盖「价值-技术-商业」三维</li></ul>
+        </div>
+        <div class="wf-r" data-page-node-id="yzqgBhiFXwCCiNh8s8WrZc"><div class="wf-t" data-page-node-id="IOaeCGV0YDZXDZWYGJuAGl">岗位能力映射</div>
+          <span class="pill pill-purple" data-page-node-id="2I4IZYicdBBSt0PPmbDAAi">行业认知</span><span class="pill pill-purple" data-page-node-id="Kb1yHMCxdT8PbxXGEFcSDp">技术通识</span><span class="pill pill-purple" data-page-node-id="rb4ydUQ7GR3db7snD0R6KA">提示词工程</span><span class="pill pill-purple" data-page-node-id="a883s6phOiiidYXQk2UXas">职业规划</span>
+        </div>
+      </div>
+      <div class="coach" data-page-node-id="T73OVbDVewGda8TmOfEC7m"><b data-page-node-id="7ioObdLALXomxnLsfGm0ix">讲师提示：</b>开营第一课决定完课率——用 3 个往期学员「从 0 到 offer」的真实故事收尾；职业定位卡务必逐个访谈确认，拒绝「什么都想试」。</div>
+    </div>
+
+    <!-- WEEK 2 -->
+    <div class="week" data-page-node-id="3Uz3tWtJieR50uqFRRrKrn">
+      <div class="week-head" data-page-node-id="ugfbBhRz299ioMdSD9VK1T">
+        <div class="week-no" style="background:linear-gradient(135deg,#7C3AED,#5B21B6)" data-page-node-id="Efq68DLipOzcmcmMC7xkYK"><span class="w" data-page-node-id="cwFdbVHcxoYRh3tChqXjfL">WEEK</span><span class="n" data-page-node-id="kZJbl0Ahmd6IjDEXzFnHA0">02</span></div>
+        <div class="week-title" data-page-node-id="PNR6LopEoPlkNUXniuusJW"><h3 data-page-node-id="EWILXcbi3FSlsyaKwZ0Gts">模型边界 · 微调原理 · 评测体系 · AI 合规</h3><div class="st" data-page-node-id="x3Dmd2tgLq4BhLLpmoiNPw">阶段一 · 认知筑基 ｜ 关键词：模型选型 / LoRA / 产品评测 / 算法备案 / 主项目立项</div></div>
+      </div>
+      <div class="week-body" data-page-node-id="5oYTgtUdBlFvZOSzir7snQ">
+        <table data-page-node-id="hCKDMYu7BHeBwasH2T06DY">
+          <thead data-page-node-id="1rqucD3nffAlnoKM2Q5jZP"><tr data-page-node-id="s73ZKpRMwp6Lt2YCCoomvA"><th style="width:64px" data-page-node-id="HHCXECerur5wBObVhbcmHh">时段</th><th style="width:47%" data-page-node-id="FAD91HJGwdiDhfCZc0v9QB">正课内容</th><th data-page-node-id="lL2AQ2vrOZIizXxp1IZJpl">实操与产出</th></tr></thead>
+          <tbody data-page-node-id="1OFEx80idsHrlt8C94mPlN">
+            <tr data-page-node-id="etOiVO1obFwZ8EAeeFvLsu">
+              <td data-page-node-id="cl4Hi8AmyJnix055xjg5yT"><span class="day" data-page-node-id="YfESGYauSHXAdz9BuzUhqY">周一</span></td>
+              <td data-label="正课内容" data-page-node-id="EE7S0wyPteB1jIAjFSBKOf"><span class="lesson" data-page-node-id="XRefe1VYGQSwbRfFDJtNfY">模型能力边界与选型方法论</span><span class="lesson-sub" data-page-node-id="GPrFkOUEqHpDmCe5BGViyt">国内外主流模型横评（GPT / Claude / Gemini / DeepSeek / Qwen / GLM）；能力-成本-延迟三角；选型决策树：什么场景用什么模型、什么时候用小模型</span></td>
+              <td data-label="实操与产出" class="hw" data-page-node-id="zYChREoEf8lD0NqgV4ecgl"><b data-page-node-id="rI08TEzwYGOigi4eauMrBS">《模型选型决策树》</b>+ 自测实验记录（同任务 3 个模型对比）</td>
+            </tr>
+            <tr data-page-node-id="moThlXF2dinA0IllxS7QmC">
+              <td data-page-node-id="exeU9wPK9ZKApi7Y2WNNKc"><span class="day" data-page-node-id="rdhOuhtCgIxbEMtxN3UAp6">周二</span></td>
+              <td data-label="正课内容" data-page-node-id="ZBvDrXdDbnsB960xjDYnBc"><span class="lesson" data-page-node-id="jjtfpLTntaR71OEBzWF9OL">训练与微调原理（够用原则）</span><span class="lesson-sub" data-page-node-id="DK59nRM86qmz6V2SsR1mX4">预训练 → SFT → LoRA → RLHF 全链路；重点讲清「多数场景不该微调」；微调的数据工程；产品与算法团队的协作接口</span></td>
+              <td data-label="实操与产出" class="hw" data-page-node-id="JytaeD5dU7t0CTtJdOvhJL"><b data-page-node-id="8wLJTNOYzNws7dcE3B449b">微调必要性判断清单</b> + 一次 LoRA 微调旁观实验记录</td>
+            </tr>
+            <tr data-page-node-id="mddZ1v7KDKXIIcGQ2TfNpS">
+              <td data-page-node-id="TVWbAXPzJXixNRgxwcyCMG"><span class="day" data-page-node-id="ETkFY2XwKKCiJaKqOmwNNR">周三</span></td>
+              <td data-label="正课内容" data-page-node-id="gtFLkO80oztrB9ZVHlZK7c"><span class="lesson" data-page-node-id="RpOaR9vUMnfH62buGWX8CC">模型评测体系（AI PM 核心硬功）</span><span class="lesson-sub" data-page-node-id="zDOBEvVpFD3VMTk9HLAd3W">Benchmark 概览与局限；产品侧评测集构建方法；人工评测与 LLM-as-Judge；badcase 归因分析；评测报告写作</span></td>
+              <td data-label="实操与产出" class="hw" data-page-node-id="Hnzj00TGhqhoGgiSAuqecY"><b data-page-node-id="hGgizV7LbDtujdQOAUvWuc">真实场景评测集 ≥50 条</b> + 《模型评测报告》模板（主项目直接复用）</td>
+            </tr>
+            <tr data-page-node-id="a2mGjb8PtCdgOmT22PsFQu">
+              <td data-page-node-id="3E65FxDRQa73Lv2B5IqhoB"><span class="day" data-page-node-id="jiyErqbSRj5Ab8rjLDtCFa">周四</span></td>
+              <td data-label="正课内容" data-page-node-id="HP8nhMJ46oOmx4pG9Nmuqj"><span class="lesson" data-page-node-id="2PQuri0DhkLCsjUx1O2XDv">AI 合规与安全（国内岗刚需）</span><span class="lesson-sub" data-page-node-id="uGg2hLTe8JtCLLL8Jr67f0">生成式 AI 服务管理暂行办法要点；算法备案与大模型上线流程；内容安全与审核机制；个保法与数据合规；AI 产品责任边界</span></td>
+              <td data-label="实操与产出" class="hw" data-page-node-id="ldKBhzFYXwEEgU8xsmvUrM"><b data-page-node-id="ZW7GvoxlOawClCHa5vlQNv">《AI 产品合规检查清单》</b>：后续用于主项目每个版本的自查</td>
+            </tr>
+            <tr data-page-node-id="mTeyauL6u3nTV08yboM8wA">
+              <td data-page-node-id="NOP3OP4eihWQxXJIDm5wtO"><span class="day" data-page-node-id="Z1NozvSM8urMYtIvejoaOC">周五</span></td>
+              <td data-label="正课内容" data-page-node-id="DrX82p6w5gNjgX92NpNBJO"><span class="lesson" data-page-node-id="22bBrSxxWIeUcpb59dIFoo">主项目立项启动（里程碑 ①）</span><span class="lesson-sub" data-page-node-id="kZNXXaL6a1NSzPg387bHVG">选题工作坊：行业 × 场景 × 人群三维定题；可行性评估（技术 / 数据 / 合规 / 竞争四维）；立项报告结构与写法</span></td>
+              <td data-label="实操与产出" class="hw" data-page-node-id="NSB178AxAypNVpwLITzvuk"><b data-page-node-id="QwA2i6xnxK0zvWScLySdcI">主项目立项报告</b>：选题 + 目标用户 + 核心场景 + 成功指标，讲师评审锁定，此后不换题</td>
+            </tr>
+            <tr class="row-we" data-page-node-id="uGuGfJUT3oBHCeqVWhVfkc">
+              <td data-page-node-id="EBays12NCDv8AKfT6zTf9y"><span class="day we" data-page-node-id="SWPOr4mV7Us5hO1Z5EMTuT">周末</span></td>
+              <td colspan="2" class="hw" data-page-node-id="BDyVboFajU1FM5YGSgiTbg"><b data-page-node-id="cpr3bRGEuo7319MtYF4vLi">综合输出：</b>模型选型决策树 + 微调判断清单 + 评测集（≥50 条）+ 合规检查清单 + 主项目立项报告</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="week-foot" data-page-node-id="GW3eMKfS2ZdrBTzxqAHBTU">
+        <div class="wf-l" data-page-node-id="61nZGIu2Oq3cUuZrvYUD3Q"><div class="wf-t" data-page-node-id="zrFaSCC7CUhJFaTAthKc2n">验收标准</div>
+          <ul data-page-node-id="CdMuZoCFFhsZ8JXc8dWy7Z"><li data-page-node-id="yMTmBWrWXssTEwPoMbaADL">评测集 ≥50 条且覆盖正例 / 负例 / 边界 case</li><li data-page-node-id="0blWLgzUSO9eNNI7urCt5H">立项报告通过讲师评审（选题不过则周五当天返工）</li><li data-page-node-id="0ur60BZj7BwduESYyXouK6">合规清单可直接用于主项目自查</li></ul>
+        </div>
+        <div class="wf-r" data-page-node-id="ztyOlneav5MZ7kFlkFjmgl"><div class="wf-t" data-page-node-id="eZ81QTPHPwj9w5E4synKKS">岗位能力映射</div>
+          <span class="pill pill-purple" data-page-node-id="oRbfF5h92kR6z4W8pfVxtI">模型评测</span><span class="pill pill-purple" data-page-node-id="cFMebpR1K0HoT8uXysmtrj">技术选型</span><span class="pill pill-purple" data-page-node-id="vU1QTaG6iRoEnwziS5DxPb">合规意识</span><span class="pill pill-purple" data-page-node-id="nQ1YrkM1gagVzkYJK3hOu1">立项能力</span>
+        </div>
+      </div>
+      <div class="coach" data-page-node-id="kZTBxSMCPiubnI9TokglPk"><b data-page-node-id="qEbkkyB5Jz8FPwQO4ZDrM9">讲师提示：</b>评测是 AI PM 区别于传统 PM 的标志性能力，这周的评测集会一直复用到 W6 测试验收；合规课建议请有备案实操经验的企业嘉宾讲 30 分钟。</div>
+    </div>
+
+    <!-- WEEK 3 -->
+    <div class="week" data-page-node-id="NwdIc8pOC8G33SV4uDlFHW">
+      <div class="week-head" data-page-node-id="z10rbDIkC0TiJ5ybcC9g7N">
+        <div class="week-no" style="background:linear-gradient(135deg,#2563EB,#1D4ED8)" data-page-node-id="UKbRpWiBTiRZ2Ado1lznPu"><span class="w" data-page-node-id="EF7ZpKcH2wbG9sPIbrDkho">WEEK</span><span class="n" data-page-node-id="2OxIUfd67W4x9LZjemBs0w">03</span></div>
+        <div class="week-title" data-page-node-id="lAFWB4tLvb2XKbD830Ti20"><h3 data-page-node-id="x1IbS4IP2PAuSkCw1S7gvo">Agent 架构与 RAG 产品设计 · 多模态</h3><div class="st" data-page-node-id="vPCNM7U9QZRc05d4bvF9dk">阶段二 · AI 核心能力 ｜ 关键词：Agent / MCP / RAG / 知识库 / 主项目原型（里程碑 ②）</div></div>
+      </div>
+      <div class="week-body" data-page-node-id="fouCKybaACsYRmgSUZXCcO">
+        <table data-page-node-id="fHwDQzQXsGlT1DrLlYiVjy">
+          <thead data-page-node-id="KHKBFZZknjoEB8HQWFyGG5"><tr data-page-node-id="wMhLyzGcQLR3xjYr5ykSUL"><th style="width:64px" data-page-node-id="3bbkRHXuVLYno36OAwSGVh">时段</th><th style="width:47%" data-page-node-id="bzA9XIzTVD6AGSPJRDd7HA">正课内容</th><th data-page-node-id="uyWim2sy0JngucV5YZnNQl">实操与产出</th></tr></thead>
+          <tbody data-page-node-id="nlcitneRYnYNBfy9WiuSga">
+            <tr data-page-node-id="jCpVALa33D3JyKoWAcoqx7">
+              <td data-page-node-id="pTlpfB7FnPACfEtIpgkMgf"><span class="day" data-page-node-id="KbFFkdvdrsiIkUX4DnSAxf">周一</span></td>
+              <td data-label="正课内容" data-page-node-id="RPSW0UKza5erDrOqT2Mvtl"><span class="lesson" data-page-node-id="mAGQlwHDwaHy3eZFAlDNMu">Agent 架构原理</span><span class="lesson-sub" data-page-node-id="oeeADWwYIC6RQCrRpnUfCW">Agent 四要素：规划 / 记忆 / 工具 / 执行；ReAct 与反思机制；Multi-Agent 协作模式；MCP 协议与工具生态；A2A 前瞻</span></td>
+              <td data-label="实操与产出" class="hw" data-page-node-id="7Hz7z8if4GVM1eaOW1tydG"><b data-page-node-id="96wODcgF7HW8WjdDvOVVPl">主项目 Agent 架构图</b>（自绘，标注每个模块的产品职责）</td>
+            </tr>
+            <tr data-page-node-id="rCup3yo0pHLwMxdW6S7JqN">
+              <td data-page-node-id="zufKpgbMR4Lks5i8GRBFBF"><span class="day" data-page-node-id="GFybP1KbAtiwoEHnCuuSPP">周二</span></td>
+              <td data-label="正课内容" data-page-node-id="OewVuOC6ok58U6Fn4mnF0u"><span class="lesson" data-page-node-id="EtbWXpbLldrDe8DiBeyBqE">Agent 产品设计与工作流实操</span><span class="lesson-sub" data-page-node-id="1UAndj85SrGiOZSfK2iA31">场景适配判断：什么该用 Agent、什么该用固定工作流；Dify / Coze 实操：搭一条带工具调用的工作流；人机协同与接管设计；失败兜底策略</span></td>
+              <td data-label="实操与产出" class="hw" data-page-node-id="5vlqYEHeGdeb2kEi8g3c98"><b data-page-node-id="lsDO5TAzkFz39bxnFmIrtG">主项目 Agent 工作流原型</b>（Dify / Coze，可实际运行）</td>
+            </tr>
+            <tr data-page-node-id="2gDE8TWsybRtGX3h6gxCVo">
+              <td data-page-node-id="VMj3KVSgT1HGC7vRZk3rpL"><span class="day" data-page-node-id="BamkXTZ6QsUxkVUK7AxcYq">周三</span></td>
+              <td data-label="正课内容" data-page-node-id="W3Cuc9m2yUuTjb0BDuU4qK"><span class="lesson" data-page-node-id="Dp7s2G0qII7HXt67lDx5F9">RAG 架构与知识库产品</span><span class="lesson-sub" data-page-node-id="4CGK7ir7cQXUjeER0U9v2K">RAG 全链路：解析 → 分块 → Embedding → 检索 → 重排 → 生成；文档解析难点与选型；知识库产品设计（权限 / 更新 / 溯源）；RAG vs 微调决策框架</span></td>
+              <td data-label="实操与产出" class="hw" data-page-node-id="hVCu1gFUm8jdyGSF6T9FpH"><b data-page-node-id="nDGLlnbBiyDxLKC9GhyS2v">主项目知识库原型</b> + RAG 全链路图（含每层可调参数）</td>
+            </tr>
+            <tr data-page-node-id="lZxVa7bACqZdeneX7mHOWt">
+              <td data-page-node-id="8SMSUMPMbCftIBE3bGhLpw"><span class="day" data-page-node-id="nvVPyow2FQ69Rwzc6dmszl">周四</span></td>
+              <td data-label="正课内容" data-page-node-id="EC3F3Wnqkp6HSMscXODmLg"><span class="lesson" data-page-node-id="mpniHoJF3fIBTOG7qwHiED">多模态产品设计</span><span class="lesson-sub" data-page-node-id="aka2J4ravgj7B8BCwOAwgY">文生图 / 视频 / 语音 / 数字人产品形态；多模态交互设计要点；成本与体验权衡；版权与合规要点</span></td>
+              <td data-label="实操与产出" class="hw" data-page-node-id="bvBcBLe2yKdyesnEj6sujM"><b data-page-node-id="CJNqswfJBnDJQXGgFdZJHn">主项目多模态模块方案</b>（一个功能级设计，含成本测算）</td>
+            </tr>
+            <tr data-page-node-id="7hskdoAA600oboQfD7V6El">
+              <td data-page-node-id="4IsgFYufURNEe1fs5y2RNJ"><span class="day" data-page-node-id="Li5rEz6H6o94wvZd6fW9iV">周五</span></td>
+              <td data-label="正课内容" data-page-node-id="4ZPmicvERE64QMIrIatX9V"><span class="lesson" data-page-node-id="2tRyJXpaURGLbvNm20jezg">原型评审 I（里程碑 ②）</span><span class="lesson-sub" data-page-node-id="QACflGHAR1DHmKAniD7vB9">小组原型互评；讲师按「用户价值 / 技术可行 / 体验」三维点评；输出迭代清单</span></td>
+              <td data-label="实操与产出" class="hw" data-page-node-id="AC2VmC1ClRTmyeNL83jHKF"><b data-page-node-id="tI9zlRz1fBFHCVDjqCsNcJ">主项目原型 V1.5 迭代计划</b>；路演彩排：3 分钟讲清产品架构</td>
+            </tr>
+            <tr class="row-we" data-page-node-id="IGgQjA3NbjvBBDpXlOGeiT">
+              <td data-page-node-id="kR35Twq5wsacM4g1PJGig0"><span class="day we" data-page-node-id="t3uGGBPPQl7jlEai9FRsDo">周末</span></td>
+              <td colspan="2" class="hw" data-page-node-id="Wz03rd9mCko6RqsF9gCzbs"><b data-page-node-id="HOUD0mGvgqFpHmZHPH30FU">综合输出：</b>Agent 架构图 + 工作流原型 + 知识库原型 + RAG 链路图 + 多模态模块方案 + 迭代计划</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="week-foot" data-page-node-id="5yjYmx0g7E8KbEIiZVzkk0">
+        <div class="wf-l" data-page-node-id="Z6J7IsNJflPpx4mSrSXdAH"><div class="wf-t" data-page-node-id="v0Nlq1DqA6XwhEcHJg6VDF">验收标准</div>
+          <ul data-page-node-id="thlmGA5PtURsck0axBgidn"><li data-page-node-id="FTTpa4oNVt5QF9kpXrvg37">原型可现场演示，且能向工程师讲清技术链路</li><li data-page-node-id="s23Z6EuT0BgyKlKfrJCFE0">架构图体现「Agent 还是工作流」的判断依据</li><li data-page-node-id="LAejVNZJXdqhkO6lsUJ8GC">知识库含真实文档 ≥20 份，非空壳</li></ul>
+        </div>
+        <div class="wf-r" data-page-node-id="0avKjRQVPpPvXcvCKQ415s"><div class="wf-t" data-page-node-id="Nk1bLaQRAYWKsvJK1LaUvx">岗位能力映射</div>
+          <span class="pill pill-blue" data-page-node-id="LEdguAzyYc5lqZW8yTRRxO">Agent 产品设计</span><span class="pill pill-blue" data-page-node-id="N8xNN3diZIkNSNRpB929Ct">RAG 架构</span><span class="pill pill-blue" data-page-node-id="PHbjYC3ZvQ4PQFEDjipLIf">多模态</span><span class="pill pill-blue" data-page-node-id="rDt66mFOuqqdI4CxZEDsFt">原型能力</span>
+        </div>
+      </div>
+      <div class="coach" data-page-node-id="hjbOmt41tNKhzrYRRYTtKw"><b data-page-node-id="XZrbMOKkcKy1r7qVPaskbm">讲师提示：</b>这周起技术内容全部绑定主项目——不再教「怎么搭一个 Agent」，而是教「我的产品需要哪种 Agent」。建议配备 1 名助教专攻 Dify / Coze 环境问题。</div>
+    </div>
+
+    <!-- WEEK 4 -->
+    <div class="week" data-page-node-id="R425oYHaHrM2lCxi54pJmr">
+      <div class="week-head" data-page-node-id="Psb9bPtTzyJb2uQ9v6dsXV">
+        <div class="week-no" style="background:linear-gradient(135deg,#2563EB,#1D4ED8)" data-page-node-id="JfiGTsmaN2VOG3SokMywaY"><span class="w" data-page-node-id="eWSxBgccIqqSpA5gEOdSJ4">WEEK</span><span class="n" data-page-node-id="jB2Ra58tP7D2uXTl6kCepf">04</span></div>
+        <div class="week-title" data-page-node-id="2ya4Nyl1UYEZj4kARi61vK"><h3 data-page-node-id="wkKiI9m5KoIeAnQv07ZYQD">用户研究 · 需求分析 · AI 产品 PRD · 指标体系</h3><div class="st" data-page-node-id="ovKHUaK4eTTdWikD7Sz6ZX">阶段三 · 产品硬功 ｜ 关键词：用户访谈 / 需求真伪 / PRD / 兜底设计 / SQL / 里程碑 ③</div></div>
+      </div>
+      <div class="week-body" data-page-node-id="rZrfj5BHlmqgQYMkE9v4vy">
+        <table data-page-node-id="Hr1vsyVBe1OLolbU2e6ce5">
+          <thead data-page-node-id="M69eTt5fZgZkqx6qlj3gfF"><tr data-page-node-id="YkJCMINsfN8XBS1hDBcCMD"><th style="width:64px" data-page-node-id="E2ngOhhTQmXTSWvbJLSfTS">时段</th><th style="width:47%" data-page-node-id="l9PQZK9aR3WPBCy1icb7X9">正课内容</th><th data-page-node-id="VcMiLzPGUG6BbtF8fdpGyF">实操与产出</th></tr></thead>
+          <tbody data-page-node-id="QgL41VTVPBhBFT8VJ045al">
+            <tr data-page-node-id="Nky9s0CjmObXABEtxqC1qI">
+              <td data-page-node-id="khdhlFYUjvgOkL6FaWu8U1"><span class="day" data-page-node-id="vc9ZbiJ1YYMrm2sb0zJD6C">周一</span></td>
+              <td data-label="正课内容" data-page-node-id="V8vYrSFuFVTJslzQSPBub6"><span class="lesson" data-page-node-id="W4ZBXLSDmiOJQ0hI15nx5Z">用户研究与需求分析</span><span class="lesson-sub" data-page-node-id="wbCtR0AGUoFKJW00Cli59Z">AI 场景用户访谈方法；场景还原与需求真伪判断（痛点-场景-现有方案-替换成本）；问卷设计与投放（腾讯问卷实操）；KANO / RICE 优先级</span></td>
+              <td data-label="实操与产出" class="hw" data-page-node-id="tgwNH6XHShFmwAAyrsFZvw"><b data-page-node-id="Ijlxs2XATpryuEx3rx8HXG">主项目用户调研报告</b>：≥5 个真实访谈 + 问卷 ≥30 份有效样本</td>
+            </tr>
+            <tr data-page-node-id="Rrac0qVBBmmRge6UUru4KO">
+              <td data-page-node-id="mSQCfKBNMDI1Vku1tdya87"><span class="day" data-page-node-id="IrwyRQYXWyBCfOCr31PGcW">周二</span></td>
+              <td data-label="正课内容" data-page-node-id="wGZzOXrhnpwlBgjkT4W8S7"><span class="lesson" data-page-node-id="OmoXPHALzsvrYr8rAoBlBj">AI 产品 PRD 写作</span><span class="lesson-sub" data-page-node-id="5sugDAHyhzdeiIbanKUxvD">AI 产品 PRD 与传统 PRD 的 5 处差异：评测标准 / 容错兜底 / 幻觉控制 / 成本预算 / 数据回流；主项目 PRD 逐章写作</span></td>
+              <td data-label="实操与产出" class="hw" data-page-node-id="lVc97GartfKfUsfhnE90ge"><b data-page-node-id="9dzRfIlEoNd9iLOfSvgU06">主项目 PRD V1.0</b>（完整版：背景 / 目标 / 功能 / 评测 / 兜底 / 指标）</td>
+            </tr>
+            <tr data-page-node-id="5tcqwHBlub1OGtc1Hmz6AJ">
+              <td data-page-node-id="VQXcd9E20dJYHtqttgZ3nq"><span class="day" data-page-node-id="ttrMAvbG9fGnyoEGILVgfu">周三</span></td>
+              <td data-label="正课内容" data-page-node-id="19VKm0PhBuszIW4hbRgeoR"><span class="lesson" data-page-node-id="cejysOWa1e74gzOsDAdKlo">方案设计与异常兜底</span><span class="lesson-sub" data-page-node-id="Xj390gd6Oco6MQz5GObYeZ">功能结构图 / 流程 / 状态机；AI 产品「翻车」设计：降级 / 澄清 / 拒答 / 转人工；Prompt 作为需求的一部分来管理</span></td>
+              <td data-label="实操与产出" class="hw" data-page-node-id="zJV9TVRzQ311vXaw2XFBhh"><b data-page-node-id="eB2nQqvl0TGUqBFhNuO3hx">异常与兜底设计文档</b> + 核心业务流程图 / 状态机</td>
+            </tr>
+            <tr data-page-node-id="R9lew7HjeLomRpEB2BKNwY">
+              <td data-page-node-id="tFwFhapVTEvYJQHg46S3F2"><span class="day" data-page-node-id="COVMMzivGvjtxLyGN5q77J">周四</span></td>
+              <td data-label="正课内容" data-page-node-id="3d7FFYU2dnJpeXygSfu0fS"><span class="lesson" data-page-node-id="KwpE1dANP5qJOcJ8n621vF">数据指标体系与 SQL 实战</span><span class="lesson-sub" data-page-node-id="SZDWBsl3wDycsjLDt9Di7C">AI 产品特有指标：采纳率 / 解决率 / 幻觉率 / 留存 / 单次成本；北极星指标设计；SQL 从 0 到查询实战；用数据讲故事</span></td>
+              <td data-label="实操与产出" class="hw" data-page-node-id="gD2ARwSAYu3KED18LQsKFO"><b data-page-node-id="qaVsTEPd8skhqi0lM3KTc9">主项目指标看板设计</b> + SQL 练习题 ≥10 题（真实数据集）</td>
+            </tr>
+            <tr data-page-node-id="vXfwEWFGNyXl1t0bOozdve">
+              <td data-page-node-id="xTrCwNTnoqsHyGbGQi9gB4"><span class="day" data-page-node-id="fG8zuCTpsoRRvxQ5Yg3JKR">周五</span></td>
+              <td data-label="正课内容" data-page-node-id="67UqtGo0fbddme9TBpWX4O"><span class="lesson" data-page-node-id="ERZ6yntaKX2PDVfFXHc5xt">PRD 评审大会（里程碑 ③）</span><span class="lesson-sub" data-page-node-id="MBfvjkLARrQMyz0qP65oPg">PRD 评审流程与答辩技巧；小组交叉评审 + 讲师终审；研发评估模拟：估时、排期与风险</span></td>
+              <td data-label="实操与产出" class="hw" data-page-node-id="wzOFWj1RMDNDkqkBMX2Mue"><b data-page-node-id="dn7gLomt5AzezzXTdzd9Eo">主项目 PRD V2.0（过审版）</b>；每人完成一次 5 分钟评审答辩</td>
+            </tr>
+            <tr class="row-we" data-page-node-id="IpV7DVoEttEbLvw5wi4cd6">
+              <td data-page-node-id="XsYXD2mmIudaRgROFg3Zat"><span class="day we" data-page-node-id="jciNknlcSfcrn1dSIE2l0n">周末</span></td>
+              <td colspan="2" class="hw" data-page-node-id="pPEMRt1pBo5VqSrpApBf2P"><b data-page-node-id="SEvijcZpnXyGGWfAtpl91j">综合输出：</b>用户调研报告 + PRD V2.0 + 兜底设计文档 + 流程图 + 指标看板 + SQL 练习</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="week-foot" data-page-node-id="kgZgs8XEiHCeTWYLeyRfSt">
+        <div class="wf-l" data-page-node-id="UPGNERAizmZMEwsyLzAiJy"><div class="wf-t" data-page-node-id="yNC9TotX2WHqdU5J5zNlLf">验收标准</div>
+          <ul data-page-node-id="vGWd5vu8GADnfGaEK5XKKU"><li data-page-node-id="xIr13XsoiotsmzUgl0vvDw">调研为真实样本：访谈 ≥5 人、问卷 ≥30 份（禁止编造）</li><li data-page-node-id="syDGfSASMhguGTPCNGi6Ip">PRD 通过交叉评审与讲师终审双过关</li><li data-page-node-id="kuF9JfZNpkLwTb1PXbWPDC">SQL 练习 10 题全对或讲清错因</li></ul>
+        </div>
+        <div class="wf-r" data-page-node-id="AsIg8r7CGPoGiqkrrLSomd"><div class="wf-t" data-page-node-id="4AUYmSw2fgfYjm7wNnKnh0">岗位能力映射</div>
+          <span class="pill pill-blue" data-page-node-id="KiFX8Zm1ERUgxcDBx1dTdP">需求分析</span><span class="pill pill-blue" data-page-node-id="QCJ9fpkfpldgIO7q8tYB5H">PRD 撰写</span><span class="pill pill-blue" data-page-node-id="NxLkxQhCAijwwOi547SBjE">数据思维</span><span class="pill pill-blue" data-page-node-id="l3IitXtxJlEuvof4w86cMh">评审答辩</span>
+        </div>
+      </div>
+      <div class="coach" data-page-node-id="cPcHuEO3cMmJ2swQDMRqcK"><b data-page-node-id="csbmWtpPHF2pvFWdSSr0Y1">讲师提示：</b>这是全程最考验产品基本功的一周，也是面试拉开差距的一周。PRD 模板建议直接采用互联网大厂风格（背景-目标-方案-指标-风险），让学员提前适应企业语境。</div>
+    </div>
+
+    <!-- WEEK 5 -->
+    <div class="week" data-page-node-id="IGlLt3nT0VKygZ1dowGH4F">
+      <div class="week-head" data-page-node-id="LN7kImiuHVUPC85Qx7lTFW">
+        <div class="week-no" style="background:linear-gradient(135deg,#0E7490,#155E75)" data-page-node-id="CfKjvcNqR7U841G95BJChG"><span class="w" data-page-node-id="4bDPhGWYQTF0AuGsWB9h7u">WEEK</span><span class="n" data-page-node-id="XLCqHRKOY9okoZwY8hXzaE">05</span></div>
+        <div class="week-title" data-page-node-id="pO13gCVsDaZPZYa47ta8l4"><h3 data-page-node-id="qGiVYOZyn4CI2nP1EBLLqe">增长 · AB 实验 · 商业化 · 项目推进</h3><div class="st" data-page-node-id="mXisHAqz5VbqUnuOe1rmaA">阶段三 · 产品硬功 ｜ 关键词：AARRR / 实验设计 / 定价 / token 成本 / 里程碑 ④</div></div>
+      </div>
+      <div class="week-body" data-page-node-id="Z2I4gYuxG1lDBGdUgOrK4s">
+        <table data-page-node-id="oFDCj2ywMV8aFklrXtnR3B">
+          <thead data-page-node-id="2yC3cJCjjNO3xDAlZCdPd4"><tr data-page-node-id="jEhYdBcNRdmrWDwnt567YO"><th style="width:64px" data-page-node-id="KBnw7TXacwclKLk4akY42R">时段</th><th style="width:47%" data-page-node-id="DsFfWttnt9bFHV19b3EvqZ">正课内容</th><th data-page-node-id="HikhfeLCkGch0vGqBYHmJv">实操与产出</th></tr></thead>
+          <tbody data-page-node-id="mgiy34sb9yez4bXvfPXVV5">
+            <tr data-page-node-id="F67gA7d7J2dh26UlFG1J2Q">
+              <td data-page-node-id="NXS6NEmn2TQbNkxhpXnzqQ"><span class="day" data-page-node-id="z1m8EXUSHFPGYMv87DC6S0">周一</span></td>
+              <td data-label="正课内容" data-page-node-id="Me4ynGjpjRUT1ArsWxWirW"><span class="lesson" data-page-node-id="K2enUpwOQnPzDr1aZvZoCC">AI 产品增长</span><span class="lesson-sub" data-page-node-id="3xbRmfIhGScX5vhNCEoZ6k">AARRR 在 AI 产品的落地；激活与留存——AI 产品的 aha 时刻；PLG 模式；冷启动策略；裂变与邀请机制</span></td>
+              <td data-label="实操与产出" class="hw" data-page-node-id="jpJlH4G4IAzCa3DMOpKA30"><b data-page-node-id="Y0gNhDB2FXUpuv87lu4BEU">主项目增长方案</b>：含冷启动计划与前 1000 用户路径</td>
+            </tr>
+            <tr data-page-node-id="edUMnBtqz5fpKJs2TrUfQC">
+              <td data-page-node-id="7QIvVNYhmWslFSaa5h1Qq4"><span class="day" data-page-node-id="i3PFNwfP1egGCnI8S6JqQB">周二</span></td>
+              <td data-label="正课内容" data-page-node-id="iTM63lE2zATNVcW3oBmDzK"><span class="lesson" data-page-node-id="FnGVwvV4tcJ217ynhUPdbw">AB 实验与数据决策</span><span class="lesson-sub" data-page-node-id="MAk7UPPJAFWQgBawDsdzBU">实验设计：假设-指标-样本量-周期；常见陷阱（偷看指标 / 辛普森悖论 / 多重比较）；结果解读与决策；没有实验条件时怎么做数据决策</span></td>
+              <td data-label="实操与产出" class="hw" data-page-node-id="Me77glOgkwUohjDzhOVV5w"><b data-page-node-id="Arlq98kCoKAoa6pqqC0b2C">主项目 2 个 AB 实验设计方案</b>（假设、指标、样本、周期四要素齐全）</td>
+            </tr>
+            <tr data-page-node-id="1kRBiR9TVNQHHQEETj0dyR">
+              <td data-page-node-id="65sB708VviQo2Gu7uAeEjW"><span class="day" data-page-node-id="2WInYQRR5Ndqi9wGp9VYJw">周三</span></td>
+              <td data-label="正课内容" data-page-node-id="FnuHB1iaCzRYGGgMur15a1"><span class="lesson" data-page-node-id="r340jSCjVGwsqJA926LoOd">AI 商业化与成本核算</span><span class="lesson-sub" data-page-node-id="a6UeW1eTjGIHyIO2YFUS9L">四大变现模式：订阅 / 按量 / 席位 / API；token 成本核算模型；定价策略与心理账户；毛利视角与规模化路径</span></td>
+              <td data-label="实操与产出" class="hw" data-page-node-id="YJKTIiclg0EeWSL38zFWGW"><b data-page-node-id="FcremwjOJQgHCSii4whnX9">主项目商业模式画布</b> + 单位经济模型（LTV / CAC / 毛利测算）</td>
+            </tr>
+            <tr data-page-node-id="rwTPE6tPQPMdSzeQzUzSHw">
+              <td data-page-node-id="H63vEsd4h4cZF7CX7AmrPN"><span class="day" data-page-node-id="bSakDkm4ldWcNylKG5VNEo">周四</span></td>
+              <td data-label="正课内容" data-page-node-id="f9Tf7SI2ja3bVYNu7ahrSA"><span class="lesson" data-page-node-id="NCtG6v4rkMmUM6PEFV8cl4">项目推进与跨团队协作</span><span class="lesson-sub" data-page-node-id="gt4f9McB8prAElUctscDpf">AI 项目研发流程（算法 / 工程 / 产品三角协作）；里程碑与风险管理；向上汇报（周报 / 月报结构）；跨部门推动话术</span></td>
+              <td data-label="实操与产出" class="hw" data-page-node-id="gWoJuEYbNaVFaFVAsbhBfZ"><b data-page-node-id="kymiXBSWzcf4EGpnkDslVf">主项目甘特图 + 风险清单</b> + 一次向上汇报演练（3 分钟）</td>
+            </tr>
+            <tr data-page-node-id="Aa8PGtPuxTBFBoX0wbknO0">
+              <td data-page-node-id="xNbF5Xs6AZImdHDD0F5lHJ"><span class="day" data-page-node-id="NgPvmXP2o1Qr4XhoKAsoQW">周五</span></td>
+              <td data-label="正课内容" data-page-node-id="VnxVVngUdGBHNZEmpAt9RF"><span class="lesson" data-page-node-id="vOFOEtTKsU7oFNRNBCHIK5">主项目中期评审（里程碑 ④）</span><span class="lesson-sub" data-page-node-id="EHnCD1suREp1CIPrmQGn7i">中期答辩：PRD + 商业画布 + 增长方案；「投资人视角」提问模拟；确定终版需求范围</span></td>
+              <td data-label="实操与产出" class="hw" data-page-node-id="Bsu4j9kZTbNZJdaPcAME0c"><b data-page-node-id="Umf7nKu4AoyjEmwDoDDwMd">主项目终版需求范围（V3 Scope）</b>：砍掉什么、保留什么、为什么</td>
+            </tr>
+            <tr class="row-we" data-page-node-id="V4yeN1HS2diA5FCErJtk0I">
+              <td data-page-node-id="LStf1NpLiBt2pcC0YH1VUp"><span class="day we" data-page-node-id="UvghLvFj4FY7a0fsT1s0hQ">周末</span></td>
+              <td colspan="2" class="hw" data-page-node-id="vj1Oj3H5tX9qz6jVnn1x65"><b data-page-node-id="U4wmf9uj9nBHtf3JdrhkHJ">综合输出：</b>增长方案 + 2 个实验设计 + 商业画布 + 单位经济模型 + 甘特图 + 风险清单</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="week-foot" data-page-node-id="IPURD6RLAmAqPDkxcssAzw">
+        <div class="wf-l" data-page-node-id="IRHYIfFfD12nKEjFfEDTuC"><div class="wf-t" data-page-node-id="8nSIV6Gp1pcvCxWymGs8Ch">验收标准</div>
+          <ul data-page-node-id="Ut5cMaAzaF7z4hJ5fFgvph"><li data-page-node-id="54LclZz5TfC5CjNoyAMQgf">商业画布九要素完整，单位经济模型数字可复算</li><li data-page-node-id="mNcsyFkOxgcFs7gsAzVMrd">中期答辩通过，V3 Scope 获讲师确认</li><li data-page-node-id="udAxFWREiCsuXA58b8DPDB">增长方案含可执行的前 4 周动作</li></ul>
+        </div>
+        <div class="wf-r" data-page-node-id="T4emUABXBRyU1GtPIasDL6"><div class="wf-t" data-page-node-id="y3GznKiPva5N47NbMs96ar">岗位能力映射</div>
+          <span class="pill pill-blue" data-page-node-id="eIc3lA1BlQqIdzib8Gji9B">增长策略</span><span class="pill pill-blue" data-page-node-id="Uq3ZEFesZ9DSxH58ld43Tu">商业化</span><span class="pill pill-blue" data-page-node-id="WSAd7f1gi9GXWmbZQw5mJu">项目管理</span><span class="pill pill-blue" data-page-node-id="GMBYyTRjytnPmWSmSfiVwR">汇报表达</span>
+        </div>
+      </div>
+      <div class="coach" data-page-node-id="OJthvucOCfGf9z14GvkZAj"><b data-page-node-id="9wrubCErZ4yQ6nrlwPpVni">讲师提示：</b>token 成本核算是 AI PM 面试高频考点，务必让每个学员亲手算一遍自己项目的单次对话成本；商业画布建议用飞书多维表格模板统一收集，方便横向对比。</div>
+    </div>
+
+    <!-- WEEK 6 -->
+    <div class="week" data-page-node-id="vJIDfpDFrFoTBt9mY2Q1SL">
+      <div class="week-head" data-page-node-id="jdNf8hl6RqH0txx7eMb8lb">
+        <div class="week-no" style="background:linear-gradient(135deg,#0E7490,#155E75)" data-page-node-id="ZJAfqAxYT1mjRZrKfw63Ra"><span class="w" data-page-node-id="NA4vZek87hTubHd2mC3nF5">WEEK</span><span class="n" data-page-node-id="xdj1EUpIalXcGcCaIwhnaF">06</span></div>
+        <div class="week-title" data-page-node-id="P9kOhWC2L7FaclvlFlxZvY"><h3 data-page-node-id="UECMFQoCIkWijaBL2E8nzh">主项目实战：Vibe Coding 与 MVP 闭环</h3><div class="st" data-page-node-id="2WzET1suWyxI7mQZWdG6IN">阶段四 · 实战与就业 ｜ 关键词：Vibe Coding / 国产 AI 工具 / 测试验收 / 路演（里程碑 ⑤）</div></div>
+      </div>
+      <div class="week-body" data-page-node-id="c6y2kMrIQkj0q0ZdJSMvRH">
+        <table data-page-node-id="XFyxSWWEwLpEZWpTIiCAiQ">
+          <thead data-page-node-id="EmJrLZE4jt6BEVWxZ11cgG"><tr data-page-node-id="9o6jbbdMFRLGMZ6WRmJYMg"><th style="width:64px" data-page-node-id="hFFUmHR6ZeCgIhdhBtubTi">时段</th><th style="width:47%" data-page-node-id="Hy3lLC1ZE5DnqnDYod2fbd">正课内容</th><th data-page-node-id="XBBnSv0SOEhqpzuStiNfFw">实操与产出</th></tr></thead>
+          <tbody data-page-node-id="TsODiFRE8cI6uV0Gm1QUPp">
+            <tr data-page-node-id="1ezJKJMgWRHcmvAkHoPABJ">
+              <td data-page-node-id="NWmzmAG2OJI5PhujBcyuSU"><span class="day" data-page-node-id="RnQ5OFHnelv5Do8QH6XuP7">周一</span></td>
+              <td data-label="正课内容" data-page-node-id="AAn6FSNDroSF7FuW2qq79p"><span class="lesson" data-page-node-id="0nTuuEyMDIYf6Zm6AEcZWh">Vibe Coding 与 AI 工程提效</span><span class="lesson-sub" data-page-node-id="ufbfpawaSVOSBZ0gM47qNn">Vibe Coding 方法论与边界；AI 工具规则文件编写（AGENTS.md 等通用规范）；国产工具实战：WorkBuddy / 豆包 / Trae / 通义灵码 / CodeBuddy；MCP 接入；「不写代码做出可演示 Demo」的能力边界</span></td>
+              <td data-label="实操与产出" class="hw" data-page-node-id="BfDBkXhOiacLAXtbIZHYe3"><b data-page-node-id="iUQAsriRHty6DnNeMUwzB3">主项目 MVP 技术方案</b> + 开发环境就绪（国产 AI 工具账号 / 模板）</td>
+            </tr>
+            <tr data-page-node-id="YvQAce0kxlbmPUpLrl8o5e">
+              <td data-page-node-id="Vg4Wqad0MdsBO8FoBc251m"><span class="day" data-page-node-id="nms8pTia2XVBqPJRoTAiCk">周二</span></td>
+              <td data-label="正课内容" data-page-node-id="rcUL8SaG4SWhdU0ukiacIi"><span class="lesson" data-page-node-id="IWXYa7ojYKTdlig6tPApMY">开发冲刺 I：核心链路</span><span class="lesson-sub" data-page-node-id="6ZXgYYupI3FLyfsewPnLJG">主项目核心流程开发陪跑；前后端联调要点；模型 API 接入、限流与降级；当天问题当天清</span></td>
+              <td data-label="实操与产出" class="hw" data-page-node-id="keyu4AC6yF0ghVx0x9kQWM"><b data-page-node-id="upT4B82Kyl6e9NKoGrVjvd">核心链路可运行</b>（输入 → 处理 → 输出全流程跑通）</td>
+            </tr>
+            <tr data-page-node-id="UEGYKXaFeAJs9fEmKJ332g">
+              <td data-page-node-id="bWzkNWs4NTfIU31giQTXcv"><span class="day" data-page-node-id="0L9lxDUWlnL0IHeDeehXDr">周三</span></td>
+              <td data-label="正课内容" data-page-node-id="tpyi6to5AoWpgzxinZYIxu"><span class="lesson" data-page-node-id="96Hq6DkP7fEZIF2vdmYvoa">开发冲刺 II：功能与体验</span><span class="lesson-sub" data-page-node-id="eNBAMZYEfdJwcQwSdrUFQH">功能完善；交互细节打磨；空态 / 错态 / 加载态设计；体验走查清单逐项过</span></td>
+              <td data-label="实操与产出" class="hw" data-page-node-id="1tujmvZQE8GG5TWN9fMdTA"><b data-page-node-id="8XeptSjSA8m0bXZ4WqdITo">功能完整的 MVP</b>：核心功能 100% 可用</td>
+            </tr>
+            <tr data-page-node-id="JIoVmKarueAo1M1bbYjv12">
+              <td data-page-node-id="G8ekhMg6pRxWUZ2X5BJ5fn"><span class="day" data-page-node-id="JDUAlWJMeW5PMZ4ZjjTbpB">周四</span></td>
+              <td data-label="正课内容" data-page-node-id="zV3f0mAmIILy0IkqSet0rh"><span class="lesson" data-page-node-id="6TeJcsdnAHpSAYe8Lhw4u0">测试验收与真实用户试用</span><span class="lesson-sub" data-page-node-id="exJwhHr2XkHlmAMEi7N8di">badcase 收集与修复流程；用 W2 评测集跑分并出报告；埋点方案落地；邀请真实用户试用（≥10 人）并收反馈</span></td>
+              <td data-label="实操与产出" class="hw" data-page-node-id="TcVEKUtOoAsdbSIPHX1hZF"><b data-page-node-id="R0fuoQKBt8QEJ1wmR2IQor">测试报告 + 试用反馈报告</b>（≥10 人，含原声引用）</td>
+            </tr>
+            <tr data-page-node-id="InVQbNASxxVyvpvDAGuXEp">
+              <td data-page-node-id="BfrdAN9IuC43IHDD6C6Eoc"><span class="day" data-page-node-id="9BN763hS0k038fsxventPr">周五</span></td>
+              <td data-label="正课内容" data-page-node-id="WvZXUd9Q5pNI7biCdRYs8m"><span class="lesson" data-page-node-id="HPoxGiMRNCH2IxbFOXo7Ev">主项目结业路演（里程碑 ⑤）</span><span class="lesson-sub" data-page-node-id="iXNASF8uoliM3YveabHtjI">5 分钟路演：演示 + 数据 + 思考；评委答辩（讲师 + 往期学员 + 企业嘉宾）；优秀项目评选与奖励</span></td>
+              <td data-label="实操与产出" class="hw" data-page-node-id="eGt8F2XT9P6nUIL7clzSrR"><b data-page-node-id="iTJVH98kG2jR2fG90HpGdd">路演 PPT + 可访问演示链接 + 项目复盘文档</b></td>
+            </tr>
+            <tr class="row-we" data-page-node-id="vdpPndv9PBmfntaBPKcOZ5">
+              <td data-page-node-id="941Jp0TyNAJZrywPJBcliD"><span class="day we" data-page-node-id="WWyhUICB6HfCGNmWTuHOUE">周末</span></td>
+              <td colspan="2" class="hw" data-page-node-id="XzaF8RTYrZ29TdqWsiqx36"><b data-page-node-id="OnFekRz2zToEwUQIxaJTEb">综合输出：</b>可在线访问的 MVP + 测试报告 + 试用反馈 + 路演材料 + 复盘文档；同步整理项目「数据素材包」（指标、用户原声、前后对比）供 W7 作品集使用</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="week-foot" data-page-node-id="uak52vlyAFwtMHmmwWXTxB">
+        <div class="wf-l" data-page-node-id="nJHc3UyeB6NZsdDmWsLUdI"><div class="wf-t" data-page-node-id="JDrwqrDgvsOlEFzKd6SqO7">验收标准</div>
+          <ul data-page-node-id="6sozaaXpeE8QH0B7Hs4Lu8"><li data-page-node-id="E3cNZmmqy8fv3NSFvpfphi">MVP 可在线演示，答辩环节不翻车</li><li data-page-node-id="HNZsHF802LYEzDv8n2Shl6">真实用户试用 ≥10 人，反馈报告含 ≥3 条有效改进</li><li data-page-node-id="fsfKCRJHFFl1QRfS8ucRv8">路演完成且复盘文档达到「外行能看懂」标准</li></ul>
+        </div>
+        <div class="wf-r" data-page-node-id="irhOAn6tSlXzPqsGkncVCQ"><div class="wf-t" data-page-node-id="k1sJpIes6o8XmJ8YJDW9CF">岗位能力映射</div>
+          <span class="pill pill-cyan" data-page-node-id="FXrybpiKT1I5FH0DbGK5i7">项目闭环</span><span class="pill pill-cyan" data-page-node-id="cYD1Hh1XNCBZZOKGw6K8Rm">数据验证</span><span class="pill pill-cyan" data-page-node-id="ZgKIs3VZW3xWjByggE2tgu">测试验收</span><span class="pill pill-cyan" data-page-node-id="6FOB3pAhYaXVllVaqGnJsh">路演表达</span>
+        </div>
+      </div>
+      <div class="coach" data-page-node-id="f9xalR7eEckQhMQ6njfRAn"><b data-page-node-id="XgtY9r18oe0pU5ku00lQvk">讲师提示：</b>这是全程情绪最高潮，也是口碑传播点——路演建议邀请 2-3 位企业方嘉宾（本地 AI 公司产品负责人），表现好的学员现场拿面试机会；助教配比建议 1:8。</div>
+    </div>
+
+    <!-- WEEK 7 -->
+    <div class="week" data-page-node-id="dGqHB8wo4wZa8k95OZm8qT">
+      <div class="week-head" data-page-node-id="ByXi6uJpiJwVljsFPENTKn">
+        <div class="week-no" style="background:linear-gradient(135deg,#059669,#047857)" data-page-node-id="5KgEYdalcZzcek4kjYmfaM"><span class="w" data-page-node-id="2cxUzGiXkGbJYbjGwUuvxZ">WEEK</span><span class="n" data-page-node-id="f8T9xlVSGft9wnNXNPWvyV">07</span></div>
+        <div class="week-title" data-page-node-id="3RzA2iae9QB86XkFuOFxKa"><h3 data-page-node-id="5OQSoYzDd0FlpmgnMcCMzs">行业纵深 · 作品集打造 · 简历撰写与投递</h3><div class="st" data-page-node-id="DfWwscOeB3ZHdAzCIfsygk">阶段四 · 实战与就业 ｜ 关键词：行业手册 / STAR 改写 / 作品集 / 简历诊断 / 投递漏斗</div></div>
+      </div>
+      <div class="week-body" data-page-node-id="VLkig5ZmNyTFOo9mWhwlbj">
+        <table data-page-node-id="iEd60F9pnDz3wHwLWHXGbu">
+          <thead data-page-node-id="EEbrywiqHep7BQvK8yqPQc"><tr data-page-node-id="zXCqkALFaiiyQEwpFuJp5g"><th style="width:64px" data-page-node-id="1QFmAdPQasqqCzh9lTnwPX">时段</th><th style="width:47%" data-page-node-id="coWz0XvRsoy2NCXLVhjHvt">正课内容</th><th data-page-node-id="9eDFVFLD8sf1UaOpHlxupm">实操与产出</th></tr></thead>
+          <tbody data-page-node-id="OPMXSZncLC30tl9zrnSGBN">
+            <tr data-page-node-id="9suMAEWP0QoNWHOMdUWtIo">
+              <td data-page-node-id="fQRPw2cLeXzBdz4xasZAaz"><span class="day" data-page-node-id="PMaXCjcxRRKE6O3iKRGgGa">周一</span></td>
+              <td data-label="正课内容" data-page-node-id="mhGgUkSwMFlWBduLyWkPqU"><span class="lesson" data-page-node-id="L6YrrK0Y66PXak7W4LPO0U">行业纵深（按赛道分组）</span><span class="lesson-sub" data-page-node-id="XVCXtpMnpALBGZlbBfnHHs">按 W1 所选赛道分组深挖：产业链 / 政策 / 竞品格局 / 典型客户 / 核心场景 / 行业术语表；「行业面试官」视角点评各组</span></td>
+              <td data-label="实操与产出" class="hw" data-page-node-id="EVlCDZO2rPwVrh4eun3YLl"><b data-page-node-id="xSXMt9UALpTG4gAARlaCz2">《行业纵深手册》（个人版）</b>：成为简历与面试的行业底气</td>
+            </tr>
+            <tr data-page-node-id="uqHfpxdQCr5Vi1vUwQCMe0">
+              <td data-page-node-id="wzD7PiewciSpeDtJ0aogIG"><span class="day" data-page-node-id="BPAbFEynDD2rjL3nQGDME2">周二</span></td>
+              <td data-label="正课内容" data-page-node-id="gWYPFt2KzHL78plbCfBj99"><span class="lesson" data-page-node-id="UCZ3XLfE1fF8wfDdFJbr5c">作品集方法论</span><span class="lesson-sub" data-page-node-id="bG01byyoMpAbLVkf2bNknX">作品集三种形态：项目复盘文档 / 在线演示 / 产品分析集；STAR 法则改写项目经历；数据呈现与图表美化；主项目复盘写作</span></td>
+              <td data-label="实操与产出" class="hw" data-page-node-id="v2KEnTPpxQ7wDxJAi5rqpT"><b data-page-node-id="1FzW2FTpW6ji5v71SiIuDg">主项目深度复盘文档</b>（作品集核心件：背景-动作-数据-思考）</td>
+            </tr>
+            <tr data-page-node-id="c0qQSvk5woXNFp24V01uEC">
+              <td data-page-node-id="f1Dd8dbvbiMFyfBKhsZ7Mt"><span class="day" data-page-node-id="8kNOJD8qccBu6hwjFPyZ3J">周三</span></td>
+              <td data-label="正课内容" data-page-node-id="CVhW4mH1MtdjqQGFKkvNBM"><span class="lesson" data-page-node-id="mxU42iGCEoN7aB6wJmNXzv">简历撰写</span><span class="lesson-sub" data-page-node-id="5UT1il7RpoNH00a0KIpOOd">AI PM 简历黄金结构；项目描述公式（背景-动作-数据结果）；关键词与 ATS 优化；转行叙事策略；简历自检清单 20 项</span></td>
+              <td data-label="实操与产出" class="hw" data-page-node-id="vDCkH7KNkd7qBqcGmeSKVg"><b data-page-node-id="0vBvv1qYq1SIxCRN9T1lCh">简历 V1</b>：按机构模板完成，主项目放黄金位</td>
+            </tr>
+            <tr data-page-node-id="TaW3EYNLXg6aYl1CCgBo3N">
+              <td data-page-node-id="BhbwdWvO63CqmwByxicEtC"><span class="day" data-page-node-id="bUIljO7zECv3WloLMJ0N5W">周四</span></td>
+              <td data-label="正课内容" data-page-node-id="9GWVi9tH26SIjxMMI3RNC8"><span class="lesson" data-page-node-id="LDDxW5sS2pQyW5OOwmx5GQ">1v1 简历诊断工作坊</span><span class="lesson-sub" data-page-node-id="GgwfNvinZ5DRfeqD44lzSu">讲师逐份修改（每人 ≥20 分钟）；作品集排版与在线化（生成可分享链接）；个人品牌起步：脉脉 / 知乎 / 公众号</span></td>
+              <td data-label="实操与产出" class="hw" data-page-node-id="NO3SuGY1dw1rWDH2tDBS9b"><b data-page-node-id="Ggv3uPiM3RFFjd1WjxAatQ">简历 V2 + 在线作品集链接</b>：达到「可投递」状态</td>
+            </tr>
+            <tr data-page-node-id="gtdFKGeEkDM3rMJw5wAonh">
+              <td data-page-node-id="TqDSqxhnEUDnXBcodcwEoG"><span class="day" data-page-node-id="jLhnGzI3AhtMG1xpJpTc3S">周五</span></td>
+              <td data-label="正课内容" data-page-node-id="0JyhAvNyK6Xp2fTV460QfG"><span class="lesson" data-page-node-id="KRs1QbDwK6HpUsvvrLyPqA">岗位投递策略</span><span class="lesson-sub" data-page-node-id="JjbUIp3eXBA2H4tIkaQc4j">渠道分析（BOSS / 猎聘 / 脉脉 / 内推 / 猎头）与优先级；投递节奏与漏斗管理；打招呼话术模板；跟进修辞；offer 预期管理</span></td>
+              <td data-label="实操与产出" class="hw" data-page-node-id="ilan1cGBN5IhqW3FgbSmBj"><b data-page-node-id="pmXvBOUpsWjA3QobkGwdci">投递计划表</b>：≥50 家目标公司清单（含优先级与渠道标注）</td>
+            </tr>
+            <tr class="row-we" data-page-node-id="XxEwbZhHEFIjLcogzwJ3lW">
+              <td data-page-node-id="WCCiMLfhyZNa3RODnJGyPv"><span class="day we" data-page-node-id="QCZnJamlTLwL3TEnHdYUek">周末</span></td>
+              <td colspan="2" class="hw" data-page-node-id="mCRbBxTjv5Tsjyn3ARMTYA"><b data-page-node-id="9L8Q74hGjrrIpfubEBqenF">综合输出：</b>行业手册 + 作品集（在线链接）+ 简历 V2 + 投递清单；同步启动第一批投递（≥10 家），进入就业追踪漏斗</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="week-foot" data-page-node-id="HDvsCtf3qQsJc6N2ol5bUS">
+        <div class="wf-l" data-page-node-id="yOwhivmbR8YynBnltBRWR9"><div class="wf-t" data-page-node-id="JXEZ3dQck0NqKsVt5AKzGW">验收标准</div>
+          <ul data-page-node-id="GUHo3Iu6FGvdnEAHDrRIOf"><li data-page-node-id="YsilCs4HKr8AOUc5QQxp9F">作品集可分享、外行可读、含真实数据</li><li data-page-node-id="WsU0qalTRj7EbnEmwxhHrp">简历完成 1v1 诊断并通过 20 项自检清单</li><li data-page-node-id="YR0Hr1EAWjM0MG0TUbDJv5">目标公司清单 ≥50 家，首批投递 ≥10 家</li></ul>
+        </div>
+        <div class="wf-r" data-page-node-id="dEs7rwYHjhQSSkp55C4Ymc"><div class="wf-t" data-page-node-id="oN3nbDvIibrcu78Dw8q5Kb">岗位能力映射</div>
+          <span class="pill pill-green" data-page-node-id="zHZQni8yU9rzw1nD4U14wQ">行业纵深</span><span class="pill pill-green" data-page-node-id="feTPwzBrebDK7kzJL4KfRJ">个人品牌</span><span class="pill pill-green" data-page-node-id="MsvQ4OUPxQgdpftrTHRr2X">简历撰写</span><span class="pill pill-green" data-page-node-id="DnbZVoEma0bhms7VX1qnqT">求职策略</span>
+        </div>
+      </div>
+      <div class="coach" data-page-node-id="XjwsL6YGX93glZSrNumuVd"><b data-page-node-id="OGul1JRGWLbSTlI7iVARSw">讲师提示：</b>简历诊断是学员满意度最高环节，务必保证每人 ≥20 分钟一对一；行业分组建议提前找好各赛道的企业导师各 1 名，线上连线 30 分钟即可。</div>
+    </div>
+
+    <!-- WEEK 8 -->
+    <div class="week" data-page-node-id="XehYI33x6TPvEFSFQHdhAb">
+      <div class="week-head" data-page-node-id="ueCvpntsNxCAAEER9JnvBc">
+        <div class="week-no" style="background:linear-gradient(135deg,#059669,#047857)" data-page-node-id="lKz2vrrGNSGXK6TrBUy5g7"><span class="w" data-page-node-id="Xd0dAgEaV1RhdofNzZWYEc">WEEK</span><span class="n" data-page-node-id="8t8tUis9KxDEZPZGUYjIHd">08</span></div>
+        <div class="week-title" data-page-node-id="JymKDcAb95e3lvL8JB8Vot"><h3 data-page-node-id="F4GudgpgwB3UkE1DTHuOuJ">面试通关：题型精讲 · 模拟面试 · 谈薪与结营</h3><div class="st" data-page-node-id="Lh7DapLRjKG6qNFuUgpAbQ">阶段四 · 实战与就业 ｜ 关键词：追问防御 / 场景设计题 / 技术题 / 压力面 / 谈薪</div></div>
+      </div>
+      <div class="week-body" data-page-node-id="y1cbkdcIoMBeyhhr3eXKb9">
+        <table data-page-node-id="DhZtrjb0oZcJNRba10DL8Q">
+          <thead data-page-node-id="DEscxjcAYRER29iqqW6r8q"><tr data-page-node-id="zzQBa5jr8AIa8VzxH724Ga"><th style="width:64px" data-page-node-id="t73sJx9bkFTtokbbYeUqTr">时段</th><th style="width:47%" data-page-node-id="zZAdus5BR4N9la0PjXpUaJ">正课内容</th><th data-page-node-id="CZ1J8dwrWX4v9I82g1rqIY">实操与产出</th></tr></thead>
+          <tbody data-page-node-id="IV9q4VRSR8c449E8FLmo0r">
+            <tr data-page-node-id="fFcKCP9qpANu82ZaIcq9oL">
+              <td data-page-node-id="yFiZv1o4AiWeS4F94OoyM9"><span class="day" data-page-node-id="6ByPTjIxf453ei17SYAwPz">周一</span></td>
+              <td data-label="正课内容" data-page-node-id="oFICx20Yt7bFqb9xj7D6a8"><span class="lesson" data-page-node-id="35aUvTJEYnZ4mEDROB2Sby">AI PM 面试全景地图</span><span class="lesson-sub" data-page-node-id="M5RqKnKMWUzutf7WXpY9gd">面试流程：HR → 业务 → 总监 → 交叉 → HRD 各轮考察点；五大题型地图：项目深挖 / 场景设计 / 技术理解 / 数据 / 开放行为；评分标准揭秘</span></td>
+              <td data-label="实操与产出" class="hw" data-page-node-id="coFKCDoRN4SqbfdLCz3riD"><b data-page-node-id="eTvsRA8hgGk8DQuqGkxnIF">个人面试准备矩阵</b>：按题型盘点弹药与缺口</td>
+            </tr>
+            <tr data-page-node-id="gcpM8nrmWO2fFLPZring0Z">
+              <td data-page-node-id="E1f092RVMqcZtuK2Pp6l8j"><span class="day" data-page-node-id="JvJyh37WvAAEYrFAJRTwTe">周二</span></td>
+              <td data-label="正课内容" data-page-node-id="yN37KmX7f9PX9KvpEpN5as"><span class="lesson" data-page-node-id="KHpG1Ud2TAcVuIsGAyd5GR">高频题精讲 I：项目与场景</span><span class="lesson-sub" data-page-node-id="qTk0GLFfR3CTa30EXFlaQ0">项目深挖题的追问防御链（数据 → 取舍 → 失败 → 复盘）；场景设计题框架：人群-场景-痛点-方案-指标-风险；现场真题 10 道精讲</span></td>
+              <td data-label="实操与产出" class="hw" data-page-node-id="0PEM4OZWJCCE2xA9BmiYqk"><b data-page-node-id="CEhFEd66PoGEw7qEpmCr0M">个人项目问答库</b>：≥20 问，每问写出口述答案</td>
+            </tr>
+            <tr data-page-node-id="g6Lfo9HLpEeENVB8hgoaHz">
+              <td data-page-node-id="wqvejGm9CV2Joa1cb8C0zl"><span class="day" data-page-node-id="cXOzPdcfjTTk3FrjIg4rGJ">周三</span></td>
+              <td data-label="正课内容" data-page-node-id="IokJaa8luZL8n15RzjnzqY"><span class="lesson" data-page-node-id="jAvbBVLTQGxSv0K7n8OTtv">高频题精讲 II：技术与数据</span><span class="lesson-sub" data-page-node-id="mnET0N83LejKHUDygLlPub">技术理解题（RAG vs 微调 / Agent 边界 / 幻觉治理 / 模型选型）；数据题（指标设计 / 异动分析）；开放行为题（STAR 结构化表达）</span></td>
+              <td data-label="实操与产出" class="hw" data-page-node-id="yaQWfTiBfNvcoF3Vr2XD23"><b data-page-node-id="AI8mdPScX9z6H23FVAKcFK">技术 + 数据题库</b>：≥20 问，含参考答案框架</td>
+            </tr>
+            <tr data-page-node-id="QdHZ8bGGvTg0bTBQL1j8gX">
+              <td data-page-node-id="BIBDK8w4IWIMgIyEPi87xM"><span class="day" data-page-node-id="1v5WiU7c7geVCUDQUHbOrB">周四</span></td>
+              <td data-label="正课内容" data-page-node-id="oKKlAGSVxktR1Is77GxOd4"><span class="lesson" data-page-node-id="DXhCknldFBfnLxHJhQzHbE">模拟面试 I（1v1 压力面）</span><span class="lesson-sub" data-page-node-id="hMNW2G0vN23bxUMduHoPGT">一对一压力面试，全程录像；即时复盘：内容 / 表达 / 肢体语言；输出逐条改进清单</span></td>
+              <td data-label="实操与产出" class="hw" data-page-node-id="eYGGLeiIyNLiZiTt2TBstT"><b data-page-node-id="uwSlj9LoC1ZSqw75YUs8Zu">面试录像 + 改进清单 V1</b>：当周内完成整改</td>
+            </tr>
+            <tr data-page-node-id="FKOZ7OU8VRGrUU68h39XQR">
+              <td data-page-node-id="M1yYxEttYGYXwOb4Q8ePax"><span class="day" data-page-node-id="oU72H8rWsjrOzo7HTfslTk">周五</span></td>
+              <td data-label="正课内容" data-page-node-id="eQB2XoRiVJEB5cKN0yHmnV"><span class="lesson" data-page-node-id="rJNfOWJ75mGmOzNDRlyzrW">模拟面试 II + 谈薪 + 结营</span><span class="lesson-sub" data-page-node-id="dQry2302WcZIIlU6snjuT8">二轮定向模拟（专攻薄弱点）；谈薪策略与 offer 选择；背调与入职准备；结营仪式、校友机制与就业追踪说明</span></td>
+              <td data-label="实操与产出" class="hw" data-page-node-id="38yQI74LbabJszlhXw9iUU"><b data-page-node-id="9g5TddOz7wPBxb3jQE1C6j">终版面试表现 + 谈薪方案 + 结业证书</b>；优秀学员获企业推荐信</td>
+            </tr>
+            <tr class="row-we" data-page-node-id="Q7Db7skCn4YsGmwmy1VDbn">
+              <td data-page-node-id="1S3kFXQU8GE13oVGOnTwWW"><span class="day we" data-page-node-id="JWFrnqMy4j0ksgkDb0mp47">周末</span></td>
+              <td colspan="2" class="hw" data-page-node-id="SqzPhjDmRPykuz6ZwMAedf"><b data-page-node-id="QIVXM9HCyF8Cu0zOrokSaK">综合输出：</b>完整面试题库（≥40 问）+ 个人话术库；投递全面启动，进入结营后 3 个月就业追踪期（投递 → 面试 → offer 三级漏斗周报）</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="week-foot" data-page-node-id="hH18mI8XxIKTbtuYCJs1TC">
+        <div class="wf-l" data-page-node-id="2p5pAaNg1ZgvxOkytK4FCn"><div class="wf-t" data-page-node-id="8fOwGlTD2mANg02HLRhC8c">验收标准</div>
+          <ul data-page-node-id="WEZKLMR71GZu3kJb7DpSr1"><li data-page-node-id="FV2YQXfs0ueOSV5lvdC72w">2 轮 1v1 模拟面试全部完成且二轮评分高于一轮</li><li data-page-node-id="WkoHaGDCqReb6LAnel5gQr">面试题库 ≥40 问，项目问答库可脱稿讲 10 分钟</li><li data-page-node-id="ASXpMk9G69JLLJEWfJoCSs">投递启动，进入就业追踪漏斗</li></ul>
+        </div>
+        <div class="wf-r" data-page-node-id="kDwCh9C1JYyHaJvH5RDJh6"><div class="wf-t" data-page-node-id="lkTYcDIH88TCXYJ3BXJAwi">岗位能力映射</div>
+          <span class="pill pill-green" data-page-node-id="pCDSmWE9djJ0G8Lx2m520a">面试应答</span><span class="pill pill-green" data-page-node-id="q3S4WBWJYh9R9UcK2H26Gc">技术问答</span><span class="pill pill-green" data-page-node-id="jCZ93aCTiw8tN5CB8aZhE0">谈薪谈判</span><span class="pill pill-green" data-page-node-id="m6Ryz6fYnTrpqVnKGaxoqn">职业规划</span>
+        </div>
+      </div>
+      <div class="coach" data-page-node-id="3zpj2ifIeatDNkyrAqnnR2"><b data-page-node-id="S6h2fB5ZBWMzJ9AHvljS1R">讲师提示：</b>模拟面试官建议用「非授课讲师」制造陌生感；谈薪课给出各城市 AI PM 薪资带宽参考表（每年更新）；结营不是终点——就业追踪数据是下一期招生的核心素材。</div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 05 配套体系 ================= -->
+<section id="support" data-page-node-id="faKEz6FAJUGEdcgHqXpJgw">
+  <div class="wrap" data-page-node-id="m1lB4bEEbnZSGx2M1gyCzF">
+    <div class="sec-head" data-page-node-id="fnEhMcP0YTeFhdZvbVhczv">
+      <span class="sec-tag" data-page-node-id="NxSFfnAPRy5CDl4kumV7Bc">05 · SUPPORT SYSTEM</span>
+      <h2 data-page-node-id="GiwpHTIBxsBhDp3hWRWOWS">配套体系：让大纲可交付、结果可衡量</h2>
+      <p data-page-node-id="2gqICcb4KasE3EKvThGSbt">大纲只是骨架，真正决定口碑的是这三套配套：学员分层、考核认证、就业服务 SOP。</p>
+    </div>
+
+    <div class="grid-3" data-page-node-id="sim0xi0yKyTBCAQkMQnSiR">
+      <div class="mini" data-page-node-id="OZ55RLH7cZy2TvLym0PEph">
+        <h4 data-page-node-id="ixjPYVGm0AsRCKunELEQzH"><span class="ic" data-page-node-id="1eeqKcUx3Ns49WJBs3Od5g">A</span>学员分层</h4>
+        <ul data-page-node-id="ofYQn1TK6FD5k4i0bS73qP">
+          <li data-page-node-id="vnZdqAb6LpdBnvVBcwgY13"><b data-page-node-id="JDaspf0wwIiBNdZqeYpcfN">转行层</b>（0 基础）：主项目求「完整」——功能不必深，但全链路必须走通；行业选教育 / 电商 / SaaS 等大众赛道，岗位池大</li>
+          <li data-page-node-id="5qE87FkcFPmQC1nVb3IE8Q"><b data-page-node-id="badO0iZ14axni0vvs5UFLX">进阶层</b>（在职 PM / 运营 / 技术）：主项目求「深度」——数据与实验设计做透；行业选本职赛道加深，目标职级跃迁</li>
+          <li data-page-node-id="7vYE52SISgwKwCVAStDQ9h"><b data-page-node-id="kxJgJBOlFN1QDsavdLePAI">分层教学点</b>：同一个大纲，作业 Rubric 分档；进阶层额外承担小组导师角色</li>
+        </ul>
+      </div>
+      <div class="mini" data-page-node-id="C8jrZmKamS0JW3xUG2HINC">
+        <h4 data-page-node-id="Z1B0XHxxld9mffuXzErzpQ"><span class="ic" data-page-node-id="LlrBVIVAlbrKFlU72wHLGq">B</span>考核认证</h4>
+        <ul data-page-node-id="3fLWpLczIVQBwA7kqPdA5f">
+          <li data-page-node-id="YHMnDoYTFfJM5GEU1gATtT"><b data-page-node-id="A0YCANUtIKBgOgsSOOjWO5">每周 Rubric 三档</b>：合格（完成）/ 良好（有数据有思考）/ 优秀（可对外展示）</li>
+          <li data-page-node-id="9lgDqvmWyW3cHn58AdmwPf"><b data-page-node-id="ht4jumaoPMk35yC4Q56oaQ">综合评定</b>：出勤 20% + 周产出 40% + 路演 20% + 面试模拟 20%</li>
+          <li data-page-node-id="tXtyofU5BFfsfuXm6UD32y"><b data-page-node-id="mKGYV5XqTweq76PXzrU1TC">结业产出</b>：结业证书 + 在线作品集 + 主项目演示链接；优秀学员获企业推荐信</li>
+          <li data-page-node-id="GwQBQXtaFwGXEcTFZfrxxN"><b data-page-node-id="LQXXHlaJucfUqLCbYB3594">重修机制</b>：主项目未过验收者免费跟下一期重做</li>
+        </ul>
+      </div>
+      <div class="mini" data-page-node-id="Ad8TBQWkIBOzOOE2um2GjP">
+        <h4 data-page-node-id="clTptCu6Ohl6hXsQXbVDe2"><span class="ic" data-page-node-id="DozLZ7jKThJ1bIE9jbALob">C</span>就业服务 SOP</h4>
+        <ul data-page-node-id="B2sykotC5wYusXGkn6AiU1">
+          <li data-page-node-id="4UECnRksqLx524YoFB7TuD"><b data-page-node-id="EMHBxNYrW3VEIWe1Z2XQwW">物料库</b>：简历模板 ×3 风格 / 面试题库 100 题 / 投递清单模板 / 话术库</li>
+          <li data-page-node-id="EfcVJUjvuV1HS4tQpYrGLO"><b data-page-node-id="61kXdwxZJDA42jl1lsZNLp">投递漏斗追踪</b>：投递 → 面试 → offer 三级，周报跟进到人</li>
+          <li data-page-node-id="2hpmPc8vRaZZNjE5LRWZTN"><b data-page-node-id="Dj8IV5JnAMzv7I4ARJp4ip">内推渠道</b>：签约 ≥20 家合作企业，学员简历直推 HR</li>
+          <li data-page-node-id="6plidHwxnhgiXK9gduHxHC"><b data-page-node-id="V7kC2tPPtx3FT1MU7ks6Xs">跟踪期</b>：结营后 3 个月，每周一次就业状态回访</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 06 讲师路线 ================= -->
+<section id="teacher" data-page-node-id="NZWLYizLwkCKipmRvG7K9a">
+  <div class="wrap" data-page-node-id="gO9zkLaf1kWjPQgNDyw7Fv">
+    <div class="sec-head" data-page-node-id="Dp8JSrEdydw6SFMCFjhQtx">
+      <span class="sec-tag" data-page-node-id="fE1COqQXEPWCkWNnhGhHUs">06 · FOR LECTURER</span>
+      <h2 data-page-node-id="VU6KSv1vdOPr3Hly5TkZGC">讲师备课路线：从大纲到完整课程体系</h2>
+      <p data-page-node-id="ZisjaBEYo6jbY97TuLLAbK">这份大纲是「周级 + 日级」颗粒度。继续往下编写课程体系时，按这 5 步走，避免一上来就埋头做课件。</p>
+    </div>
+
+    <div class="steps" data-page-node-id="bfu9uZQagIRxuliKxPGh4Y">
+      <div class="step" data-page-node-id="yhntHGta5CQ2l73yCAkcKV"><div data-page-node-id="7a7H0HIm8VkgsdbJpbVSiI"><div class="t" data-page-node-id="prdMJzGJNykNJHHmDsf7wt">先备 W1 和 W6，再补中间</div><div class="d" data-page-node-id="dqt2q5XHAHNWwxqfQuDi0N">开营第一课决定完课率，结业路演决定口碑与转介绍——这两周课件质量拉到最高；其余周按「够用就好」原则快速成课，首期班后迭代。</div></div></div>
+      <div class="step" data-page-node-id="MUoO3gw3lIz8w7k4yyHAWu"><div data-page-node-id="icc9IM0HJq66TJBlO2VQM9"><div class="t" data-page-node-id="c5MbKUytUaNtnMkn90uCRO">把每日正课拆成「三件套」</div><div class="d" data-page-node-id="E8r9f456IJvLlkgOy0wNEB">每节课 90–120 分钟 = 40% 讲授 + 30% 案例 + 30% 实操；每课配套：① 知识卡（一页纸）② 案例库（≥2 个真实产品）③ 作业 Rubric（合格 / 良好 / 优秀三档描述）。</div></div></div>
+      <div class="step" data-page-node-id="li70Hs2sW2vn5LTcZJSZ4K"><div data-page-node-id="9CC5xrNQq2IIBbEzZNLRnJ"><div class="t" data-page-node-id="FSXC2mcjpzl0EdgDHcyBhq">案例全部用真实产品，拒绝虚构</div><div class="d" data-page-node-id="B9fAoPCGiHtYBUXHwTpXFZ">每节课拆解市面在跑的产品（国内外各半），沉淀成机构自有案例库——这是课程复利资产，也是竞品抄不走的壁垒。</div></div></div>
+      <div class="step" data-page-node-id="YAFAmf0ulCJlAmi7E8A2Wi"><div data-page-node-id="9TJkj9MS1RBHDr1BtRn0RC"><div class="t" data-page-node-id="QfYWv6baF2p7BdGVzhRWFK">就业物料必须先于开课备好</div><div class="d" data-page-node-id="Dr6yJXKlPMivcuePM02Ld4">简历模板、100 题面试题库、投递清单模板、薪资带宽表，全部在开课前 Ready——W7 直接使用，不要等学员问到了才做。</div></div></div>
+      <div class="step" data-page-node-id="SRglK8pvjsjthrjofIqUar"><div data-page-node-id="MDhItPiZoL2RgrE1IHz7w9"><div class="t" data-page-node-id="rY1fEcFxhWYFf7Vs3jpYVY">建立「试讲 + 首期复盘」双迭代机制</div><div class="d" data-page-node-id="6cgsS5jVYRTB4GqVvpPL4u">开课前内部试讲 2 轮（W1 / W6 优先）；首期班每周五收学员反馈，当晚改课件；二期班前完成大纲 V2.0，把就业数据补进招生素材。</div></div></div>
+    </div>
+  </div>
+</section>
+
+<footer data-page-node-id="ponL2tiF1bqj942VFwjFuH">
+  <div class="rule" data-page-node-id="iVAznMC5ph3rV6DLTAeBCu"></div>
+  <p data-page-node-id="pXQVlTAKQPwor5C85LhBLh">AI 产品经理就业训练营 · 八周体系大纲 V1.0 · 2026-10-21</p>
+  <p style="margin-top:6px" data-page-node-id="vOHiarhbtP2xvVfd4A881Q">本课程大纲及全部课程页面均由新像素教育自主研发 · 仅供教学展示与招生咨询使用</p>
+</footer>
+
+</body>
+</html>

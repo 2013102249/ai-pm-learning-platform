@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 产品经理学习平台 · 8 周训练营</title>
+<meta name="description" content="新像素教育 AI 产品经理训练营学员学习平台：8 周 40 天课程地图、理论与实操、随堂自测、面试备考、作品集里程碑。">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<div class="shell">
+  <aside class="sidebar" id="sidebar">
+    <div class="brand">
+      <div class="brand-mark">AI<span>PM</span></div>
+      <div class="brand-text"><b>AI 产品经理学习平台</b><small>8 周训练营 · 学练验闭环</small></div>
+    </div>
+    <nav class="nav">
+      <div class="nav-group">学习主线</div>
+      <a class="nav-item" data-route="dashboard" href="#/dashboard"><i>◈</i><span>学习总览</span></a>
+      <a class="nav-item" data-route="map" href="#/map"><i>▦</i><span>8 周课程地图</span></a>
+      <a class="nav-item" data-route="learn" href="#/learn/W1D1"><i>▤</i><span>每日学习</span></a>
+      <a class="nav-item" data-route="quiz" href="#/quiz"><i>✎</i><span>随堂自测</span><b class="nav-num" id="navQuizNum">352</b></a>
+      <a class="nav-item" data-route="interview" href="#/interview"><i>◆</i><span>面试备考</span><b class="nav-num" id="navQbankNum">775</b></a>
+      <div class="nav-group">知识资产</div>
+      <a class="nav-item" data-route="glossary" href="#/glossary"><i>◉</i><span>术语速查</span></a>
+      <a class="nav-item" data-route="resources" href="#/resources"><i>▣</i><span>课程资源库</span></a>
+      <a class="nav-item" data-route="portfolio" href="#/portfolio"><i>◇</i><span>作品集里程碑</span></a>
+      <div class="nav-group">我的</div>
+      <a class="nav-item" data-route="progress" href="#/progress"><i>◎</i><span>学习进度</span></a>
+    </nav>
+    <div class="side-foot">
+      <div class="side-progress">
+        <div class="side-progress-top"><span>总体进度</span><b id="sidePct">0%</b></div>
+        <div class="bar"><div class="bar-fill" id="sideBar"></div></div>
+      </div>
+      <p>新像素教育 · AI 产品经理训练营<br>数据源：课程资源包 + 面试备考平台</p>
+    </div>
+  </aside>
+
+  <div class="main">
+    <header class="topbar">
+      <button class="icon-btn menu-btn" id="menuBtn" aria-label="展开导航">☰</button>
+      <div class="crumb" id="crumb">学习总览</div>
+      <div class="top-actions">
+        <button class="search-trigger" id="searchTrigger"><span>⌕</span> 搜索课程 / 题目 / 术语 <kbd>⌘K</kbd></button>
+        <div class="top-mini" id="topMini"></div>
+        <button class="avatar" id="avatarBtn" title="设置学员信息">学</button>
+      </div>
+    </header>
+    <main class="view" id="view"></main>
+    <footer class="footer">
+      <span>AI 产品经理学习平台 · 基于 <a href="https://github.com/2013102249/ai-pm-course-kit" target="_blank" rel="noopener">课程资源包</a> 与 <a href="https://github.com/2013102249/ai-pm-interview-platform" target="_blank" rel="noopener">面试备考平台</a> 构建</span>
+      <span>进度保存在本机浏览器 · <a href="#/progress">导出与设置</a></span>
+    </footer>
+  </div>
+</div>
+
+<div class="overlay" id="searchOverlay" hidden>
+  <div class="search-panel">
+    <div class="search-input-wrap"><span>⌕</span><input id="globalSearch" placeholder="搜索课程、习题、面试真题、术语、资源…" autocomplete="off"><kbd>ESC</kbd></div>
+    <div class="search-results" id="searchResults"><div class="search-hint">输入关键词开始搜索 · 试试「RAG」「评测」「PRD」「Agent」</div></div>
+  </div>
+</div>
+
+<div class="overlay" id="modalOverlay" hidden><div class="modal" id="modalBox"></div></div>
+<div class="toast" id="toast"></div>
+<script src="data/data.js"></script>
+<script src="assets/app.js"></script>
+</body>
+</html>

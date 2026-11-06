@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 产品经理训练营 · 课程资源包</title>
+<style>
+  :root{
+    --purple:#7C3AED; --purple-deep:#5B21B6; --purple-light:#F1EBFD; --purple-border:#DDD2F7;
+    --blue:#2563EB; --blue-light:#E8EFFD; --blue-border:#C9D9F8;
+    --ink:#221E33; --ink2:#4A4560; --muted:#7A7590; --faint:#A5A1B8;
+    --bg:#F7F6FB; --card:#FFFFFF; --border:#E8E5F1; --border-soft:#F0EEF7;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Noto Sans SC","Microsoft YaHei",sans-serif;background:var(--bg);color:var(--ink);line-height:1.65;font-size:14.5px;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:1100px;margin:0 auto;padding:0 20px}
+  .hero{background:linear-gradient(135deg,#2A1B52 0%,#4A2A85 45%,#2B4A9E 100%);color:#fff;padding:52px 0 46px}
+  .hero .badge{display:inline-flex;align-items:center;gap:7px;font-size:11px;letter-spacing:2px;border:1px solid rgba(255,255,255,.35);border-radius:999px;padding:5px 14px;color:rgba(255,255,255,.85);margin-bottom:16px}
+  .hero .badge .dot{width:6px;height:6px;border-radius:50%;background:#C4B5FD;box-shadow:0 0 8px #C4B5FD}
+  .hero h1{font-size:31px;font-weight:700;letter-spacing:.5px;margin-bottom:10px}
+  .hero p{font-size:14px;color:rgba(255,255,255,.78);max-width:780px}
+  .kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:32px}
+  .kpi{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);border-radius:13px;padding:14px 16px}
+  .kpi .num{font-size:23px;font-weight:700;line-height:1.2}
+  .kpi .num span{font-size:12px;font-weight:500;color:rgba(255,255,255,.65)}
+  .kpi .lbl{font-size:11.5px;color:rgba(255,255,255,.65);margin-top:3px}
+  section{padding:44px 0 6px}
+  .sec-tag{display:inline-block;font-size:11.5px;font-weight:700;letter-spacing:2px;color:var(--purple);background:var(--purple-light);border:1px solid var(--purple-border);border-radius:6px;padding:3px 10px;margin-bottom:10px}
+  .sec-head h2{font-size:23px;font-weight:700}
+  .sec-head p{color:var(--muted);font-size:13.5px;margin-top:7px;max-width:820px}
+  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:18px}
+  .item{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:18px;text-decoration:none;color:inherit;display:flex;flex-direction:column;gap:8px;transition:.15s}
+  .item:hover{border-color:var(--purple);box-shadow:0 4px 16px rgba(124,58,237,.12);transform:translateY(-2px)}
+  .item .ic{width:34px;height:34px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800;color:#fff;background:linear-gradient(135deg,#7C3AED,#5B21B6)}
+  .item .ic.blue{background:linear-gradient(135deg,#2563EB,#1D4ED8)}
+  .item .ic.green{background:linear-gradient(135deg,#059669,#047857)}
+  .item .ic.amber{background:linear-gradient(135deg,#D97706,#B45309)}
+  .item h4{font-size:14px;font-weight:700}
+  .item p{font-size:12px;color:var(--muted);flex:1}
+  .item .go{font-size:11.5px;font-weight:700;color:var(--purple)}
+  .list{background:var(--card);border:1px solid var(--border);border-radius:14px;margin-top:18px;overflow:hidden}
+  .list a{display:flex;align-items:center;gap:14px;padding:13px 18px;text-decoration:none;color:inherit;border-bottom:1px solid var(--border-soft);font-size:13.5px;transition:.12s}
+  .list a:last-child{border-bottom:none}
+  .list a:hover{background:var(--purple-light)}
+  .list .no{flex:none;width:30px;height:30px;border-radius:8px;background:var(--purple-light);color:var(--purple-deep);font-size:11px;font-weight:800;display:flex;align-items:center;justify-content:center}
+  .list .t{flex:1;font-weight:600}
+  .list .d{font-size:11.5px;color:var(--faint)}
+  footer{padding:36px 0 50px;text-align:center;color:var(--faint);font-size:12px}
+  footer .rule{width:60px;height:3px;background:linear-gradient(90deg,var(--purple),var(--blue));border-radius:2px;margin:0 auto 14px}
+  /* 课件放映入口 */
+  .slides-hero{position:relative;display:flex;align-items:center;gap:26px;overflow:hidden;margin-top:18px;padding:28px 32px;border-radius:18px;text-decoration:none;color:#fff;background:linear-gradient(118deg,#2A1B52 0%,#4A2A85 52%,#2B4A9E 100%);box-shadow:0 12px 30px rgba(74,42,133,.22);transition:.18s}
+  .slides-hero:hover{transform:translateY(-2px);box-shadow:0 18px 40px rgba(74,42,133,.34)}
+  .slides-hero::after{content:"";position:absolute;right:-60px;top:-80px;width:320px;height:320px;border-radius:50%;background:radial-gradient(circle,rgba(167,139,250,.45),rgba(167,139,250,0) 70%)}
+  .slides-hero .txt{position:relative;z-index:1}
+  .slides-hero h3{font-size:21px;font-weight:700;letter-spacing:.3px;margin-bottom:7px}
+  .slides-hero h3 em{font-style:normal;color:#C4B5FD}
+  .slides-hero p{font-size:13px;line-height:1.7;color:rgba(255,255,255,.76);max-width:620px}
+  .slides-hero .nums{display:flex;gap:26px;margin-top:15px}
+  .slides-hero .nums b{display:block;font-size:20px;font-weight:700;line-height:1.2}
+  .slides-hero .nums span{font-size:11px;color:rgba(255,255,255,.58)}
+  .slides-hero .btn{position:relative;z-index:1;margin-left:auto;flex:none;background:#fff;color:#4A2A85;font-size:13px;font-weight:700;padding:12px 24px;border-radius:999px;white-space:nowrap;box-shadow:0 6px 16px rgba(0,0,0,.18)}
+  .slides-hero:hover .btn{background:#F1EBFD}
+  @media (max-width:760px){.slides-hero{flex-direction:column;align-items:flex-start;gap:18px;padding:22px}.slides-hero .btn{margin-left:0}.slides-hero .nums{gap:20px}.slides-hero h3{font-size:18px}.slides-hero p{font-size:12.5px}}
+  @media (max-width:860px){.grid{grid-template-columns:1fr}.kpis{grid-template-columns:repeat(2,1fr)}.hero h1{font-size:24px}}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="badge"><span class="dot"></span>COURSE KIT · 自研课程资源包</div>
+    <h1>AI 产品经理训练营 · 课程资源包</h1>
+    <p>八件套生产体系 + 完整样课日 + 4 个课堂交互工具 + 66 张自研配图 + 40 讲课件在线放映。这里是全部课程的资源总入口，点击任意卡片直接使用。<strong style="color:#C4B5FD">2026-11 增补：技术零层改造 · 作品集主线 · 就业证据链 · 产品思维小课，全部产物已提供网页版（见下方 NEW 区）。</strong></p>
+    <div class="kpis">
+      <div class="kpi"><div class="num">320<span> 件</span></div><div class="lbl">八周 40 天全套物料 · 全部完成</div></div>
+      <div class="kpi"><div class="num">1<span> 套</span></div><div class="lbl">八件套生产体系 + 40 天生产卡</div></div>
+      <div class="kpi"><div class="num">4<span> 个</span></div><div class="lbl">课堂交互工具</div></div>
+      <div class="kpi"><div class="num">9<span> 张</span></div><div class="lbl">自研配图素材</div></div>
+    </div>
+  </div>
+</header>
+
+<section id="start">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-tag">START HERE</span>
+      <h2>从生产体系开始</h2>
+      <p>先读生产体系（含 40 天逐日生产卡），再看样课日标杆，最后按需取用交互工具与配图。</p>
+    </div>
+    <div class="grid">
+      <a class="item" href="课程大纲.html" style="border-color:var(--purple);background:linear-gradient(180deg,var(--purple-light),#fff)">
+        <div class="ic">纲</div>
+        <h4>课程大纲（招生版）</h4>
+        <p>八周就业训练营的对外招生页面：课程设计逻辑、八周总览、主线项目、每周课表与验收标准。</p>
+        <span class="go">打开大纲 →</span>
+      </a>
+      <a class="item" href="测评入口.html" style="border-color:var(--blue);background:linear-gradient(180deg,#E8EFFD,#fff)">
+        <div class="ic blue">测</div>
+        <h4>学员测评入口（40 天）</h4>
+        <p>分层习题测评表单总目录：每天一个表单，题干在题目下方，作答即提交，讲师在线批改。</p>
+        <span class="go">进入测评 →</span>
+      </a>
+      <a class="item" href="00-八件套生产体系.html">
+        <div class="ic">00</div>
+        <h4>八件套生产体系</h4>
+        <p>八件套标准与质量线、目录命名规范、40 天 × 8 件套生产卡、4 周排期、质量验收清单。</p>
+        <span class="go">打开 →</span>
+      </a>
+      <a class="item" href="01-样课日-W3D3-RAG/01-教案.html">
+        <div class="ic blue">01</div>
+        <h4>样课日 · W3D3 RAG（八件全套）</h4>
+        <p>教案、讲课稿逐字稿、导学案、播客稿、配图清单、分层习题、交互使用说明、PPT 大纲——八件齐备的标杆。</p>
+        <span class="go">进入样课日 →</span>
+      </a>
+      <a class="item" href="02-交互工具/index.html">
+        <div class="ic green">02</div>
+        <h4>4 个课堂交互工具</h4>
+        <p>提示词调试台、RAG 交互演示、AI 产品评估打分工具、交互式架构图——单文件零依赖，断网可用。</p>
+        <span class="go">打开工具 →</span>
+      </a>
+      <a class="item" href="03-配图素材/index.html">
+        <div class="ic amber">03</div>
+        <h4>66 张自研配图素材</h4>
+        <p>覆盖八周 40 天全部核心教具：流程图、对比表、决策树、评分卡、清单卡——66 张 SVG 源文件，附讲法脚本。</p>
+        <span class="go">查看配图 →</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section id="new" style="padding-top:52px">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-tag" style="background:linear-gradient(90deg,var(--purple-light),var(--blue-light))">NEW · 2026-11 增补</span>
+      <h2>四条新主线 · 71 个新增产物（全部网页版）</h2>
+      <p>技术零层改造（开课前的直觉地图 + 18 张术语类比卡）· 作品集主线（8 周积木卡，期末不赶工）· 就业证据链（就业数据页 + 双周检查卡，第 1 天看到节拍）· 产品思维小课（每周一开课前 10 分钟）。</p>
+    </div>
+    <div class="grid">
+      <a class="item" href="W1-物料/W1D2-大模型原理通识/00-技术零层.html" style="border-color:var(--purple);background:linear-gradient(180deg,var(--purple-light),#fff)">
+        <div class="ic">零</div>
+        <h4>技术零层 + 术语类比卡</h4>
+        <p>上第一堂技术课前的 15 分钟：10 个「AI 能做什么 / 不能做什么」场景 + 5 道判断题；配 18 张术语类比卡（紫蓝 SVG），转行学员的术语速查库。</p>
+        <span class="go">读零层文档 →</span>
+      </a>
+      <a class="item" href="W7-物料/W7D2-作品集方法论/09-积木卡-W1.html" style="border-color:var(--blue);background:linear-gradient(180deg,var(--blue-light),#fff)">
+        <div class="ic blue">积</div>
+        <h4>作品集主线 · 8 块积木卡</h4>
+        <p>每周归档一小块，W7D2 整合日只做排版、叙事、上线：起点 → 立项 → 原型 → 方案 → 迭代 → 成品 → 整合 → 面试弹药库。</p>
+        <span class="go">看积木卡 →</span>
+      </a>
+      <a class="item" href="W1-物料/W1D1-开营与岗位全景/09-就业数据页.html" style="border-color:var(--purple);background:linear-gradient(180deg,var(--purple-light),#fff)">
+        <div class="ic">就</div>
+        <h4>就业证据链</h4>
+        <p>就业数据页（岗位/城市/周期/薪资，市场数字待教务补充，零编造）+ W2/W4/W6/W8 四张双周进度检查卡，第 1 天看到「什么时候该有什么」。</p>
+        <span class="go">查就业数据 →</span>
+      </a>
+      <a class="item" href="00-产品思维小课/00-总览.html" style="border-color:var(--blue);background:linear-gradient(180deg,var(--blue-light),#fff)">
+        <div class="ic blue">思</div>
+        <h4>产品思维小课 × 8</h4>
+        <p>每周一开课前 10 分钟：需求真伪 → 访谈 → PRD → 指标 → 优先级 → 复盘 → 协作 → 表达。每节一个反例、一张框架图、三个互问、一个当日可用的动作。</p>
+        <span class="go">进小课目录 →</span>
+      </a>
+    </div>
+
+    <h3 style="font-size:15px;font-weight:700;margin:26px 0 0;color:var(--ink2)">A · 技术零层改造（W1D2 前置 + 术语类比卡）</h3>
+    <div class="list">
+      <a href="W1-物料/W1D2-大模型原理通识/00-技术零层.html"><span class="no">零层</span><span class="t">技术零层 · 开课前的 15 分钟</span><span class="d">10 个真实场景建立直觉 · 5 道判断题 · 通篇无原理名词</span></a>
+      <a href="03-配图素材/术语卡/00-术语卡索引.html"><span class="no">索引</span><span class="t">术语类比卡 · 总索引（18 张）</span><span class="d">每张 = 网页版 + 1200×800 SVG，覆盖五周技术课核心术语</span></a>
+      <a href="03-配图素材/术语卡/01-大模型LLM.html"><span class="no">T01</span><span class="t">大模型（LLM）</span><span class="d">超级接话员类比 · 面试怎么用 · 常见误解</span></a>
+      <a href="03-配图素材/术语卡/02-提示词Prompt.html"><span class="no">T02</span><span class="t">提示词（Prompt）</span><span class="d">五要素 · 给新同事派活的任务单类比</span></a>
+      <a href="03-配图素材/术语卡/03-幻觉.html"><span class="no">T03</span><span class="t">幻觉</span><span class="d">不是缺陷是本能 · 防幻觉靠产品设计</span></a>
+      <a href="03-配图素材/术语卡/04-上下文窗口.html"><span class="no">T04</span><span class="t">上下文窗口</span><span class="d">接话员的桌面 · 失忆排查三张牌</span></a>
+      <a href="03-配图素材/术语卡/05-Token词元.html"><span class="no">T05</span><span class="t">Token（词元）</span><span class="d">出租车计价器 · 输入输出分开计价</span></a>
+      <a href="03-配图素材/术语卡/06-Temperature温度.html"><span class="no">T06</span><span class="t">Temperature（温度）</span><span class="d">不是技术参数是产品性格</span></a>
+      <a href="03-配图素材/术语卡/07-预训练.html"><span class="no">T07</span><span class="t">预训练</span><span class="d">读完教科书的实习生 · 毛坯房</span></a>
+      <a href="03-配图素材/术语卡/08-SFT监督微调.html"><span class="no">T08</span><span class="t">SFT（监督微调）</span><span class="d">岗前培训 · 从续写引擎到对话助手</span></a>
+      <a href="03-配图素材/术语卡/09-RLHF.html"><span class="no">T09</span><span class="t">RLHF（人类反馈强化学习）</span><span class="d">师傅带教打分 · 长出好答案的尺子</span></a>
+      <a href="03-配图素材/术语卡/10-LoRA.html"><span class="no">T10</span><span class="t">LoRA（低秩适配微调）</span><span class="d">贴便利贴 · 敢贴也敢撕</span></a>
+      <a href="03-配图素材/术语卡/11-评测集.html"><span class="no">T11</span><span class="t">评测集</span><span class="d">驾校科目考卷 · 没评测集=开盲盒</span></a>
+      <a href="03-配图素材/术语卡/12-Badcase坏案例.html"><span class="no">T12</span><span class="t">Badcase（坏案例）</span><span class="d">错题本 · 免费的送分题</span></a>
+      <a href="03-配图素材/术语卡/13-Agent智能体.html"><span class="no">T13</span><span class="t">Agent（智能体）</span><span class="d">长四肢的大模型 · 从答题到办事</span></a>
+      <a href="03-配图素材/术语卡/14-ReAct.html"><span class="no">T14</span><span class="t">ReAct（思考-行动循环）</span><span class="d">把思考过程摊开给用户看</span></a>
+      <a href="03-配图素材/术语卡/15-MCP.html"><span class="no">T15</span><span class="t">MCP（模型上下文协议）</span><span class="d">AI 时代的 USB 接口 · M×N 变 M+N</span></a>
+      <a href="03-配图素材/术语卡/16-RAG.html"><span class="no">T16</span><span class="t">RAG（检索增强生成）</span><span class="d">开卷考试 · 加知识用 RAG 改行为用微调</span></a>
+      <a href="03-配图素材/术语卡/17-Embedding向量化.html"><span class="no">T17</span><span class="t">Embedding（向量化）</span><span class="d">文字的数字指纹 · 按意思排书架</span></a>
+      <a href="03-配图素材/术语卡/18-向量数据库.html"><span class="no">T18</span><span class="t">向量数据库</span><span class="d">按意思归档的图书馆 · 建库与检索两条链路</span></a>
+    </div>
+
+    <h3 style="font-size:15px;font-weight:700;margin:26px 0 0;color:var(--ink2)">B · 作品集主线（8 周积木 · W7D2 已改为整合日）</h3>
+    <div class="list">
+      <a href="W7-物料/W7D2-作品集方法论/01-教案.html"><span class="no">整合日</span><span class="t">W7D2 作品集整合日（教案 · 已改版）</span><span class="d">从「教方法」改为「排版 · 叙事 · 上线」，方法已前置到八周积木</span></a>
+      <a href="W7-物料/W7D2-作品集方法论/03-导学案.html"><span class="no">导学案</span><span class="t">W7D2 整合日导学案（已改版）</span><span class="d">六块积木盘点 · 四段式导语 · 上线自检 · 陌生人 3 分钟互审</span></a>
+      <a href="W7-物料/W7D2-作品集方法论/09-积木卡-W1.html"><span class="no">J1</span><span class="t">积木卡 W1 · 起点页</span><span class="d">转行宣言 + 提示词集 + 规划书 · 手机全程可归档</span></a>
+      <a href="W7-物料/W7D2-作品集方法论/09-积木卡-W2.html"><span class="no">J2</span><span class="t">积木卡 W2 · 立项页</span><span class="d">四段式叙事第一版 · 指标留白 W6 回填</span></a>
+      <a href="W7-物料/W7D2-作品集方法论/09-积木卡-W3.html"><span class="no">J3</span><span class="t">积木卡 W3 · 原型页</span><span class="d">架构图 + 60 秒演示 + 评审闭环</span></a>
+      <a href="W7-物料/W7D2-作品集方法论/09-积木卡-W4.html"><span class="no">J4</span><span class="t">积木卡 W4 · 方案页</span><span class="d">PRD 链接 + 意见闭环 + 反直觉发现</span></a>
+      <a href="W7-物料/W7D2-作品集方法论/09-积木卡-W5.html"><span class="no">J5</span><span class="t">积木卡 W5 · 迭代页</span><span class="d">基准值→结果值 · 假设-实验-结论</span></a>
+      <a href="W7-物料/W7D2-作品集方法论/09-积木卡-W6.html"><span class="no">J6</span><span class="t">积木卡 W6 · 成品页（核心页）</span><span class="d">手机可打开的 MVP + 验收摘要 + 用户声音</span></a>
+      <a href="W7-物料/W7D2-作品集方法论/09-积木卡-W7.html"><span class="no">J7</span><span class="t">积木卡 W7 · 整合页</span><span class="d">六页拼装上线 · 罗思蕊通道：手机先发 V0.5</span></a>
+      <a href="W7-物料/W7D2-作品集方法论/09-积木卡-W8.html"><span class="no">J8</span><span class="t">积木卡 W8 · 面试弹药库</span><span class="d">8 道高频题 60 秒答案 + 积木页索引</span></a>
+      <a href="W7-物料/W7D2-作品集方法论/10-设计作品转产品作品-模板.html"><span class="no">模板</span><span class="t">设计作品转产品作品 · 四段式模板</span><span class="d">问题-方案-指标-复盘 + 视觉传达/环境设计改写示例 + 手机平板步骤标注</span></a>
+    </div>
+
+    <h3 style="font-size:15px;font-weight:700;margin:26px 0 0;color:var(--ink2)">C · 就业证据链（第 1 天发放 · 双周自查）</h3>
+    <div class="list">
+      <a href="W1-物料/W1D1-开营与岗位全景/09-就业数据页.html"><span class="no">数据</span><span class="t">就业数据页</span><span class="d">岗位/城市/offer 周期/薪资（市场数字待教务补充，零编造）+ 三条典型转岗路径 + 检查卡对应表</span></a>
+      <a href="W1-物料/W1D1-开营与岗位全景/10-就业进度检查卡-W2.html"><span class="no">W2</span><span class="t">就业进度检查卡 · W2</span><span class="d">简历初稿 · 赛道锁定 · 提示词达标 · 立项通过 · 积木 2/8</span></a>
+      <a href="W1-物料/W1D1-开营与岗位全景/11-就业进度检查卡-W4.html"><span class="no">W4</span><span class="t">就业进度检查卡 · W4</span><span class="d">积木 4/8 · 原型可演示 · PRD 过审 · JD 库 10 份 · 两个 60 秒答案</span></a>
+      <a href="W1-物料/W1D1-开营与岗位全景/12-就业进度检查卡-W6.html"><span class="no">W6</span><span class="t">就业进度检查卡 · W6</span><span class="d">积木 6/8 · MVP 手机可开 · 简历二稿 · 路演留痕 · 内推名单</span></a>
+      <a href="W1-物料/W1D1-开营与岗位全景/13-就业进度检查卡-W8.html"><span class="no">W8</span><span class="t">就业进度检查卡 · W8（结营总检）</span><span class="d">作品集上线 · 简历终版 · 已投 ≥10 家 · 两场模拟面 · 弹药库</span></a>
+    </div>
+
+    <h3 style="font-size:15px;font-weight:700;margin:26px 0 0;color:var(--ink2)">D · 产品思维小课（每周一开课前 10 分钟）</h3>
+    <div class="list">
+      <a href="00-产品思维小课/00-总览.html"><span class="no">目录</span><span class="t">小课总览 · 使用规则</span><span class="d">四件套结构 · 10 分钟节拍 · 六人班适配说明</span></a>
+      <a href="00-产品思维小课/01-需求真伪.html"><span class="no">K1</span><span class="t">需求真伪（W1）</span><span class="d">签到功能反例 · 四问滤网 · 用它自查你的转行决策</span></a>
+      <a href="00-产品思维小课/02-用户访谈.html"><span class="no">K2</span><span class="t">用户访谈（W2）</span><span class="d">深色模式反例 · 三层下钻 · 课间微型访谈</span></a>
+      <a href="00-产品思维小课/03-PRD结构.html"><span class="no">K3</span><span class="t">PRD 结构（W3）</span><span class="d">六个字的 PRD 反例 · 六块骨架 · 异常流思维</span></a>
+      <a href="00-产品思维小课/04-指标定义.html"><span class="no">K4</span><span class="t">指标定义（W4）</span><span class="d">活跃度反例 · 北极星+护栏 · 研究提纲先立指标</span></a>
+      <a href="00-产品思维小课/05-优先级排序.html"><span class="no">K5</span><span class="t">优先级排序（W5）</span><span class="d">五个全做反例 · 价值-成本四象限 · 只留一个先做</span></a>
+      <a href="00-产品思维小课/06-复盘方法.html"><span class="no">K6</span><span class="t">复盘方法（W6）</span><span class="d">追责会反例 · 四步复盘环 · 5 分钟迷你复盘</span></a>
+      <a href="00-产品思维小课/07-跨团队协作.html"><span class="no">K7</span><span class="t">跨团队协作（W7）</span><span class="d">人人「收到」反例 · RACI 四角色 · 给整合日标角色</span></a>
+      <a href="00-产品思维小课/08-表达与汇报.html"><span class="no">K8</span><span class="t">表达与汇报（W8）</span><span class="d">五分钟铺垫反例 · 结论先行三段式 · 30 秒电梯演讲</span></a>
+    </div>
+  </div>
+</section>
+
+<section id="slides">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-tag">SLIDES · 课件放映版</span>
+      <h2>40 讲 PPT 课件 · 在线放映版</h2>
+      <p>八周 40 讲、共 612 页幻灯片，已按原始版式转为网页放映版：点开即讲，不用下载 PPT，手机也能看。</p>
+    </div>
+    <a class="slides-hero" href="PPT在线版/index.html">
+      <div class="txt">
+        <h3>AI 产品经理训练营 · <em>课件在线放映</em></h3>
+        <p>按 W1–W8 分周目录，可搜课、可按方向键翻页、可全屏放映；每一讲、每一页都有独立链接，直接发给学员即可。</p>
+        <div class="nums">
+          <div><b>8</b><span>周课程</span></div>
+          <div><b>40</b><span>讲课件</span></div>
+          <div><b>612</b><span>页幻灯片</span></div>
+        </div>
+      </div>
+      <span class="btn">开始放映 →</span>
+    </a>
+  </div>
+</section>
+
+<section id="materials">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-tag">COMPLETE · 已生产物料</span>
+      <h2>已生产物料 · 320 件全部完成（40 天 × 8 件套，320/320）</h2>
+      <p>八周 40 天 × 8 件套全部生产完成：开营认知 → 模型评测 → Agent/RAG → 产品硬功 → 增长商业化 → 主项目路演 → 就业冲刺 → 面试通关。每天一个文件夹，教案为入口；W3D3 即样课日。</p>
+    </div>
+    <div class="list">
+      <a href="W1-物料/W1D1-开营与岗位全景/01-教案.html"><span class="no">W1D1</span><span class="t">开营 + AI PM 岗位全景</span><span class="d">五类岗位地图 · JD 拆解 · 就业全景段 · 就业数据页 + 双周检查卡</span></a>
+      <a href="W1-物料/W1D2-大模型原理通识/01-教案.html"><span class="no">W1D2</span><span class="t">大模型原理通识（产品经理版）</span><span class="d">前置《技术零层》 · 概念补丁 · 超级接话员类比 · 三档边界</span></a>
+      <a href="W1-物料/W1D3-提示词与上下文工程/01-教案.html"><span class="no">W1D3</span><span class="t">提示词与上下文工程</span><span class="d">五要素教学法 · 调试台现场评分</span></a>
+      <a href="W1-物料/W1D4-AI产品形态拆解/01-教案.html"><span class="no">W1D4</span><span class="t">AI 产品形态拆解</span><span class="d">六大形态三维拆解 · 真实产品演示</span></a>
+      <a href="W1-物料/W1D5-行业选择与职业规划/01-教案.html"><span class="no">W1D5</span><span class="t">行业选择 + 职业规划工作坊</span><span class="d">六大赛道对比 · 职业规划书</span></a>
+      <a href="W2-物料/W2D1-模型能力边界与选型/01-教案.html"><span class="no">W2D1</span><span class="t">模型能力边界与选型方法论</span><span class="d">能力-成本-延迟三角 · 选型决策树</span></a>
+      <a href="W2-物料/W2D2-训练与微调原理/01-教案.html"><span class="no">W2D2</span><span class="t">训练与微调原理（够用原则）</span><span class="d">实习生入职类比 · 微调必要性五问清单</span></a>
+      <a href="W2-物料/W2D3-模型评测体系/01-教案.html"><span class="no">W2D3</span><span class="t">模型评测体系（核心硬功）</span><span class="d">评测集四步法 · badcase 归因 · 打分工具</span></a>
+      <a href="W2-物料/W2D4-AI合规与安全/01-教案.html"><span class="no">W2D4</span><span class="t">AI 合规与安全（国内岗刚需）</span><span class="d">五模块合规清单 · 企业嘉宾连线</span></a>
+      <a href="W2-物料/W2D5-主项目立项启动/01-教案.html"><span class="no">W2D5</span><span class="t">主项目立项启动（里程碑 ①）</span><span class="d">三维定题 · 四维可行性 · 立项报告</span></a>
+      <a href="W3-物料/W3D1-Agent架构原理/01-教案.html"><span class="no">W3D1</span><span class="t">Agent 架构原理</span><span class="d">四要素 · ReAct · MCP · 人工接管点</span></a>
+      <a href="W3-物料/W3D2-Agent产品设计与工作流实操/01-教案.html"><span class="no">W3D2</span><span class="t">Agent 产品设计与工作流实操</span><span class="d">Agent vs 工作流决策 · Dify/Coze 五步实操</span></a>
+      <a href="01-样课日-W3D3-RAG/01-教案.html"><span class="no">W3D3</span><span class="t">RAG 架构与知识库产品（样课日）</span><span class="d">六步链路 · 幻觉对比 · 知识库三要素</span></a>
+      <a href="W3-物料/W3D4-多模态产品设计/01-教案.html"><span class="no">W3D4</span><span class="t">多模态产品设计</span><span class="d">四形态对比 · 成本测算 · 版权合规</span></a>
+      <a href="W3-物料/W3D5-原型评审I/01-教案.html"><span class="no">W3D5</span><span class="t">原型评审 I（里程碑 ②）</span><span class="d">三维点评法 · 迭代清单 · 现场组织方案</span></a>
+      <a href="W4-物料/W4D1-用户研究与需求分析/01-教案.html"><span class="no">W4D1</span><span class="t">用户研究与需求分析</span><span class="d">需求真伪四问 · 访谈技巧 · 腾讯问卷实操</span></a>
+      <a href="W4-物料/W4D2-AI产品PRD写作/01-教案.html"><span class="no">W4D2</span><span class="t">AI 产品 PRD 写作</span><span class="d">五处差异 · 十章逐章写作 · 提示词即需求</span></a>
+      <a href="W4-物料/W4D3-方案设计与异常兜底/01-教案.html"><span class="no">W4D3</span><span class="t">方案设计与异常兜底</span><span class="d">状态机 · 翻车四件套 · 兜底决策树</span></a>
+      <a href="W4-物料/W4D4-数据指标体系与SQL/01-教案.html"><span class="no">W4D4</span><span class="t">数据指标体系与 SQL 实战</span><span class="d">五大核心指标 · 北极星 · SQL 四关闯关</span></a>
+      <a href="W4-物料/W4D5-PRD评审大会/01-教案.html"><span class="no">W4D5</span><span class="t">PRD 评审大会</span><span class="d">交叉评审 · 答辩应答公式 · V2.0 过审</span></a>
+      <a href="W5-物料/W5D1-AI产品增长/01-教案.html"><span class="no">W5D1</span><span class="t">AI 产品增长</span><span class="d">AARRR 落地 · aha 时刻 · 前 1000 用户计划</span></a>
+      <a href="W5-物料/W5D2-AB实验与数据决策/01-教案.html"><span class="no">W5D2</span><span class="t">AB 实验与数据决策</span><span class="d">实验四要素 · 三大陷阱 · 异动分析</span></a>
+      <a href="W5-物料/W5D3-AI商业化与成本核算/01-教案.html"><span class="no">W5D3</span><span class="t">AI 商业化与成本核算</span><span class="d">token 成本手算 · 商业画布 · LTV/CAC</span></a>
+      <a href="W5-物料/W5D4-项目推进与跨团队协作/01-教案.html"><span class="no">W5D4</span><span class="t">项目推进与跨团队协作</span><span class="d">三角协作 · 风险三栏法 · 向上汇报演练</span></a>
+      <a href="W5-物料/W5D5-主项目中期评审/01-教案.html"><span class="no">W5D5</span><span class="t">主项目中期评审（里程碑 ④）</span><span class="d">投资人五问 · V3 Scope 决策</span></a>
+      <a href="W6-物料/W6D1-Vibe Coding与AI工程提效/01-教案.html"><span class="no">W6D1</span><span class="t">Vibe Coding 与 AI 工程提效</span><span class="d">国产五工具实战 · 10 分钟搭页面</span></a>
+      <a href="W6-物料/W6D2-开发冲刺I/01-教案.html"><span class="no">W6D2</span><span class="t">开发冲刺 I：核心链路（冲刺日）</span><span class="d">陪跑巡场 · 三卡点预判 · 任务书打卡</span></a>
+      <a href="W6-物料/W6D3-开发冲刺II/01-教案.html"><span class="no">W6D3</span><span class="t">开发冲刺 II：功能与体验（冲刺日）</span><span class="d">三态设计 · 22 项走查清单 · 分组互查</span></a>
+      <a href="W6-物料/W6D4-测试验收与用户试用/01-教案.html"><span class="no">W6D4</span><span class="t">测试验收与真实用户试用</span><span class="d">badcase 归因 · 评测跑分 · ≥10 人试用</span></a>
+      <a href="W6-物料/W6D5-结业路演/01-教案.html"><span class="no">W6D5</span><span class="t">结业路演</span><span class="d">5 分钟路演结构 · 四维评分 · 现场组织方案</span></a>
+      <a href="W7-物料/W7D1-行业纵深/01-教案.html"><span class="no">W7D1</span><span class="t">行业纵深（分赛道分组）</span><span class="d">六件套手册 · 企业导师连线 · 术语表 ≥15 条</span></a>
+      <a href="W7-物料/W7D2-作品集方法论/01-教案.html"><span class="no">W7D2</span><span class="t">作品集整合日（已改版）</span><span class="d">排版 · 叙事 · 上线 · 8 张积木卡拼装 · 方法已前置八周</span></a>
+      <a href="W7-物料/W7D3-简历撰写/01-教案.html"><span class="no">W7D3</span><span class="t">简历撰写</span><span class="d">黄金结构 · 项目公式 · ATS 关键词 · 转行叙事</span></a>
+      <a href="W7-物料/W7D4-简历诊断/01-教案.html"><span class="no">W7D4</span><span class="t">1v1 简历诊断（诊断日）</span><span class="d">诊断五步 · 高频问题 Top10 · 作品集在线化</span></a>
+      <a href="W7-物料/W7D5-岗位投递策略/01-教案.html"><span class="no">W7D5</span><span class="t">岗位投递策略</span><span class="d">渠道优先级 · 投递漏斗 · 首批 ≥10 家启动</span></a>
+      <a href="W8-物料/W8D1-面试全景地图/01-教案.html"><span class="no">W8D1</span><span class="t">面试全景地图</span><span class="d">五轮流程 · 五大题型 · 准备矩阵</span></a>
+      <a href="W8-物料/W8D2-高频题精讲I/01-教案.html"><span class="no">W8D2</span><span class="t">高频题精讲 I：项目与场景</span><span class="d">追问防御链 · 场景六步框架 · 10 道真题</span></a>
+      <a href="W8-物料/W8D3-高频题精讲II/01-教案.html"><span class="no">W8D3</span><span class="t">高频题精讲 II：技术与数据</span><span class="d">说人话三步法 · 技术数据题库 ≥20 问</span></a>
+      <a href="W8-物料/W8D4-模拟面试I/01-教案.html"><span class="no">W8D4</span><span class="t">模拟面试 I（诊断日）</span><span class="d">1v1 压力面 · 三遍法复盘 · 改进清单</span></a>
+      <a href="W8-物料/W8D5-模拟面试II与结营/01-教案.html"><span class="no">W8D5</span><span class="t">模拟面试 II + 谈薪 + 结营</span><span class="d">谈薪四步 · offer 决策矩阵 · 3 个月追踪</span></a>
+    </div>
+  </div>
+</section>
+
+<section id="tools">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-tag">02 · INTERACTIVE TOOLS</span>
+      <h2>交互工具（课堂演示 + 学员动手）</h2>
+      <p>全部单文件、零外部依赖，浏览器直接打开即用；已适配手机。</p>
+    </div>
+    <div class="list">
+      <a href="02-交互工具/提示词调试台.html"><span class="no">T1</span><span class="t">提示词调试台</span><span class="d">五要素评分 · A/B 对比 · 场景模板 · 用于 W1D3 / W6D1</span></a>
+      <a href="02-交互工具/RAG交互演示.html"><span class="no">T2</span><span class="t">RAG 交互演示</span><span class="d">六步链路逐步执行 · 幻觉对比开关 · 用于 W3D3</span></a>
+      <a href="02-交互工具/AI产品评估打分工具.html"><span class="no">T3</span><span class="t">AI 产品评估打分工具</span><span class="d">评测维度 · 雷达图 · Markdown 报告导出 · 用于 W2D3 / W6D4</span></a>
+      <a href="02-交互工具/交互式架构图.html?v=2"><span class="no">T4</span><span class="t">交互式架构图</span><span class="d">4 张架构图 · 节点三段式讲解 · 面试金句 · 多课复用</span></a>
+    </div>
+  </div>
+</section>
+
+<section id="images">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-tag">03 · VISUAL ASSETS</span>
+      <h2>配图素材（66 张 SVG 源文件 · 全部已制成）</h2>
+      <p>统一品牌色（紫 #7C3AED / 蓝 #2563EB），可直接插入 PPT 或打印。</p>
+    </div>
+    <div class="list">
+      <a href="03-%E9%85%8D%E5%9B%BE%E7%B4%A0%E6%9D%90/LLM%E5%8E%9F%E7%90%86%E6%9E%B6%E6%9E%84%E5%9B%BE.svg"><span class="no">01</span><span class="t">LLM 原理架构图</span><span class="d">用户输入 → 提示词组装 → 大模型 → 输出后处理 → 回复用户，含参数配置与多轮上下文回路</span></a>
+      <a href="03-%E9%85%8D%E5%9B%BE%E7%B4%A0%E6%9D%90/RAG%E6%9E%B6%E6%9E%84%E5%9B%BE.svg"><span class="no">02</span><span class="t">RAG 架构图</span><span class="d">建库链路 + 问答链路：检索→重排→拼接→生成→引用</span></a>
+      <a href="03-%E9%85%8D%E5%9B%BE%E7%B4%A0%E6%9D%90/Agent%E5%9B%9B%E8%A6%81%E7%B4%A0%E6%9E%B6%E6%9E%84%E5%9B%BE.svg"><span class="no">03</span><span class="t">Agent 四要素架构图</span><span class="d">核心（规划）+ 记忆 + 工具 + 执行，含多 Agent 协作与环境反馈回路</span></a>
+      <a href="03-%E9%85%8D%E5%9B%BE%E7%B4%A0%E6%9D%90/%E5%90%91%E9%87%8F%E6%95%B0%E6%8D%AE%E5%BA%93%E7%A4%BA%E6%84%8F%E5%9B%BE.svg"><span class="no">04</span><span class="t">向量数据库示意图</span><span class="d">Embedding 编码 → 向量入库 → ANN 近似检索 → Top-K 返回</span></a>
+      <a href="03-%E9%85%8D%E5%9B%BE%E7%B4%A0%E6%9D%90/AI%E4%BA%A7%E5%93%81%E5%85%A8%E9%93%BE%E8%B7%AF%E5%9B%BE.svg"><span class="no">05</span><span class="t">AI 产品全链路图</span><span class="d">需求 → 数据 → 选型 → 开发 → 评测 → 监控 → 数据回流闭环</span></a>
+      <a href="03-%E9%85%8D%E5%9B%BE%E7%B4%A0%E6%9D%90/%E4%BC%A0%E7%BB%9Fvs%20AI%E4%BA%A7%E5%93%81%E5%AF%B9%E6%AF%94%E5%9B%BE.svg"><span class="no">06</span><span class="t">传统产品 vs AI 产品对比图</span><span class="d">六个维度对比传统 PM 与 AI PM 的工作差异</span></a>
+      <a href="03-%E9%85%8D%E5%9B%BE%E7%B4%A0%E6%9D%90/%E5%B9%BB%E8%A7%89%E6%A1%88%E4%BE%8B%E7%A4%BA%E6%84%8F%E5%9B%BE.svg"><span class="no">07</span><span class="t">幻觉案例示意图</span><span class="d">无 RAG vs 有 RAG 的同一问题回答对比，课堂导入神器</span></a>
+      <a href="03-%E9%85%8D%E5%9B%BE%E7%B4%A0%E6%9D%90/AI%E4%BA%A7%E5%93%81%E7%A0%94%E5%8F%91%E6%B5%81%E7%A8%8B%E5%9B%BE.svg"><span class="no">08</span><span class="t">AI 产品研发流程图</span><span class="d">产品 / 算法 / 工程三线泳道协作，标注各环节交付物</span></a>
+      <a href="03-%E9%85%8D%E5%9B%BE%E7%B4%A0%E6%9D%90/AI%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86%E8%83%BD%E5%8A%9B%E7%94%BB%E5%83%8F.svg"><span class="no">09</span><span class="t">AI 产品经理能力画像</span><span class="d">六维能力雷达 + 五类岗位方向定位</span></a>
+      <a href="03-%E9%85%8D%E5%9B%BE%E7%B4%A0%E6%9D%90/%E5%B2%97%E4%BD%8D%E5%9C%B0%E5%9B%BE%E8%A1%A8.svg"><span class="no">10</span><span class="t">岗位地图表</span><span class="d">AI 产品经理五类岗位五维对比表，含学员手写「我的匹配度」列</span></a>
+      <a href="03-%E9%85%8D%E5%9B%BE%E7%B4%A0%E6%9D%90/%E4%B8%80%E9%A1%B5%E7%BA%B8%E9%80%9A%E8%AF%86%E5%8D%A1.svg"><span class="no">11</span><span class="t">一页纸通识卡</span><span class="d">大模型原理一页纸：超级接话员类比、三阶段成长史、两个仪表盘、三档边界表</span></a>
+      <a href="03-%E9%85%8D%E5%9B%BE%E7%B4%A0%E6%9D%90/%E4%B8%8A%E4%B8%8B%E6%96%87%E5%B7%A5%E7%A8%8B%E5%9B%9B%E7%BB%84%E4%BB%B6%E9%80%9F%E6%9F%A5%E8%A1%A8.svg"><span class="no">12</span><span class="t">上下文工程四组件速查表</span><span class="d">用户输入到输出的流程轴下挂资料注入、工具描述、记忆设计、历史对话四组件卡</span></a>
+      <a href="03-%E9%85%8D%E5%9B%BE%E7%B4%A0%E6%9D%90/%E6%8F%90%E7%A4%BA%E8%AF%8D%E4%BA%94%E8%A6%81%E7%B4%A0%E6%A3%80%E6%9F%A5%E5%8D%A1.svg"><span class="no">13</span><span class="t">提示词五要素检查卡</span><span class="d">提示词五要素逐行检查卡，每行含一句话定义与正反例对照</span></a>
+      <a href="03-%E9%85%8D%E5%9B%BE%E7%B4%A0%E6%9D%90/%E5%85%AD%E5%BD%A2%E6%80%81%E5%AF%B9%E6%AF%94%E8%A1%A8.svg"><span class="no">14</span><span class="t">六形态对比表</span><span class="d">六大 AI 产品形态的形态、代表产品、技术依赖、商业模式四列对照，附金句通栏</span></a>
+      <a href="03-%E9%85%8D%E5%9B%BE%E7%B4%A0%E6%9D%90/%E5%85%AD%E5%A4%A7%E8%B5%9B%E9%81%93%E5%AF%B9%E6%AF%94%E8%A1%A8.svg"><span class="no">15</span><span class="t">六大赛道对比表</span><span class="d">六大行业赛道在典型岗位、入门门槛、AI 结合度、适合人群四维度的对比表</span></a>
+      <a href="03-%E9%85%8D%E5%9B%BE%E7%B4%A0%E6%9D%90/%E6%B5%B7%E6%8A%95vs%E6%B7%B1%E8%80%95%E8%B7%AF%E5%BE%84%E5%AF%B9%E6%AF%94%E5%9B%BE.svg"><span class="no">16</span><span class="t">海投vs深耕路径对比图</span><span class="d">海投与深耕两条四节点路径对比，灰线空转圆环对照紫线 offer 星形</span></a>
+      <a href="03-%E9%85%8D%E5%9B%BE%E7%B4%A0%E6%9D%90/%E9%80%89%E8%B5%9B%E9%81%93%E4%B8%89%E6%A0%87%E5%87%86%E5%86%B3%E7%AD%96%E5%9B%BE.svg"><span class="no">17</span><span class="t">选赛道三标准决策图</span><span class="d">个人匹配度、岗位池进入概率、成长时间窗三段式决策流程与优先级口诀</span></a>
+      <a href="03-%E9%85%8D%E5%9B%BE%E7%B4%A0%E6%9D%90/W2D1-%E4%B8%89%E8%A7%92%E5%9B%BE.svg"><span class="no">18</span><span class="t">W2D1-三角图</span><span class="d">能力-成本-延迟选型三角，附「先定能力线→比成本延迟→合规兜底」收束顺序</span></a>
+      <a href="03-%E9%85%8D%E5%9B%BE%E7%B4%A0%E6%9D%90/W2D1-%E5%86%B3%E7%AD%96%E6%A0%91%E5%9B%BE.svg"><span class="no">19</span><span class="t">W2D1-决策树图</span><span class="d">五问选型决策树（定能力线/定档位/合规一票否决）</span></a>
+      <a href="03-%E9%85%8D%E5%9B%BE%E7%B4%A0%E6%9D%90/W2D1-%E5%AE%9E%E9%AA%8C%E4%BB%BB%E5%8A%A1%E5%8D%A1.svg"><span class="no">20</span><span class="t">W2D1-实验任务卡</span><span class="d">三个对比实验任务 × 四个观察维度（失败方式高亮为新手最易忽略）</span></a>
+      <a href="03-%E9%85%8D%E5%9B%BE%E7%B4%A0%E6%9D%90/W2D1-%E6%A8%A1%E5%9E%8B%E6%A8%AA%E8%AF%84%E8%A1%A8.svg"><span class="no">21</span><span class="t">W2D1-模型横评表</span><span class="d">6 大模型系 × 8 维度定性横评（强项/均衡/需实测，无分数无价格）</span></a>
+      <a href="03-%E9%85%8D%E5%9B%BE%E7%B4%A0%E6%9D%90/%E5%BE%AE%E8%B0%83%E5%BF%85%E8%A6%81%E6%80%A7%E4%BA%94%E9%97%AE%E5%88%A4%E6%96%AD%E5%8D%A1.svg"><span class="no">22</span><span class="t">微调必要性五问判断卡</span><span class="d">该不该微调的五问自检卡，底部结论「任何一问不过 = 不该微调」</span></a>
+      <a href="03-%E9%85%8D%E5%9B%BE%E7%B4%A0%E6%9D%90/%E8%AE%AD%E7%BB%83%E5%BE%AE%E8%B0%83%E5%85%A8%E9%93%BE%E8%B7%AF%E6%B5%81%E7%A8%8B%E5%9B%BE.svg"><span class="no">23</span><span class="t">训练微调全链路流程图</span><span class="d">预训练→SFT→LoRA→RLHF 四段流程，实习生类比，LoRA 段高亮「够用原则的主场」</span></a>
+      <a href="03-%E9%85%8D%E5%9B%BE%E7%B4%A0%E6%9D%90/%E8%AF%84%E6%B5%8B%E6%B5%81%E7%A8%8B%E7%A4%BA%E6%84%8F%E5%9B%BE.svg"><span class="no">24</span><span class="t">评测流程示意图</span><span class="d">建集→跑分→归因→修复→回归五步评测闭环，badcase 回流红虚线与两条行业警戒线</span></a>
+      <a href="03-%E9%85%8D%E5%9B%BE%E7%B4%A0%E6%9D%90/%E4%B8%89%E7%BB%B4%E5%AE%9A%E9%A2%98%E4%BA%A4%E9%9B%86%E5%9B%BE.svg"><span class="no">25</span><span class="t">三维定题交集图</span><span class="d">行业×场景×人群三环韦恩图 + 右侧「从万能到锁死」收缩演示条</span></a>
+      <a href="03-%E9%85%8D%E5%9B%BE%E7%B4%A0%E6%9D%90/%E5%9B%9B%E7%BB%B4%E8%AF%84%E5%88%86%E5%8D%A1%E7%A4%BA%E6%84%8F.svg"><span class="no">26</span><span class="t">四维评分卡示意</span><span class="d">技术/数据/合规/竞争 2×2 评分卡（0–5 刻度条），合规为硬门槛</span></a>
+      <a href="03-%E9%85%8D%E5%9B%BE%E7%B4%A0%E6%9D%90/%E7%AB%8B%E9%A1%B9%E6%8A%A5%E5%91%8A%E5%85%AD%E7%AB%A0%E7%BB%93%E6%9E%84%E5%9B%BE.svg"><span class="no">27</span><span class="t">立项报告六章结构图</span><span class="d">立项报告六章纵向流程（④成功指标口诀、⑥评审质询高频考点标注）</span></a>
+      <a href="03-%E9%85%8D%E5%9B%BE%E7%B4%A0%E6%9D%90/%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%BC%96%E6%8E%92%E7%A4%BA%E6%84%8F%E5%9B%BE.svg"><span class="no">28</span><span class="t">工作流编排示意图</span><span class="d">工作流主链路五节点编排图，含失败分支三级兜底（重试→降级→转人工）与两个人机接管点标注</span></a>
+      <a href="03-%E9%85%8D%E5%9B%BE%E7%B4%A0%E6%9D%90/%E5%A4%9A%E6%A8%A1%E6%80%81%E5%BD%A2%E6%80%81%E5%AF%B9%E6%AF%94%E5%9B%BE.svg"><span class="no">29</span><span class="t">多模态形态对比图</span><span class="d">文生图、文生视频、语音、数字人四行五列对比表：成熟度五格进度条、成本三档色阶、典型场景与合规风险</span></a>
+      <a href="03-%E9%85%8D%E5%9B%BE%E7%B4%A0%E6%9D%90/%E8%AF%84%E5%AE%A1%E4%B8%89%E7%BB%B4%E8%AF%84%E5%88%86%E5%8D%A1.svg"><span class="no">30</span><span class="t">评审三维评分卡</span><span class="d">评审日打分卡：用户价值、技术可行、体验三维度 0–5 分勾选框、追问清单、打分依据书写线与三档描述表</span></a>
+      <a href="03-%E9%85%8D%E5%9B%BE%E7%B4%A0%E6%9D%90/%E9%9C%80%E6%B1%82%E7%9C%9F%E4%BC%AA%E5%88%A4%E6%96%AD%E6%B5%81%E7%A8%8B%E5%9B%BE.svg"><span class="no">31</span><span class="t">需求真伪判断流程图</span><span class="d">四问逐环判定需求真伪，右侧统一淘汰通道汇入伪需求档案，通过出口进 KANO/RICE 排序</span></a>
+      <a href="03-%E9%85%8D%E5%9B%BE%E7%B4%A0%E6%9D%90/PRD%E7%BB%93%E6%9E%84%E5%9B%BE.svg"><span class="no">32</span><span class="t">PRD结构图</span><span class="d">AI 产品 PRD 十章骨架，按「为什么做/做什么/怎么算好/怕什么」四组分区，标注 AI 产品特有与五处差异落点</span></a>
+      <a href="03-%E9%85%8D%E5%9B%BE%E7%B4%A0%E6%9D%90/%E4%BA%94%E5%A4%84%E5%B7%AE%E5%BC%82%E5%AF%B9%E6%AF%94%E8%A1%A8.svg"><span class="no">33</span><span class="t">五处差异对比表</span><span class="d">传统 PRD 与 AI 产品 PRD 五处差异逐行对比表，幻觉控制行「（不存在此章）」为教学重点</span></a>
+      <a href="03-%E9%85%8D%E5%9B%BE%E7%B4%A0%E6%9D%90/%E5%85%9C%E5%BA%95%E5%86%B3%E7%AD%96%E6%A0%91.svg"><span class="no">34</span><span class="t">兜底决策树</span><span class="d">四层判断兜底决策树，四件套叶子落点与升级成本自上而下递增，最终汇入正常回答</span></a>
+      <a href="03-%E9%85%8D%E5%9B%BE%E7%B4%A0%E6%9D%90/%E7%8A%B6%E6%80%81%E6%9C%BA%E7%A4%BA%E6%84%8F%E5%9B%BE-%E5%AF%B9%E8%AF%9D%E4%BA%A7%E5%93%81.svg"><span class="no">35</span><span class="t">状态机示意图-对话产品</span><span class="d">对话产品状态机：主干四态流转 + 异常分流四出口 + 完成→理解中追问回路 + 恢复回指与超时值</span></a>
+      <a href="03-%E9%85%8D%E5%9B%BE%E7%B4%A0%E6%9D%90/AI%E4%BA%A7%E5%93%81%E6%8C%87%E6%A0%87%E4%BD%93%E7%B3%BB%E5%9B%BE.svg"><span class="no">36</span><span class="t">AI产品指标体系图</span><span class="d">北极星—一级（五大核心指标）—护栏三层金字塔指标体系，实线拆解、虚线护栏</span></a>
+      <a href="03-%E9%85%8D%E5%9B%BE%E7%B4%A0%E6%9D%90/PRD%E8%AF%84%E5%AE%A1%E6%B5%81%E7%A8%8B%E5%9B%BE.svg"><span class="no">37</span><span class="t">PRD评审流程图</span><span class="d">四段流程 × 四条角色泳道的 PRD 评审作战地图，含三段产出标签与四条硬约束虚线框</span></a>
+      <a href="03-%E9%85%8D%E5%9B%BE%E7%B4%A0%E6%9D%90/AARRR%E6%BC%8F%E6%96%97%E5%9B%BE.svg"><span class="no">38</span><span class="t">AARRR漏斗图</span><span class="d">AARRR 五层漏斗与各层要点、指标角标，激活与留存层高亮，附传统/AI 增长对比与金句条</span></a>
+      <a href="03-%E9%85%8D%E5%9B%BE%E7%B4%A0%E6%9D%90/AB%E5%AE%9E%E9%AA%8C%E4%B8%89%E9%99%B7%E9%98%B1%E7%A4%BA%E6%84%8F%E5%9B%BE.svg"><span class="no">39</span><span class="t">AB实验三陷阱示意图</span><span class="d">偷看指标/辛普森悖论/多重比较三栏对照（案例+规避动作），底部通栏「先定判据，再看数据」</span></a>
+      <a href="03-%E9%85%8D%E5%9B%BE%E7%B4%A0%E6%9D%90/AB%E5%AE%9E%E9%AA%8C%E6%B5%81%E7%A8%8B%E5%9B%BE.svg"><span class="no">40</span><span class="t">AB实验流程图</span><span class="d">假设→设计→灰度→全量→决策五步横向流程，顶部回环虚线标注「下一轮假设」，灰度节点蓝色强调</span></a>
+      <a href="03-%E9%85%8D%E5%9B%BE%E7%B4%A0%E6%9D%90/%E5%9B%9B%E5%A4%A7%E5%8F%98%E7%8E%B0%E6%A8%A1%E5%BC%8F%E5%AF%B9%E6%AF%94%E5%9B%BE.svg"><span class="no">41</span><span class="t">四大变现模式对比图</span><span class="d">订阅制/按量计费/席位制/API 调用四行五列变现模式对比表，优势蓝对勾、劣势灰橙警示</span></a>
+      <a href="03-%E9%85%8D%E5%9B%BE%E7%B4%A0%E6%9D%90/%E6%B1%87%E6%8A%A5%E4%B8%89%E6%AE%B5%E7%BB%93%E6%9E%84%E7%A4%BA%E6%84%8F%E5%8D%A1.svg"><span class="no">42</span><span class="t">汇报三段结构示意卡</span><span class="d">结论先行30s/数据支撑90s/需要的支持60s 三段时间轴，下方流水账反例与三段式正例对照</span></a>
+      <a href="03-%E9%85%8D%E5%9B%BE%E7%B4%A0%E6%9D%90/%E9%A3%8E%E9%99%A9%E6%B8%85%E5%8D%95%E4%B8%89%E6%A0%8F%E6%B3%95%E7%A4%BA%E6%84%8F%E5%8D%A1.svg"><span class="no">43</span><span class="t">风险清单三栏法示意卡</span><span class="d">风险（反例→正例）·概率×影响九宫格·应对（动作+责任人+时间）三栏法示意，各含具体示例</span></a>
+      <a href="03-%E9%85%8D%E5%9B%BE%E7%B4%A0%E6%9D%90/%E4%B8%AD%E6%9C%9F%E8%AF%84%E5%AE%A1%E8%AF%84%E5%88%86%E5%8D%A1.svg"><span class="no">44</span><span class="t">中期评审评分卡</span><span class="d">五维×三档中期评审评分卡（含分数填写格）、及格线提示条与质询记录签名区，可 A4 打印</span></a>
+      <a href="03-%E9%85%8D%E5%9B%BE%E7%B4%A0%E6%9D%90/VibeCoding%E6%B5%81%E7%A8%8B%E5%9B%BE.svg"><span class="no">45</span><span class="t">VibeCoding流程图</span><span class="d">Vibe Coding 五步循环流程图：说清楚→生成→跑起来→挑毛病→再说清楚，含「快速迭代 3–10 轮」胶囊与边界口诀提示条</span></a>
+      <a href="03-%E9%85%8D%E5%9B%BE%E7%B4%A0%E6%9D%90/%E5%9B%BD%E4%BA%A7%E5%B7%A5%E5%85%B7%E5%AF%B9%E6%AF%94%E8%A1%A8.svg"><span class="no">46</span><span class="t">国产工具对比表</span><span class="d">五款国产 AI 工具五列对比表（定位/擅长场景/上手难度/价格模式），对话派与工程派分组，附口径脚注条</span></a>
+      <a href="03-%E9%85%8D%E5%9B%BE%E7%B4%A0%E6%9D%90/%E6%A0%B8%E5%BF%83%E9%93%BE%E8%B7%AF%E6%A3%80%E6%9F%A5%E6%B8%85%E5%8D%95.svg"><span class="no">47</span><span class="t">核心链路检查清单</span><span class="d">输入→处理→输出链路三节点 + 六项检查点勾选清单 + 「先跑通再完美」纪律条与三个时点胶囊</span></a>
+      <a href="03-%E9%85%8D%E5%9B%BE%E7%B4%A0%E6%9D%90/%E4%B8%89%E6%80%81%E8%AE%BE%E8%AE%A1%E7%A4%BA%E6%84%8F%E5%9B%BE.svg"><span class="no">48</span><span class="t">三态设计示意图</span><span class="d">空态/错态/加载态三栏正例与反例对照 wireframe，每栏附标注文案与紫底合格线条</span></a>
+      <a href="03-%E9%85%8D%E5%9B%BE%E7%B4%A0%E6%9D%90/%E5%9B%9B%E5%B1%82%E6%8E%92%E6%9F%A5%E6%BC%8F%E6%96%97%E5%9B%BE.svg"><span class="no">49</span><span class="t">四层排查漏斗图</span><span class="d">引用原文→chunk→召回→模型四层收窄漏斗，右侧「排除，往下一层」出口，终点定位生成问题，左侧成本色带</span></a>
+      <a href="03-%E9%85%8D%E5%9B%BE%E7%B4%A0%E6%9D%90/%E6%B5%8B%E8%AF%95%E9%AA%8C%E6%94%B6%E6%B5%81%E7%A8%8B%E5%9B%BE.svg"><span class="no">50</span><span class="t">测试验收流程图</span><span class="d">badcase 收集→归因→修复→回归测试四节点闭环，归因四分支卡带责任方，含纪律条与三个数字徽章</span></a>
+      <a href="03-%E9%85%8D%E5%9B%BE%E7%B4%A0%E6%9D%90/%E7%94%A8%E6%88%B7%E5%8F%8D%E9%A6%88%E5%88%86%E7%BA%A7%E6%9D%A1.svg"><span class="no">51</span><span class="t">用户反馈分级条</span><span class="d">P0/P1/P2 三段占比条（红/蓝/灰），每段附处理方式与教学化原声示例，底部「原声照抄勿润色」小字</span></a>
+      <a href="03-%E9%85%8D%E5%9B%BE%E7%B4%A0%E6%9D%90/%E8%B7%AF%E6%BC%94%E8%AF%84%E5%88%86%E6%A0%87%E5%87%86%E5%9B%BE.svg"><span class="no">52</span><span class="t">路演评分标准图</span><span class="d">四维三档评分表（优秀/良好/合格）+ 四维雷达示意 + 评委留言区与企业嘉宾面试意向三档</span></a>
+      <a href="03-%E9%85%8D%E5%9B%BE%E7%B4%A0%E6%9D%90/%E8%A1%8C%E4%B8%9A%E5%88%86%E6%9E%90%E6%A1%86%E6%9E%B6%E5%9B%BE.svg"><span class="no">53</span><span class="t">行业分析框架图</span><span class="d">行业纵深六件套环形图：中心金句 + 六卡片（查什么/写多深硬标准），紫箭头连成环</span></a>
+      <a href="03-%E9%85%8D%E5%9B%BE%E7%B4%A0%E6%9D%90/STAR%E7%BB%93%E6%9E%84%E5%9B%BE.svg"><span class="no">54</span><span class="t">STAR结构图</span><span class="d">STAR 四字母卡片横排，紫蓝交替，每卡含要领与正反例对照（绿勾/红叉）</span></a>
+      <a href="03-%E9%85%8D%E5%9B%BE%E7%B4%A0%E6%9D%90/%E5%9B%BE%E8%A1%A8%E7%BE%8E%E5%8C%96%E7%A4%BA%E4%BE%8B.svg"><span class="no">55</span><span class="t">图表美化示例</span><span class="d">改前改后三组对照：立体饼图→Top5 条形、无标注折线→基准虚线+终点标注、彩虹柱→单强调色</span></a>
+      <a href="03-%E9%85%8D%E5%9B%BE%E7%B4%A0%E6%9D%90/%E7%AE%80%E5%8E%86%E9%BB%84%E9%87%91%E7%BB%93%E6%9E%84%E5%9B%BE.svg"><span class="no">56</span><span class="t">简历黄金结构图</span><span class="d">A4 简历五段结构示意：占比配色递减 + 左侧 0–20 秒时间标尺 + 右侧 HR 注意力曲线</span></a>
+      <a href="03-%E9%85%8D%E5%9B%BE%E7%B4%A0%E6%9D%90/%E7%AE%80%E5%8E%86%E8%87%AA%E6%A3%8020%E9%A1%B9%E6%B8%85%E5%8D%95.svg"><span class="no">57</span><span class="t">简历自检20项清单</span><span class="d">五组 × 4 项共 20 条打勾清单（定位/结构/项目/数据/格式），底部金句条，可打印张贴</span></a>
+      <a href="03-%E9%85%8D%E5%9B%BE%E7%B4%A0%E6%9D%90/%E6%8A%95%E9%80%92%E6%BC%8F%E6%96%97%E5%9B%BE.svg"><span class="no">58</span><span class="t">投递漏斗图</span><span class="d">投出→浏览→沟通→约面→面完→offer 紫色渐变六级漏斗，每层口径标注与「查」动作条</span></a>
+      <a href="03-%E9%85%8D%E5%9B%BE%E7%B4%A0%E6%9D%90/%E6%B8%A0%E9%81%93%E5%AF%B9%E6%AF%94%E8%A1%A8.svg"><span class="no">59</span><span class="t">渠道对比表</span><span class="d">五行渠道定性对比：优先级标签、适合谁、响应率特点、使用要点，含海投警示条与蓝底口诀条</span></a>
+      <a href="03-%E9%85%8D%E5%9B%BE%E7%B4%A0%E6%9D%90/%E9%9D%A2%E8%AF%95%E6%B5%81%E7%A8%8B%E5%9B%BE.svg"><span class="no">60</span><span class="t">面试流程图</span><span class="d">五轮面试全景流程：谁面/考察点/淘汰点逐轮拆解，底部「五次验证」横幅</span></a>
+      <a href="03-%E9%85%8D%E5%9B%BE%E7%B4%A0%E6%9D%90/%E9%A2%98%E5%9E%8B%E5%9C%B0%E5%9B%BE.svg"><span class="no">61</span><span class="t">题型地图</span><span class="d">五大题型卡片地图：典型问法·考察本质·答题框架·高频失误，含归类口诀</span></a>
+      <a href="03-%E9%85%8D%E5%9B%BE%E7%B4%A0%E6%9D%90/%E5%9C%BA%E6%99%AF%E8%AE%BE%E8%AE%A1%E5%85%AD%E6%AD%A5%E6%A1%86%E6%9E%B6%E5%9B%BE.svg"><span class="no">62</span><span class="t">场景设计六步框架图</span><span class="d">场景设计六步（人群→风险）流程，含产出物卡、跑偏警示卡与「老年人 AI 用药提醒」示例带</span></a>
+      <a href="03-%E9%85%8D%E5%9B%BE%E7%B4%A0%E6%9D%90/%E9%A2%98%E5%9E%8B%E5%BA%94%E7%AD%94%E7%AD%96%E7%95%A5%E5%AF%B9%E7%85%A7%E8%A1%A8.svg"><span class="no">63</span><span class="t">题型应答策略对照表</span><span class="d">五大题型 × 典型问法/框架/金句/高频失误的挂板对照表，含 30 秒/90 秒版注释</span></a>
+      <a href="03-%E9%85%8D%E5%9B%BE%E7%B4%A0%E6%9D%90/%E6%A8%A1%E6%8B%9F%E9%9D%A2%E8%AF%95%E8%AF%84%E5%88%86%E8%A1%A8.svg"><span class="no">64</span><span class="t">模拟面试评分表</span><span class="d">四维三档可打印评分表单（内容40/结构30/表达20/气场10），含评语区、汇总区与隐私提示</span></a>
+      <a href="03-%E9%85%8D%E5%9B%BE%E7%B4%A0%E6%9D%90/offer%E5%86%B3%E7%AD%96%E7%9F%A9%E9%98%B5.svg"><span class="no">65</span><span class="t">offer决策矩阵</span><span class="d">四维加权 offer 对比示例表（A 3.7 / B 4.2）与结论框，矩阵做筛选不做终审</span></a>
+      <a href="03-%E9%85%8D%E5%9B%BE%E7%B4%A0%E6%9D%90/%E8%B0%88%E8%96%AA%E7%AD%96%E7%95%A5%E5%9B%BE.svg"><span class="no">66</span><span class="t">谈薪策略图</span><span class="d">谈薪四步流程（探区间→留余地）与三情境应答卡（心里有数/没底/被压价），底部金句</span></a>
+    </div>
+  </div>
+</section>
+
+<section id="sample">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-tag">04 · SAMPLE DAY</span>
+      <h2>样课日八件套（W3D3 · RAG 架构与知识库产品）</h2>
+      <p>90 分钟完整教学日的全部物料，逐件对标即可批量生产其余 39 天。</p>
+    </div>
+    <div class="list">
+      <a href="01-样课日-W3D3-RAG/01-教案.html"><span class="no">1</span><span class="t">教案</span><span class="d">教学目标 · 重难点 · 时间拆分 · 6 问设计 · 板书 · 易错点</span></a>
+      <a href="01-样课日-W3D3-RAG/02-讲课稿.html"><span class="no">2</span><span class="t">讲课稿（完整逐字稿）</span><span class="d">约 7000 字 · 提问/过渡/案例/防冷场/4 句面试金句</span></a>
+      <a href="01-样课日-W3D3-RAG/03-导学案.html"><span class="no">3</span><span class="t">导学案</span><span class="d">预习任务 + 思考题 + 课堂空白模板</span></a>
+      <a href="01-样课日-W3D3-RAG/04-播客稿.html"><span class="no">4</span><span class="t">播客稿</span><span class="d">《RAG 一句话讲明白》· 8 分钟口播 + 制作备注</span></a>
+      <a href="01-样课日-W3D3-RAG/05-配图清单.html"><span class="no">5</span><span class="t">配图清单</span><span class="d">6 张图的使用时机与讲法脚本</span></a>
+      <a href="01-样课日-W3D3-RAG/06-分层习题.html"><span class="no">6</span><span class="t">分层习题</span><span class="d">基础/进阶/求职三层 · 答案 + 三档 Rubric</span></a>
+      <a href="01-样课日-W3D3-RAG/07-课堂交互使用说明.html"><span class="no">7</span><span class="t">课堂交互使用说明</span><span class="d">课前检查 · 演示脚本 · 故障处理 · 群发文案</span></a>
+      <a href="01-样课日-W3D3-RAG/08-PPT大纲.html"><span class="no">8</span><span class="t">PPT 大纲</span><span class="d">20 页结构 · 逐页要点 + 讲师提示 + 配图标注</span></a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="rule"></div>
+  <p>AI 产品经理训练营 · 课程资源包 V1.0 · 2026-10-21</p>
+  <p style="margin-top:6px">本资源包全部内容均由新像素教育自主研发</p>
+</footer>
+
+</body>
+</html>
