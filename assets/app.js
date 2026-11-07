@@ -7,7 +7,23 @@
   const $$ = (s, r = document) => Array.from(r.querySelectorAll(s));
   const ESC_MAP = { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' };
   const esc = (s) => String(s == null ? '' : s).replace(/[&<>"']/g, c => ESC_MAP[c]);
-  const LS = 'aipm_learn_v1';
+  /* ---------------- 统一账号与飞书同步配置 ---------------- */
+  const LS_GUEST = 'aipm_learn_v1';
+  const AUTH_KEY = 'aipm_learn_auth_v1';
+  const SYNC_DIRTY_KEY = 'aipm_learn_sync_dirty';
+  const CFG = D.meta.auth || {};
+  const API_BASE = String(CFG.apiBase || '').replace(/\/+$/, '');
+  const SHARECODE = CFG.sharecode || '';
+  const REMOTE_AUTH = /^https?:\/\//.test(API_BASE);
+  const apiUrl = (p) => API_BASE + p + (p.includes('?') ? '&' : '?') + 'sharecode=' + encodeURIComponent(SHARECODE);
+  function loadAuth() {
+    try {
+      const a = JSON.parse(localStorage.getItem(AUTH_KEY) || 'null');
+      if (a && a.account && a.expiresAt > Date.now()) return a;
+    } catch (e) {}
+    return null;
+  }
+  let AUTH = loadAuth();
 
   /* ---------------- 数据索引 ---------------- */
   const ALLDAYS = D.weeks.flatMap(w => w.days.map(d => Object.assign({}, d, { week: w.id, weekTitle: w.title })));
@@ -36,11 +52,19 @@
     name: '同学', startDate: '', dayDone: [], tasks: {}, quizStatus: {}, qbankStatus: {},
     qbankFav: [], milestones: [], deliverables: [], lastDay: ''
   };
-  let S;
-  try { S = Object.assign({}, DEFAULT, JSON.parse(localStorage.getItem(LS) || '{}')); }
-  catch (e) { S = Object.assign({}, DEFAULT); }
-  for (const k of Object.keys(DEFAULT)) if (S[k] == null) S[k] = Array.isArray(DEFAULT[k]) ? [] : DEFAULT[k];
-  const save = () => { try { localStorage.setItem(LS, JSON.stringify(S)); } catch (e) {} };
+  let LS = LS_GUEST;
+  function loadState() {
+    try { return Object.assign({}, DEFAULT, JSON.parse(localStorage.getItem(LS) || '{}')); }
+    catch (e) { return Object.assign({}, DEFAULT); }
+  }
+  function normalizeState(x) {
+    for (const k of Object.keys(DEFAULT)) {
+      if (x[k] == null) x[k] = Array.isArray(DEFAULT[k]) ? [] : (typeof DEFAULT[k] === 'object' ? {} : DEFAULT[k]);
+    }
+    return x;
+  }
+  let S = normalizeState(loadState());
+  const save = () => { try { localStorage.setItem(LS, JSON.stringify(S)); } catch (e) {} scheduleSync(); };
 
   const UI = {
     quiz: { week: 'all', day: 'all', layer: 'all', type: 'all', q: '', onlyWrong: false, page: 0, open: {} },
@@ -56,6 +80,133 @@
     clearTimeout(t._timer); t._timer = setTimeout(() => t.classList.remove('show'), 1900);
   }
   const toggleIn = (arr, v) => { const i = arr.indexOf(v); if (i >= 0) arr.splice(i, 1); else arr.push(v); };
+
+  /* ---------------- 共用账号 + 飞书学习进度同步 ---------------- */
+  let syncTimer = null, syncing = false, syncState = 'idle', lastSyncAt = 0, syncNotice = '';
+  function hasLocalData() {
+    return S.dayDone.length || Object.keys(S.quizStatus).length || Object.keys(S.qbankStatus).length ||
+      S.milestones.length || S.deliverables.length || Object.keys(S.tasks).length;
+  }
+  function switchAccount(account) {
+    LS = LS_GUEST + ':' + account;
+    try {
+      if (!localStorage.getItem(LS) && localStorage.getItem(LS_GUEST)) {
+        localStorage.setItem(LS, localStorage.getItem(LS_GUEST));
+        localStorage.removeItem(LS_GUEST);   // 游客数据只迁移一次，避免串号
+      }
+    } catch (e) {}
+    S = normalizeState(loadState());
+  }
+  function saveAuth(a) {
+    AUTH = a;
+    try { if (a) localStorage.setItem(AUTH_KEY, JSON.stringify(a)); else localStorage.removeItem(AUTH_KEY); } catch (e) {}
+  }
+  function learnStats() {
+    const p = progress();
+    return {
+      days: S.dayDone.length, quiz: p.right, qbank: Object.keys(S.qbankStatus).length,
+      milestones: S.milestones.length, deliverables: S.deliverables.length,
+      rate: Math.round(p.total * 1000) / 10
+    };
+  }
+  const learnDetail = () => JSON.stringify(S);
+  function syncLabel() {
+    if (!AUTH) return ['未登录', 'off'];
+    if (AUTH.local) return ['本机体验', 'off'];
+    if (syncing) return ['同步中…', 'busy'];
+    if (syncState === 'error') return ['待重试', 'error'];
+    if (syncState === 'pending') return ['待同步', 'pending'];
+    if (syncState === 'ok' || lastSyncAt) return ['已同步', 'ok'];
+    return ['待同步', 'pending'];
+  }
+  function renderSyncDot() {
+    const el = $('#topSync'); if (!el) return;
+    const pair = syncLabel();
+    el.className = 'top-sync ' + pair[1];
+    el.innerHTML = '<i></i><span>' + esc(pair[0]) + '</span>';
+  }
+  function scheduleSync() {
+    if (!AUTH || AUTH.local || !REMOTE_AUTH) return;
+    syncState = 'pending';
+    try { localStorage.setItem(SYNC_DIRTY_KEY, '1'); } catch (e) {}
+    renderSyncDot();
+    clearTimeout(syncTimer);
+    syncTimer = setTimeout(() => pushLearn(false), 4000);
+  }
+  async function pushLearn(keepalive) {
+    if (!AUTH || AUTH.local || !REMOTE_AUTH || syncing) return;
+    clearTimeout(syncTimer);
+    syncing = true; syncState = 'syncing'; syncNotice = ''; renderSyncDot();
+    try {
+      const r = await fetch(apiUrl('/api/learn-progress'), {
+        method: 'POST', keepalive: !!keepalive,
+        headers: { 'Content-Type': 'application/json', 'X-Session': AUTH.token },
+        body: JSON.stringify({ stats: learnStats(), detail: learnDetail(), device: (navigator.userAgent || '').slice(0, 40) }),
+      });
+      if (r.status === 401) {
+        saveAuth(null); syncState = 'idle'; showGate('登录已过期，请重新登录');
+        throw new Error('登录已过期');
+      }
+      if (!r.ok) throw new Error('HTTP ' + r.status);
+      syncState = 'ok'; lastSyncAt = Date.now();
+      try { localStorage.setItem(SYNC_DIRTY_KEY, '0'); } catch (e) {}
+    } catch (e) {
+      syncState = 'error'; syncNotice = e.message || '网络异常';
+    } finally { syncing = false; renderSyncDot(); }
+  }
+  async function restoreFromCloud() {
+    if (!AUTH || AUTH.local || !REMOTE_AUTH || hasLocalData()) return;
+    try {
+      const r = await fetch(apiUrl('/api/learn-progress'), { headers: { 'X-Session': AUTH.token } });
+      if (!r.ok) return;
+      const j = await r.json();
+      if (j.found && j.detail) {
+        S = normalizeState(Object.assign({}, DEFAULT, JSON.parse(j.detail)));
+        save(); render();
+      }
+    } catch (e) {}
+  }
+  function showGate(msg) {
+    try { document.documentElement.classList.add('need-login'); } catch (e) {}
+    const err = $('#loginError'); if (err) err.textContent = msg || '';
+  }
+  function hideGate() { try { document.documentElement.classList.remove('need-login'); } catch (e) {} }
+  async function doLogin(account, password) {
+    const btn = $('#loginSubmit'), err = $('#loginError');
+    if (!/^\d{4}$/.test(account) || !/^\d{4}$/.test(password)) {
+      if (err) err.textContent = '账号与密码均为 4 位数字';
+      return;
+    }
+    if (btn) { btn.disabled = true; btn.textContent = '登录中…'; }
+    if (err) err.textContent = '';
+    try {
+      const r = await fetch(apiUrl('/api/login'), {
+        method: 'POST', headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ account, password }),
+      });
+      const j = await r.json().catch(() => ({}));
+      if (!r.ok) throw new Error(j.error || '登录失败，请稍后重试');
+      saveAuth({ account: j.account, name: j.name || '', token: j.token, expiresAt: j.expiresAt });
+      switchAccount(j.account);
+      await restoreFromCloud();
+      hideGate(); render(); scheduleSync();
+    } catch (e) {
+      if (err) err.textContent = e.message || '网络异常，请稍后重试';
+    } finally {
+      if (btn) { btn.disabled = false; btn.textContent = '进入学习 →'; }
+    }
+  }
+  function enterDemo() {
+    saveAuth({ account: 'guest', name: '本机体验', token: 'local', expiresAt: Date.now() + 7 * 864e5, local: true });
+    hideGate(); render(); toast('本机体验模式：进度不写入飞书');
+  }
+  function logout() {
+    saveAuth(null);
+    LS = LS_GUEST;
+    S = normalizeState(Object.assign({}, DEFAULT));
+    lastSyncAt = 0; syncState = 'idle';
+    showGate(''); render();
+  }
 
   function progress() {
     const course = S.dayDone.length / D.meta.stats.days;
@@ -524,6 +675,23 @@
   }
 
   /* ---------------- 学习进度 / 设置 ---------------- */
+  function accountCardHtml() {
+    const pair = syncLabel();
+    const tableLink = CFG.feishuBaseUrl ? CFG.feishuBaseUrl + '?table=' + (CFG.learnTableId || '') : '';
+    if (!AUTH) return '<div class="card pad" style="margin-bottom:20px"><div class="card-title"><span class="ico">◉</span>账号与飞书同步</div><p class="small muted">未登录，进度仅保存在本机。</p></div>';
+    return '<div class="card pad" style="margin-bottom:20px"><div class="card-title"><span class="ico">◉</span>账号与飞书同步</div>' +
+      '<div class="account-card"><div class="account-badge">' + esc((AUTH.name || AUTH.account || '学').slice(0, 1)) + '</div>' +
+      '<div class="account-meta"><b>' + esc(AUTH.name || '学员') + '　<span class="chip gray">' + esc(AUTH.account) + '</span></b>' +
+      '<p>与面试备考平台共用同一套学员账号。学习进度写入飞书「学习进度」表；刷题进度仍走原平台「备考进度」表，两张表互不覆盖。</p>' +
+      '<p>同步状态：<span class="chip ' + (pair[1] === 'ok' ? 'green' : pair[1] === 'error' ? 'red' : 'gray') + '">' + esc(pair[0]) + '</span>' +
+      (lastSyncAt ? '　最近同步 ' + esc(new Date(lastSyncAt).toLocaleString('zh-CN')) : '') +
+      (syncNotice ? '　<span class="tiny" style="color:var(--red)">' + esc(syncNotice) + '</span>' : '') + '</p></div>' +
+      '<div class="account-actions">' +
+      (tableLink ? '<a class="btn ghost sm" href="' + esc(tableLink) + '" target="_blank" rel="noopener">打开飞书进度表 ↗</a>' : '') +
+      (!AUTH.local ? '<button class="btn sm" data-act="sync-now">立即同步</button>' : '') +
+      '<button class="btn gray sm" data-act="logout">退出登录</button></div></div></div>';
+  }
+
   function viewProgress() {
     const p = progress();
     const cur = currentDayId();
@@ -531,7 +699,8 @@
       { l: '课程完成（权重 50%）', v: p.course }, { l: '习题掌握（权重 20%）', v: p.quiz },
       { l: '面试真题（权重 15%）', v: p.interview }, { l: '作品集里程碑（权重 15%）', v: p.portfolio }
     ];
-    return '<div class="sec-head"><h2>我的学习进度</h2><span class="sub">数据保存在本机浏览器（localStorage），可导出备份</span></div>' +
+    return '<div class="sec-head"><h2>我的学习进度</h2><span class="sub">按学员账号隔离 · 自动同步到飞书多维表格，可导出备份</span></div>' +
+      accountCardHtml() +
       '<div class="card stat-card" style="margin-bottom:20px">' + ring(p.total, '综合进度') + '<div class="stat-detail">' +
       lines.map(x => '<div><div class="stat-line"><span>' + esc(x.l) + '</span><b>' + pct(x.v) + '</b></div><div class="bar"><div class="bar-fill" style="width:' + (x.v * 100) + '%"></div></div></div>').join('') + '</div>' +
       '<div class="stat-badges"><div class="stat-badge"><b>' + S.dayDone.length + '</b><span>完成天数</span></div><div class="stat-badge"><b>' + p.right + '</b><span>掌握习题</span></div>' +
@@ -608,7 +777,11 @@
     $('#sidePct').textContent = pct(p.total);
     $('#sideBar').style.width = (p.total * 100) + '%';
     $('#topMini').innerHTML = '<span>已完成</span><b>' + S.dayDone.length + '/' + D.meta.stats.days + '</b><span>天</span>';
-    $('#avatarBtn').textContent = (S.name || '学').slice(0, 1);
+    $('#avatarBtn').textContent = AUTH ? (AUTH.name || AUTH.account || '学').slice(0, 1) : '学';
+    const tu = $('#topUser');
+    if (tu) tu.innerHTML = AUTH ? '<b>' + esc(AUTH.name || '学员') + '</b><span>' + esc(AUTH.account) + (AUTH.local ? ' · 本机体验' : '') + '</span>' : '';
+    renderSyncDot();
+    if (AUTH) hideGate(); else showGate('');
     if (window.scrollY > 100) window.scrollTo({ top: 0, behavior: 'instant' });
     $('#sidebar').classList.remove('open');
   }
@@ -692,6 +865,8 @@
       case 'sr-day': closeSearch(); location.hash = '#/learn/' + id; break;
       case 'sr-quiz': closeSearch(); UI.quiz.q = t.dataset.q; UI.quiz.page = 0; location.hash = '#/quiz'; break;
       case 'sr-qb': closeSearch(); UI.interview.q = t.dataset.q; UI.interview.page = 0; location.hash = '#/interview'; break;
+      case 'sync-now': pushLearn(false); toast('正在同步到飞书…'); break;
+      case 'logout': logout(); toast('已退出登录'); break;
     }
   });
 
@@ -721,6 +896,23 @@
   $('#avatarBtn').addEventListener('click', () => { location.hash = '#/progress'; });
   window.addEventListener('hashchange', render);
 
+  const loginForm = $('#loginForm');
+  if (loginForm) loginForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    doLogin(String($('#loginAccount').value || '').trim(), String($('#loginPassword').value || '').trim());
+  });
+  const demoBtn = $('#loginDemo');
+  if (demoBtn) demoBtn.addEventListener('click', enterDemo);
+  document.addEventListener('visibilitychange', () => { if (document.hidden) pushLearn(true); });
+  window.addEventListener('beforeunload', () => { if (AUTH && !AUTH.local) pushLearn(true); });
+
   if (!location.hash) location.hash = '#/dashboard';
+  if (AUTH && !AUTH.local) {
+    switchAccount(AUTH.account);
+    restoreFromCloud().then(() => render());
+  }
   render();
+  if (AUTH && !AUTH.local) {
+    try { if (localStorage.getItem(SYNC_DIRTY_KEY) === '1') scheduleSync(); } catch (e) {}
+  }
 })();

@@ -7,6 +7,7 @@
 <meta name="description" content="新像素教育 AI 产品经理训练营学员学习平台：8 周 40 天课程地图、理论与实操、随堂自测、面试备考、作品集里程碑。">
 <link rel="icon" type="image/png" href="assets/logo.png">
 <link rel="stylesheet" href="assets/style.css">
+<script>try{var __a=JSON.parse(localStorage.getItem('aipm_learn_auth_v1')||'null');if(!(__a&&__a.expiresAt>Date.now()))document.documentElement.className+=' need-login'}catch(e){document.documentElement.className+=' need-login'}</script>
 </head>
 <body>
 <div class="shell">
@@ -46,14 +47,37 @@
       <div class="top-actions">
         <button class="search-trigger" id="searchTrigger"><span>⌕</span> 搜索课程 / 题目 / 术语 <kbd>⌘K</kbd></button>
         <div class="top-mini" id="topMini"></div>
-        <button class="avatar" id="avatarBtn" title="设置学员信息">学</button>
+        <div class="top-user" id="topUser"></div>
+        <div class="top-sync off" id="topSync"><i></i><span>待同步</span></div>
+        <button class="avatar" id="avatarBtn" title="账号与同步">学</button>
       </div>
     </header>
     <main class="view" id="view"></main>
     <footer class="footer">
       <span>AI 产品经理学习平台 · 基于 <a href="https://github.com/2013102249/ai-pm-course-kit" target="_blank" rel="noopener">课程资源包</a> 与 <a href="https://github.com/2013102249/ai-pm-interview-platform" target="_blank" rel="noopener">面试备考平台</a> 构建</span>
-      <span>进度保存在本机浏览器 · <a href="#/progress">导出与设置</a></span>
+      <span>学习进度同步至飞书多维表格 · 与面试备考平台共用学员账号 · <a href="#/progress">账号与同步</a></span>
     </footer>
+  </div>
+</div>
+
+<div class="login-gate" id="loginGate">
+  <div class="login-panel">
+    <div class="login-brand"><img src="assets/logo.png" alt="新像素教育 UIXKS.COM"></div>
+    <div class="eyebrow">8 WEEKS · AI PRODUCT MANAGER</div>
+    <h1>AI 产品经理学习平台</h1>
+    <p class="login-sub">与「AI PM 面试备考平台」共用学员账号，学习进度自动同步到飞书多维表格，换设备也能接着学。</p>
+    <form id="loginForm" autocomplete="off">
+      <label class="fld">登记账号（4 位数字）
+        <input id="loginAccount" type="text" inputmode="numeric" maxlength="4" placeholder="例如 1001" autocomplete="off">
+      </label>
+      <label class="fld">密码（手机号后 4 位）
+        <input id="loginPassword" type="password" inputmode="numeric" maxlength="4" placeholder="••••" autocomplete="off">
+      </label>
+      <div class="login-error" id="loginError"></div>
+      <button class="btn" id="loginSubmit" type="submit">进入学习 →</button>
+    </form>
+    <div class="login-extra"><button class="btn link" id="loginDemo" type="button">没有账号？先本机体验（不写入飞书）→</button></div>
+    <div class="login-foot">账号由班主任在飞书「学员账号」表统一维护 · 登录状态 7 天有效<br>刷题进度仍走 <a href="https://2013102249.github.io/ai-pm-interview-platform/" target="_blank" rel="noopener">面试备考平台 ↗</a></div>
   </div>
 </div>
 

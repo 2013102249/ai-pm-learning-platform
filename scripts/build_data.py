@@ -311,6 +311,13 @@ data = {
             "技术够用就好，产品硬功打底", "就业闭环，补齐最后 100 米", "一个主项目，贯穿全程",
             "行业纵深，拒绝海投", "国内合规，岗前必修", "每周验收，结果可衡量", "训练形式为就业服务",
         ],
+        "auth": {
+            "apiBase": "https://ai-pm-interview-486.app.workbuddy.host",
+            "sharecode": "ML5MQW3TYD",
+            "feishuBaseUrl": "https://15997672262.feishu.cn/base/UDXYbBLFqaQtrnsF8Mncn2PDndg",
+            "learnTableId": "tblgBY1Psa8z94xi",
+            "note": "与面试备考平台共用学员账号（4 位登记账号 + 手机号后 4 位密码）",
+        },
         "rubric": ["合格（完成）", "良好（有数据有思考）", "优秀（可对外展示）"],
         "grading": "出勤 20% + 周产出 40% + 路演 20% + 面试模拟 20%",
     },
