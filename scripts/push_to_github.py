@@ -231,6 +231,25 @@ def main():
     print("\n[完成] 提交 %s 已推送到 %s" % (c["sha"][:10], BRANCH))
     print("  Actions 正在自动部署：https://github.com/%s/actions" % args.repo)
     print("  在线站点（约 1 分钟后生效）：%s" % site)
+
+    # 尽力同步本地 git 视图：仅当 fetch 成功且本地确有该提交对象时，
+    # 才把本地分支指到刚推送的提交（内容与工作区一致，避免 git status 反复显示改动）。
+    try:
+        env = dict(os.environ, GIT_TERMINAL_PROMPT="0")
+        fetched = subprocess.run(
+            ["git", "-c", "http.version=HTTP/1.1", "fetch", "-q", "origin", BRANCH],
+            cwd=ROOT, env=env, capture_output=True, timeout=45)
+        if fetched.returncode == 0:
+            has = subprocess.run(["git", "cat-file", "-e", c["sha"] + "^{commit}"],
+                                 cwd=ROOT, capture_output=True, timeout=10)
+            if has.returncode == 0:
+                done = subprocess.run(["git", "reset", "--hard", "-q", c["sha"]],
+                                      cwd=ROOT, capture_output=True, timeout=15)
+                if done.returncode == 0:
+                    print("  本地 git 视图已同步（git status 干净）")
+    except Exception:
+        pass  # 同步失败不影响线上结果
+
     if args.open:
         try:
             subprocess.run(["open", site], check=False)
